@@ -2,9 +2,9 @@
 local HUB_NAME = "Viet Hub | Community"
 
 -- ===== LINK KEY (BẠN TỰ QUẢN) =====
-local COMMON_KEY_LINK = "LINK_RAW_KEY_CHUNG"
-local USER_KEY_LINK   = "LINK_RAW_KEY_RIENG"
-local GET_KEY_LINK    = "LINK_GET_KEY"
+local COMMON_KEY_LINK = "https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/user%20common.txt"
+local USER_KEY_LINK   = "https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/user%20key.txt"
+local GET_KEY_LINK    = "https://notevn.com/raw/67cxqw4s"
 local KEY_FILE        = "VietHub_Key.json"
 
 -- ===== SCRIPT TỔNG HỢP (TỰ THÊM / SỬA) =====
