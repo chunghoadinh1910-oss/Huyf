@@ -1,183 +1,234 @@
---================= CONFIG =================--
-local SCRIPT_LINK = "https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/mauscriptchoaetik.txt"
-local COMMON_KEY_LINK = "https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/User%20common"
-local USER_KEY_LINK   = "https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/User%20key"
-local GET_KEY_LINK    = "https://notevn.com/raw/4xmvxv6z"
-local KEY_FILE        = "TeoHub_Key.json"
+--================================================--
+--        VIET HUB | COMMUNITY (FINAL FIX)        --
+--================================================--
 
---================= SERVICES =================--
-local Players = game:GetService("Players")
+---------------- CONFIG ----------------
+local HUB_NAME = "mẹ mày béo | Community"
+local CREATOR = "Viet Hub"
+local CONTACT = "Discord: VietHub"
+
+-- 🔑 RAW LINK tới key.json (BẮT BUỘC ĐÚNG)
+local KEY_SYNC_LINK = "https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/key.json"
+
+local KEY_FILE = "VietHub_Key.json"
+
+-- Script tổng hợp (tùy thêm)
+local SCRIPTS = {
+    { Name = "Blox Fruits", Link = "https://raw.githubusercontent.com/..." },
+    { Name = "Arsenal", Link = "https://raw.githubusercontent.com/..." },
+}
+
+--------------- SERVICES ---------------
 local HttpService = game:GetService("HttpService")
-local Player = Players.LocalPlayer
-local Today = os.date("!%Y-%m-%d")
 
---================= UTILS =================--
-local function Decode(str)
-    local t = {}
-    for i = #str, 1, -1 do
-        t[#t+1] = string.char(str:byte(i) - 3)
+--------------- GLOBAL ----------------
+local KEY_TYPE = "FREE"
+local Window
+
+--------------- TIME ------------------
+local function ParseTime(exp)
+    if exp == "9999-99-99" then
+        return math.huge
     end
-    return table.concat(t)
+    local y,m,d,h,mi = exp:match("(%d+)%-(%d+)%-(%d+)%s*(%d*):?(%d*)")
+    if not y then return nil end
+    return os.time({
+        year = tonumber(y),
+        month = tonumber(m),
+        day = tonumber(d),
+        hour = tonumber(h) or 0,
+        min = tonumber(mi) or 0
+    })
 end
 
 local function IsExpired(exp)
-    return Today > exp
+    local t = ParseTime(exp)
+    return t and os.time() > t
 end
 
---================= SAVE / LOAD =================--
+local function TimeLeft(exp)
+    local t = ParseTime(exp)
+    if not t or t == math.huge then
+        return "Vĩnh viễn"
+    end
+    local diff = t - os.time()
+    if diff <= 0 then
+        return "Hết hạn"
+    end
+    local d = math.floor(diff / 86400)
+    local h = math.floor((diff % 86400) / 3600)
+    return d .. " ngày " .. h .. " giờ"
+end
+
+--------------- KEY ONLINE ------------
+local function LoadOnlineKeys()
+    local ok, res = pcall(function()
+        return game:HttpGet(KEY_SYNC_LINK)
+    end)
+    if not ok then
+        warn("Không load được key online")
+        return nil
+    end
+    return HttpService:JSONDecode(res)
+end
+
+--------------- SAVE / LOAD -----------
 local function SaveKey(key, exp)
-    if not writefile then return end
-    writefile(KEY_FILE, HttpService:JSONEncode({
-        Key = key,
-        Exp = exp
-    }))
+    if writefile then
+        writefile(KEY_FILE, HttpService:JSONEncode({
+            Key = key,
+            Exp = exp,
+            ActivatedAt = os.date("%Y-%m-%d %H:%M:%S")
+        }))
+    end
 end
 
 local function LoadKey()
-    if not readfile or not isfile then return end
-    if not isfile(KEY_FILE) then return end
-    local data = HttpService:JSONDecode(readfile(KEY_FILE))
-    return data.Key, data.Exp
+    if readfile and isfile and isfile(KEY_FILE) then
+        local d = HttpService:JSONDecode(readfile(KEY_FILE))
+        return d.Key, d.Exp, d.ActivatedAt
+    end
 end
 
-local function DeleteKey()
+local function ResetKey()
     if delfile and isfile and isfile(KEY_FILE) then
         delfile(KEY_FILE)
     end
 end
 
---================= CHECK KEY =================--
-local function CheckKey(inputKey)
-    -- COMMON KEY
-    local raw = game:HttpGet(COMMON_KEY_LINK)
-    local ekey, exp = raw:match("(.+)|(.+)")
-    if Decode(ekey) == inputKey and not IsExpired(exp) then
-        return true, exp
+--------------- CHECK KEY -------------
+local function CheckKey(input)
+    if not input or input == "" then return false end
+    input = tostring(input):gsub("%s+", "")
+
+    local data = LoadOnlineKeys()
+    if not data then return false end
+
+    if data.VIP and input == data.VIP.Key and not IsExpired(data.VIP.Exp) then
+        KEY_TYPE = "VIP"
+        return true, data.VIP.Exp
     end
 
-    -- USER KEY
-    local users = game:HttpGet(USER_KEY_LINK)
-    for line in users:gmatch("[^\r\n]+") do
-        local id, rest = line:match("(%d+)%=(.+)")
-        if id == tostring(Player.UserId) then
-            local k, e = rest:match("(.+)|(.+)")
-            if Decode(k) == inputKey and not IsExpired(e) then
-                return true, e
-            end
-        end
+    if data.FREE and input == data.FREE.Key and not IsExpired(data.FREE.Exp) then
+        KEY_TYPE = "FREE"
+        return true, data.FREE.Exp
     end
 
     return false
 end
 
---================= GUI KEY =================--
-local gui = Instance.new("ScreenGui")
-gui.Name = "TeoHub_KeyUI"
-gui.Parent = game.CoreGui
-gui.ZIndexBehavior = Enum.ZIndexBehavior.Global
-gui.Enabled = false
+--------------- KEY UI ----------------
+local gui = Instance.new("ScreenGui", game.CoreGui)
+gui.Name = "VietHub_KeyUI"
+gui.Enabled = true
 
 local frame = Instance.new("Frame", gui)
-frame.Size = UDim2.fromScale(0.32, 0.38)
-frame.Position = UDim2.fromScale(0.34, 0.31)
+frame.Size = UDim2.fromScale(0.32, 0.34)
+frame.Position = UDim2.fromScale(0.34, 0.33)
 frame.BackgroundColor3 = Color3.fromRGB(30,30,30)
-frame.Active = true
-frame.Draggable = true
+frame.Active, frame.Draggable = true, true
 Instance.new("UICorner", frame)
 
 local box = Instance.new("TextBox", frame)
-box.Size = UDim2.fromScale(0.8, 0.15)
-box.Position = UDim2.fromScale(0.1, 0.3)
+box.Size = UDim2.fromScale(0.8, 0.2)
+box.Position = UDim2.fromScale(0.1, 0.25)
 box.PlaceholderText = "Nhập key..."
-box.Text = ""
-box.TextColor3 = Color3.new(1,1,1)
 box.BackgroundColor3 = Color3.fromRGB(45,45,45)
+box.TextColor3 = Color3.new(1,1,1)
 Instance.new("UICorner", box)
 
 local btn = Instance.new("TextButton", frame)
-btn.Size = UDim2.fromScale(0.5, 0.15)
-btn.Position = UDim2.fromScale(0.25, 0.52)
+btn.Size = UDim2.fromScale(0.5, 0.18)
+btn.Position = UDim2.fromScale(0.25, 0.55)
 btn.Text = "CONFIRM"
-btn.TextColor3 = Color3.new(1,1,1)
 btn.BackgroundColor3 = Color3.fromRGB(70,70,70)
+btn.TextColor3 = Color3.new(1,1,1)
 Instance.new("UICorner", btn)
 
-local getKey = Instance.new("TextButton", frame)
-getKey.Size = UDim2.fromScale(0.5, 0.12)
-getKey.Position = UDim2.fromScale(0.25, 0.72)
-getKey.Text = "📋 GET KEY"
-getKey.BackgroundColor3 = Color3.fromRGB(120,120,120)
-Instance.new("UICorner", getKey)
-
-getKey.MouseButton1Click:Connect(function()
-    if setclipboard then
-        setclipboard(GET_KEY_LINK)
-    end
-end)
-
---================= OPEN MENU =================--
-local function OpenMenu()
+--------------- OPEN HUB --------------
+local function OpenHub()
     local Fluent = loadstring(game:HttpGet(
         "https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"
     ))()
 
-    local Window = Fluent:CreateWindow({
-        Title = "Teo Hub",
-        SubTitle = "Key System",
-        TabWidth = 160,
-        Size = UDim2.fromOffset(480, 320),
+    Window = Fluent:CreateWindow({
+        Title = HUB_NAME,
+        Size = UDim2.fromOffset(540,380),
         Theme = "Dark"
     })
 
-    local Tab = Window:AddTab({ Title = "Main" })
+    local Main = Window:AddTab({ Title = "Scripts" })
+    local Info = Window:AddTab({ Title = "Key Info" })
+    local Func = Window:AddTab({ Title = "Chức năng" })
+    local Cre = Window:AddTab({ Title = "Credit" })
 
-    Tab:AddButton({
-        Title = "Load Main Script",
+    local _, exp, at = LoadKey()
+    Info:AddParagraph({
+        Title = "🔐 Thông tin key",
+        Content =
+            "Loại key: "..KEY_TYPE..
+            "\nKích hoạt: "..(at or "N/A")..
+            "\nHSD: "..(exp or "N/A")..
+            "\nCòn lại: "..TimeLeft(exp)
+    })
+
+    for _, s in ipairs(SCRIPTS) do
+        Main:AddButton({
+            Title = s.Name,
+            Callback = function()
+                loadstring(game:HttpGet(s.Link, true))()
+            end
+        })
+    end
+
+    Func:AddButton({
+        Title = "🔁 Đổi key",
         Callback = function()
-            loadstring(game:HttpGet(SCRIPT_LINK, true))()
+            ResetKey()
+            Window:Destroy()
+            gui.Enabled = true
         end
     })
 
-    Window:SelectTab(1)
+    Cre:AddParagraph({
+        Title = HUB_NAME,
+        Content = "By "..CREATOR.."\n"..CONTACT
+    })
 end
 
---================= AUTO LOAD =================--
+--------------- AUTO LOGIN (SAFE) -----
 task.spawn(function()
     task.wait(0.5)
-    local savedKey, savedExp = LoadKey()
-    if not savedKey then
-        gui.Enabled = true
+
+    local k, exp = LoadKey()
+
+    -- ❗ KHÔNG CÓ KEY → KHÔNG ĐƯỢC TẮT UI
+    if not k or k == "" or not exp then
         return
     end
 
-    if IsExpired(savedExp) then
-        DeleteKey()
-        gui.Enabled = true
+    -- KEY HẾT HẠN
+    if IsExpired(exp) then
+        ResetKey()
         return
     end
 
-    local ok = CheckKey(savedKey)
-    if ok then
+    -- KEY ĐÚNG → VÀO HUB
+    if CheckKey(k) then
         gui:Destroy()
-        OpenMenu()
-    else
-        DeleteKey()
-        gui.Enabled = true
+        OpenHub()
     end
 end)
 
---================= MANUAL CHECK =================--
+--------------- MANUAL LOGIN ----------
 btn.MouseButton1Click:Connect(function()
-    local input = box.Text
-    if input == "" then return end
-
-    local valid, exp = CheckKey(input)
-    if valid then
-        SaveKey(input, exp)
-        gui:Destroy()
-        OpenMenu()
+    local ok, exp = CheckKey(box.Text)
+    if ok then
+        SaveKey(box.Text, exp)
+        gui:Destroy()      -- ❗ CHỈ DUY NHẤT Ở ĐÂY
+        OpenHub()
     else
-        btn.Text = "❌ INVALID"
+        btn.Text = "❌ SAI KEY"
         task.wait(1)
         btn.Text = "CONFIRM"
     end
