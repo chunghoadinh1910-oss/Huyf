@@ -1,0 +1,184 @@
+--================= CONFIG =================--
+local SCRIPT_LINK = "https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/mauscriptchoaetik.txt"
+local COMMON_KEY_LINK = "https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/User%20common"
+local USER_KEY_LINK   = "https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/User%20key"
+local GET_KEY_LINK    = "https://notevn.com/raw/4xmvxv6z"
+local KEY_FILE        = "TeoHub_Key.json"
+
+--================= SERVICES =================--
+local Players = game:GetService("Players")
+local HttpService = game:GetService("HttpService")
+local Player = Players.LocalPlayer
+local Today = os.date("!%Y-%m-%d")
+
+--================= UTILS =================--
+local function Decode(str)
+    local t = {}
+    for i = #str, 1, -1 do
+        t[#t+1] = string.char(str:byte(i) - 3)
+    end
+    return table.concat(t)
+end
+
+local function IsExpired(exp)
+    return Today > exp
+end
+
+--================= SAVE / LOAD =================--
+local function SaveKey(key, exp)
+    if not writefile then return end
+    writefile(KEY_FILE, HttpService:JSONEncode({
+        Key = key,
+        Exp = exp
+    }))
+end
+
+local function LoadKey()
+    if not readfile or not isfile then return end
+    if not isfile(KEY_FILE) then return end
+    local data = HttpService:JSONDecode(readfile(KEY_FILE))
+    return data.Key, data.Exp
+end
+
+local function DeleteKey()
+    if delfile and isfile and isfile(KEY_FILE) then
+        delfile(KEY_FILE)
+    end
+end
+
+--================= CHECK KEY =================--
+local function CheckKey(inputKey)
+    -- COMMON KEY
+    local raw = game:HttpGet(COMMON_KEY_LINK)
+    local ekey, exp = raw:match("(.+)|(.+)")
+    if Decode(ekey) == inputKey and not IsExpired(exp) then
+        return true, exp
+    end
+
+    -- USER KEY
+    local users = game:HttpGet(USER_KEY_LINK)
+    for line in users:gmatch("[^\r\n]+") do
+        local id, rest = line:match("(%d+)%=(.+)")
+        if id == tostring(Player.UserId) then
+            local k, e = rest:match("(.+)|(.+)")
+            if Decode(k) == inputKey and not IsExpired(e) then
+                return true, e
+            end
+        end
+    end
+
+    return false
+end
+
+--================= GUI KEY =================--
+local gui = Instance.new("ScreenGui")
+gui.Name = "TeoHub_KeyUI"
+gui.Parent = game.CoreGui
+gui.ZIndexBehavior = Enum.ZIndexBehavior.Global
+gui.Enabled = false
+
+local frame = Instance.new("Frame", gui)
+frame.Size = UDim2.fromScale(0.32, 0.38)
+frame.Position = UDim2.fromScale(0.34, 0.31)
+frame.BackgroundColor3 = Color3.fromRGB(30,30,30)
+frame.Active = true
+frame.Draggable = true
+Instance.new("UICorner", frame)
+
+local box = Instance.new("TextBox", frame)
+box.Size = UDim2.fromScale(0.8, 0.15)
+box.Position = UDim2.fromScale(0.1, 0.3)
+box.PlaceholderText = "Nhập key..."
+box.Text = ""
+box.TextColor3 = Color3.new(1,1,1)
+box.BackgroundColor3 = Color3.fromRGB(45,45,45)
+Instance.new("UICorner", box)
+
+local btn = Instance.new("TextButton", frame)
+btn.Size = UDim2.fromScale(0.5, 0.15)
+btn.Position = UDim2.fromScale(0.25, 0.52)
+btn.Text = "CONFIRM"
+btn.TextColor3 = Color3.new(1,1,1)
+btn.BackgroundColor3 = Color3.fromRGB(70,70,70)
+Instance.new("UICorner", btn)
+
+local getKey = Instance.new("TextButton", frame)
+getKey.Size = UDim2.fromScale(0.5, 0.12)
+getKey.Position = UDim2.fromScale(0.25, 0.72)
+getKey.Text = "📋 GET KEY"
+getKey.BackgroundColor3 = Color3.fromRGB(120,120,120)
+Instance.new("UICorner", getKey)
+
+getKey.MouseButton1Click:Connect(function()
+    if setclipboard then
+        setclipboard(GET_KEY_LINK)
+    end
+end)
+
+--================= OPEN MENU =================--
+local function OpenMenu()
+    local Fluent = loadstring(game:HttpGet(
+        "https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"
+    ))()
+
+    local Window = Fluent:CreateWindow({
+        Title = "Teo Hub",
+        SubTitle = "Key System",
+        TabWidth = 160,
+        Size = UDim2.fromOffset(480, 320),
+        Theme = "Dark"
+    })
+
+    local Tab = Window:AddTab({ Title = "Main" })
+
+    Tab:AddButton({
+        Title = "Load Main Script",
+        Callback = function()
+            loadstring(game:HttpGet(SCRIPT_LINK, true))()
+        end
+    })
+
+    Window:SelectTab(1)
+end
+
+--================= AUTO LOAD =================--
+task.spawn(function()
+    task.wait(0.5)
+    local savedKey, savedExp = LoadKey()
+    if not savedKey then
+        gui.Enabled = true
+        return
+    end
+
+    if IsExpired(savedExp) then
+        DeleteKey()
+        gui.Enabled = true
+        return
+    end
+
+    local ok = CheckKey(savedKey)
+    if ok then
+        gui:Destroy()
+        OpenMenu()
+    else
+        DeleteKey()
+        gui.Enabled = true
+    end
+end)
+
+--================= MANUAL CHECK =================--
+btn.MouseButton1Click:Connect(function()
+    local input = box.Text
+    if input == "" then return end
+
+    local valid, exp = CheckKey(input)
+    if valid then
+        SaveKey(input, exp)
+        gui:Destroy()
+        OpenMenu()
+    else
+        btn.Text = "❌ INVALID"
+        task.wait(1)
+        btn.Text = "CONFIRM"
+    end
+end)
