@@ -1,0 +1,109 @@
+--// SERVICES
+local Players = game:GetService("Players")
+local HttpService = game:GetService("HttpService")
+local Player = Players.LocalPlayer
+
+--// CONFIG
+local SCRIPT_LINK = "https://raw.githubusercontent.com/teoscrvn/T-ng-h-p-/refs/heads/main/teovip.txt"
+local KEY_API = "https://example.com/key.json" -- đổi link check key của bạn
+local KeyFile = "TeoHub_Key.json"
+
+--// UTIL
+local function IsExpired(exp)
+    return tonumber(exp) < os.time()
+end
+
+--// SAVE / LOAD KEY
+local function SaveKey(key, exp)
+    if not writefile then return end
+    writefile(KeyFile, HttpService:JSONEncode({
+        Key = key,
+        Exp = exp
+    }))
+end
+
+local function LoadKey()
+    if not readfile or not isfile then return end
+    if not isfile(KeyFile) then return end
+    local data = HttpService:JSONDecode(readfile(KeyFile))
+    return data.Key, data.Exp
+end
+
+local function DeleteKey()
+    if delfile and isfile and isfile(KeyFile) then
+        delfile(KeyFile)
+    end
+end
+
+--// GUI
+local gui = Instance.new("ScreenGui")
+gui.Name = "TeoHub_KeyUI"
+gui.Parent = game.CoreGui
+gui.ZIndexBehavior = Enum.ZIndexBehavior.Global
+gui.Enabled = false
+
+local frame = Instance.new("Frame", gui)
+frame.Size = UDim2.fromScale(0.35, 0.25)
+frame.Position = UDim2.fromScale(0.325, 0.35)
+frame.BackgroundColor3 = Color3.fromRGB(30,30,30)
+frame.ZIndex = 10
+
+local box = Instance.new("TextBox", frame)
+box.Size = UDim2.fromScale(0.8, 0.3)
+box.Position = UDim2.fromScale(0.1, 0.25)
+box.PlaceholderText = "Nhập key..."
+box.Text = ""
+box.ZIndex = 11
+
+local btn = Instance.new("TextButton", frame)
+btn.Size = UDim2.fromScale(0.5, 0.25)
+btn.Position = UDim2.fromScale(0.25, 0.62)
+btn.Text = "Xác nhận"
+btn.ZIndex = 11
+
+--// AUTO LOAD KEY
+task.spawn(function()
+    task.wait(0.5)
+    local savedKey, savedExp = LoadKey()
+    if not savedKey or IsExpired(savedExp) then
+        gui.Enabled = true
+        return
+    end
+
+    local ok, data = pcall(function()
+        return HttpService:JSONDecode(game:HttpGet(KEY_API))
+    end)
+    if not ok then
+        gui.Enabled = true
+        return
+    end
+
+    if data.Key == savedKey then
+        gui:Destroy()
+        loadstring(game:HttpGet(SCRIPT_LINK, true))()
+    else
+        DeleteKey()
+        gui.Enabled = true
+    end
+end)
+
+--// MANUAL CHECK
+btn.MouseButton1Click:Connect(function()
+    local input = box.Text
+    if input == "" then return end
+
+    local ok, data = pcall(function()
+        return HttpService:JSONDecode(game:HttpGet(KEY_API))
+    end)
+    if not ok then return end
+
+    if data.Key == input then
+        local exp = os.time() + 86400 -- 1 ngày
+        SaveKey(input, exp)
+        gui:Destroy()
+        loadstring(game:HttpGet(SCRIPT_LINK, true))()
+    else
+        box.Text = ""
+        box.PlaceholderText = "Key sai!"
+    end
+end)
