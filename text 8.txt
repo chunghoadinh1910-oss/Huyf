@@ -1,156 +1,193 @@
---================================================--
---            VIET HUB | COMMUNITY (FINAL)        --
---  KEY + HSD + TIME LEFT + HUD + COLOR + FIX     --
---================================================--
+--==================================================
+-- VIET HUB | COMMUNITY (FIX FULL - MOBILE SAFE)
+--==================================================
 
----------------- SERVICES ----------------
-local Players = game:GetService("Players")
-local HttpService = game:GetService("HttpService")
-local CoreGui = game:GetService("CoreGui")
-local Player = Players.LocalPlayer
-
----------------- CLEAN OLD UI ----------------
-pcall(function()
-    if CoreGui:FindFirstChild("VietHub_KeyUI") then
-        CoreGui.VietHub_KeyUI:Destroy()
-    end
-    if CoreGui:FindFirstChild("VietHub_HUD") then
-        CoreGui.VietHub_HUD:Destroy()
-    end
-end)
-
----------------- CONFIG ----------------
+--==================== CONFIG ====================--
 local HUB_NAME = "Viet Hub | Community"
 
-local KEY_SYNC_LINK =
-"https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/key.json"
+-- LINK KEY JSON (RAW GITHUB)
+local KEY_SYNC_LINK = "https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/key.json"
+local GET_KEY_LINK  = "https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/main/getkey"
 
-local GET_KEY_LINK = "https://your-get-key-link"
 local KEY_FILE = "VietHub_Key.json"
 
----------------- GLOBAL ----------------
-local ONLINE_KEYS = nil
-local HUB_VISIBLE = true
+--==================== SERVICES ====================--
+local Players = game:GetService("Players")
+local HttpService = game:GetService("HttpService")
+local Player = Players.LocalPlayer or Players.PlayerAdded:Wait()
 
----------------- SAFE TIME ----------------
-local function ParseTime(exp)
-    if not exp or exp == "9999-99-99" then
-        return math.huge
-    end
-    local y,m,d,h,mi = exp:match("(%d+)%-(%d+)%-(%d+)%s*(%d*):?(%d*)")
-    if not y then return math.huge end
-    return os.time({
-        year = tonumber(y),
-        month = tonumber(m),
-        day = tonumber(d),
-        hour = tonumber(h) or 0,
-        min = tonumber(mi) or 0
-    })
+--==================== UTILS ====================--
+local function ParseDate(str)
+    local y,m,d = str:match("(%d+)%-(%d+)%-(%d+)")
+    return os.time({year=y, month=m, day=d, hour=23, min=59, sec=59})
 end
 
-local function IsExpired(exp)
-    return os.time() > ParseTime(exp)
+local function TimeLeft(exp)
+    local now = os.time()
+    local left = exp - now
+    if left <= 0 then return "Hết hạn" end
+    local d = math.floor(left / 86400)
+    return d .. " ngày"
 end
 
-local function GetRemain(exp)
-    if exp == "9999-99-99" then return "Vĩnh viễn" end
-    local diff = ParseTime(exp) - os.time()
-    if diff <= 0 then return "Hết hạn" end
-    return math.floor(diff/86400).." ngày "..math.floor(diff%86400/3600).." giờ"
-end
-
----------------- KEY TYPE SWAP ----------------
-local function SwapKeyType(t)
-    if t == "FREE" then return "VIP" end
-    if t == "VIP" then return "FREE" end
-    return t
-end
-
----------------- COLOR BY TYPE ----------------
-local function GetColor(t)
-    if t == "VIP" then
-        return Color3.fromRGB(255,215,0)
-    else
-        return Color3.fromRGB(0,170,255)
-    end
-end
-
----------------- LOAD ONLINE KEYS (SAFE) ----------------
-local function InitOnlineKeys()
-    if ONLINE_KEYS then return true end
-    local ok, res = pcall(function()
-        return game:HttpGet(KEY_SYNC_LINK)
-    end)
-    if not ok or not res then
-        warn("[VietHub] Không load được key.json")
-        return false
-    end
-    local success, data = pcall(function()
-        return HttpService:JSONDecode(res)
-    end)
-    if not success then
-        warn("[VietHub] key.json lỗi format")
-        return false
-    end
-    ONLINE_KEYS = data
-    return true
-end
-
----------------- SAVE / LOAD KEY ----------------
-local function SaveKey(k,e)
+--==================== FILE IO ====================--
+local function SaveKey(data)
     if writefile then
-        writefile(KEY_FILE, HttpService:JSONEncode({Key=k,Exp=e}))
+        writefile(KEY_FILE, HttpService:JSONEncode(data))
     end
 end
 
 local function LoadKey()
     if readfile and isfile and isfile(KEY_FILE) then
-        local d = HttpService:JSONDecode(readfile(KEY_FILE))
-        return d.Key, d.Exp
+        return HttpService:JSONDecode(readfile(KEY_FILE))
     end
 end
 
----------------- CHECK KEY ----------------
-local function Clean(s)
-    return tostring(s or ""):gsub("%s+","")
+local function DeleteKey()
+    if delfile and isfile and isfile(KEY_FILE) then
+        delfile(KEY_FILE)
+    end
 end
 
+--==================== CHECK KEY ====================--
 local function CheckKey(input)
-    if not ONLINE_KEYS then return false end
-    input = Clean(input)
+    local raw = game:HttpGet(KEY_SYNC_LINK)
+    local data = HttpService:JSONDecode(raw)
 
-    if ONLINE_KEYS.VIP and input == Clean(ONLINE_KEYS.VIP.Key)
-        and not IsExpired(ONLINE_KEYS.VIP.Exp) then
-        return true, ONLINE_KEYS.VIP.Exp, "VIP"
+    local uid = tostring(Player.UserId)
+    local now = os.time()
+
+    for _, info in pairs(data) do
+        if info.key == input then
+            local exp = ParseDate(info.exp)
+            if now <= exp then
+                return true, {
+                    key = input,
+                    type = info.type,
+                    exp = info.exp,
+                    expTime = exp
+                }
+            end
+        end
     end
 
-    if ONLINE_KEYS.FREE and input == Clean(ONLINE_KEYS.FREE.Key)
-        and not IsExpired(ONLINE_KEYS.FREE.Exp) then
-        return true, ONLINE_KEYS.FREE.Exp, "FREE"
-    end
     return false
 end
 
----------------- UI ----------------
-local gui = Instance.new("ScreenGui", CoreGui)
+--==================== GUI INIT (FIX NIL PARENT) ====================--
+local gui = Instance.new("ScreenGui")
 gui.Name = "VietHub_KeyUI"
 gui.ResetOnSpawn = false
+gui.Parent = Player:WaitForChild("PlayerGui")
+gui.Enabled = true
 
+--==================== KEY UI ====================--
 local frame = Instance.new("Frame", gui)
-frame.Size = UDim2.fromScale(0.85,0.45)
-frame.Position = UDim2.fromScale(0.075,0.27)
-frame.BackgroundColor3 = Color3.fromRGB(30,30,30)
-frame.Active, frame.Draggable = true, true
+frame.Size = UDim2.fromScale(0.32,0.34)
+frame.Position = UDim2.fromScale(0.34,0.33)
+frame.BackgroundColor3 = Color3.fromRGB(35,35,35)
+frame.Active = true
+frame.Draggable = true
 Instance.new("UICorner", frame)
 
 local title = Instance.new("TextLabel", frame)
-title.Size = UDim2.fromScale(1,0.15)
-title.BackgroundTransparency = 1
+title.Size = UDim2.fromScale(1,0.18)
 title.Text = HUB_NAME
 title.TextColor3 = Color3.new(1,1,1)
+title.BackgroundTransparency = 1
 title.TextScaled = true
 
 local box = Instance.new("TextBox", frame)
-box.Size = UDim2.fromScale(0.85,0.2)
-box.Position = UDim2.fromScale(0.075,0.18)
-box.PlaceholderText
+box.Size = UDim2.fromScale(0.8,0.18)
+box.Position = UDim2.fromScale(0.1,0.3)
+box.PlaceholderText = "Nhập key..."
+box.Text = ""
+box.TextColor3 = Color3.new(1,1,1)
+box.BackgroundColor3 = Color3.fromRGB(50,50,50)
+Instance.new("UICorner", box)
+
+local btn = Instance.new("TextButton", frame)
+btn.Size = UDim2.fromScale(0.5,0.16)
+btn.Position = UDim2.fromScale(0.25,0.54)
+btn.Text = "XÁC NHẬN"
+btn.TextColor3 = Color3.new(1,1,1)
+btn.BackgroundColor3 = Color3.fromRGB(80,80,80)
+Instance.new("UICorner", btn)
+
+local getKey = Instance.new("TextButton", frame)
+getKey.Size = UDim2.fromScale(0.5,0.12)
+getKey.Position = UDim2.fromScale(0.25,0.75)
+getKey.Text = "GET KEY"
+getKey.BackgroundColor3 = Color3.fromRGB(120,120,120)
+Instance.new("UICorner", getKey)
+
+getKey.MouseButton1Click:Connect(function()
+    if setclipboard then setclipboard(GET_KEY_LINK) end
+end)
+
+--==================== OPEN HUB ====================--
+local function OpenHub(info)
+    gui.Enabled = false
+
+    local Fluent = loadstring(game:HttpGet(
+        "https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"
+    ))()
+
+    local color = info.type == "VIP" and Color3.fromRGB(255,215,0) or Color3.fromRGB(100,200,255)
+
+    local Window = Fluent:CreateWindow({
+        Title = HUB_NAME,
+        SubTitle = info.type .. " | Còn: " .. TimeLeft(info.expTime),
+        Theme = "Dark"
+    })
+
+    local Tab = Window:AddTab({Title="Thông Tin"})
+
+    Tab:AddParagraph({
+        Title = "KEY INFO",
+        Content =
+            "Loại key: "..info.type..
+            "\nHSD: "..info.exp..
+            "\nCòn lại: "..TimeLeft(info.expTime)
+    })
+
+    Tab:AddButton({
+        Title = "ĐỔI KEY",
+        Callback = function()
+            DeleteKey()
+            gui.Enabled = true
+        end
+    })
+
+    Tab:AddButton({
+        Title = "TẮT / BẬT HUD",
+        Callback = function()
+            Window:Toggle()
+        end
+    })
+end
+
+--==================== AUTO LOGIN ====================--
+task.spawn(function()
+    task.wait(0.3)
+    local saved = LoadKey()
+    if saved and os.time() <= saved.expTime then
+        OpenHub(saved)
+    end
+end)
+
+--==================== MANUAL LOGIN ====================--
+btn.MouseButton1Click:Connect(function()
+    local input = box.Text
+    if input == "" then return end
+
+    local ok, info = CheckKey(input)
+    if ok then
+        SaveKey(info)
+        OpenHub(info)
+    else
+        btn.Text = "SAI KEY"
+        task.wait(1)
+        btn.Text = "XÁC NHẬN"
+    end
+end)
