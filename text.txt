@@ -79,8 +79,6 @@ task.spawn(function()
     end
 end)
 
-print("FIX FULL DONE")
-
 -- 🟢 Nút mở menu chính
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Name = "TeoHub_ToggleUI"
