@@ -1,6 +1,6 @@
 --================================================--
---      VIET HUB | COMMUNITY - FULL FINAL         --
---      KEY + HSD + REMAIN + HUD + GET KEY        --
+--            VIET HUB | COMMUNITY                --
+--   KEY + HSD + TIME LEFT + HUD + COLOR FIX     --
 --================================================--
 
 ---------------- SERVICES ----------------
@@ -22,73 +22,58 @@ end)
 
 ---------------- CONFIG ----------------
 local HUB_NAME = "Viet Hub | Community"
-
 local KEY_SYNC_LINK =
 "https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/key.json"
-
-local GET_KEY_LINK = "https://your-get-key-link-here"
+local GET_KEY_LINK = "https://your-get-key-link"
 local KEY_FILE = "VietHub_Key.json"
 
 ---------------- GLOBAL ----------------
 local ONLINE_KEYS
-local KEY_CHECKED = false
+local HUB_VISIBLE = true
 
 ---------------- TIME ----------------
 local function ParseTime(exp)
-    if exp == "9999-99-99" then
-        return math.huge
-    end
+    if exp == "9999-99-99" then return math.huge end
     local y,m,d,h,mi = exp:match("(%d+)%-(%d+)%-(%d+)%s*(%d*):?(%d*)")
-    if not y then return nil end
-    return os.time({
-        year = y, month = m, day = d,
-        hour = h or 0, min = mi or 0
-    })
+    return os.time({year=y,month=m,day=d,hour=h or 0,min=mi or 0})
 end
 
 local function IsExpired(exp)
-    local t = ParseTime(exp)
-    return t and os.time() > t
+    return os.time() > ParseTime(exp)
 end
 
-local function GetRemaining(exp)
-    if exp == "9999-99-99" then
-        return "Vĩnh viễn"
-    end
-    local t = ParseTime(exp)
-    if not t then return "N/A" end
-    local diff = t - os.time()
-    if diff <= 0 then return "Hết hạn" end
+local function GetRemain(exp)
+    if exp == "9999-99-99" then return "Vĩnh viễn" end
+    local diff = ParseTime(exp) - os.time()
     return math.floor(diff/86400).." ngày "..math.floor(diff%86400/3600).." giờ"
 end
 
----------------- SWAP KEY TYPE ----------------
+---------------- KEY TYPE SWAP ----------------
 local function SwapKeyType(t)
     if t == "FREE" then return "VIP" end
     if t == "VIP" then return "FREE" end
     return t
 end
 
----------------- UTILS ----------------
-local function Clean(s)
-    return tostring(s or ""):gsub("%s+", "")
+---------------- COLOR BY TYPE ----------------
+local function GetColor(t)
+    if t == "VIP" then
+        return Color3.fromRGB(255,215,0)
+    else
+        return Color3.fromRGB(0,170,255)
+    end
 end
 
----------------- LOAD KEY ONLINE ----------------
+---------------- LOAD ONLINE KEYS ----------------
 local function InitOnlineKeys()
     if ONLINE_KEYS then return true end
-    local ok, res = pcall(function()
-        return game:HttpGet(KEY_SYNC_LINK)
-    end)
-    if not ok then return false end
-    ONLINE_KEYS = HttpService:JSONDecode(res)
-    return true
+    ONLINE_KEYS = HttpService:JSONDecode(game:HttpGet(KEY_SYNC_LINK))
 end
 
 ---------------- SAVE / LOAD ----------------
-local function SaveKey(k, e)
+local function SaveKey(k,e)
     if writefile then
-        writefile(KEY_FILE, HttpService:JSONEncode({Key=k, Exp=e}))
+        writefile(KEY_FILE, HttpService:JSONEncode({Key=k,Exp=e}))
     end
 end
 
@@ -101,13 +86,11 @@ end
 
 ---------------- CHECK KEY ----------------
 local function CheckKey(input)
-    input = Clean(input)
-    if ONLINE_KEYS.VIP and input == Clean(ONLINE_KEYS.VIP.Key)
-        and not IsExpired(ONLINE_KEYS.VIP.Exp) then
+    input = tostring(input):gsub("%s+","")
+    if input == ONLINE_KEYS.VIP.Key and not IsExpired(ONLINE_KEYS.VIP.Exp) then
         return true, ONLINE_KEYS.VIP.Exp, "VIP"
     end
-    if ONLINE_KEYS.FREE and input == Clean(ONLINE_KEYS.FREE.Key)
-        and not IsExpired(ONLINE_KEYS.FREE.Exp) then
+    if input == ONLINE_KEYS.FREE.Key and not IsExpired(ONLINE_KEYS.FREE.Exp) then
         return true, ONLINE_KEYS.FREE.Exp, "FREE"
     end
     return false
@@ -116,7 +99,6 @@ end
 ---------------- UI ----------------
 local gui = Instance.new("ScreenGui", PlayerGui)
 gui.Name = "VietHub_KeyUI"
-gui.ResetOnSpawn = false
 
 local frame = Instance.new("Frame", gui)
 frame.Size = UDim2.fromScale(0.85,0.45)
@@ -125,44 +107,32 @@ frame.BackgroundColor3 = Color3.fromRGB(30,30,30)
 frame.Active, frame.Draggable = true, true
 Instance.new("UICorner", frame)
 
-local title = Instance.new("TextLabel", frame)
-title.Size = UDim2.fromScale(1,0.15)
-title.BackgroundTransparency = 1
-title.Text = HUB_NAME
-title.TextColor3 = Color3.new(1,1,1)
-title.TextScaled = true
-
 local box = Instance.new("TextBox", frame)
 box.Size = UDim2.fromScale(0.85,0.2)
-box.Position = UDim2.fromScale(0.075,0.18)
+box.Position = UDim2.fromScale(0.075,0.15)
 box.PlaceholderText = "Nhập key..."
-box.TextColor3 = Color3.new(1,1,1)
 box.BackgroundColor3 = Color3.fromRGB(45,45,45)
+box.TextColor3 = Color3.new(1,1,1)
 Instance.new("UICorner", box)
 
-local hsdLabel = Instance.new("TextLabel", frame)
-hsdLabel.Position = UDim2.fromScale(0.05,0.42)
-hsdLabel.Size = UDim2.fromScale(0.9,0.08)
-hsdLabel.BackgroundTransparency = 1
-hsdLabel.Text = "HSD: ---"
-hsdLabel.TextScaled = true
-hsdLabel.TextColor3 = Color3.fromRGB(200,200,200)
+local hsd = Instance.new("TextLabel", frame)
+hsd.Position = UDim2.fromScale(0.05,0.4)
+hsd.Size = UDim2.fromScale(0.9,0.08)
+hsd.BackgroundTransparency = 1
+hsd.Text = "HSD: ---"
+hsd.TextScaled = true
 
-local typeLabel = Instance.new("TextLabel", frame)
-typeLabel.Position = UDim2.fromScale(0.05,0.52)
-typeLabel.Size = UDim2.fromScale(0.9,0.08)
-typeLabel.BackgroundTransparency = 1
-typeLabel.Text = "Loại key: ---"
-typeLabel.TextScaled = true
-typeLabel.TextColor3 = Color3.fromRGB(200,200,200)
+local typeLb = Instance.new("TextLabel", frame)
+typeLb.Position = UDim2.fromScale(0.05,0.5)
+typeLb.Size = UDim2.fromScale(0.9,0.08)
+typeLb.BackgroundTransparency = 1
+typeLb.TextScaled = true
 
-local remainLabel = Instance.new("TextLabel", frame)
-remainLabel.Position = UDim2.fromScale(0.05,0.62)
-remainLabel.Size = UDim2.fromScale(0.9,0.08)
-remainLabel.BackgroundTransparency = 1
-remainLabel.Text = "Còn lại: ---"
-remainLabel.TextScaled = true
-remainLabel.TextColor3 = Color3.fromRGB(200,200,200)
+local remain = Instance.new("TextLabel", frame)
+remain.Position = UDim2.fromScale(0.05,0.6)
+remain.Size = UDim2.fromScale(0.9,0.08)
+remain.BackgroundTransparency = 1
+remain.TextScaled = true
 
 local btn = Instance.new("TextButton", frame)
 btn.Size = UDim2.fromScale(0.6,0.18)
@@ -173,91 +143,43 @@ btn.BackgroundColor3 = Color3.fromRGB(70,70,70)
 btn.TextColor3 = Color3.new(1,1,1)
 Instance.new("UICorner", btn)
 
----------------- GET KEY ----------------
-local getKeyBtn = Instance.new("TextButton", frame)
-getKeyBtn.Size = UDim2.fromScale(0.4,0.14)
-getKeyBtn.Position = UDim2.fromScale(0.3,0.9)
-getKeyBtn.Text = "GET KEY"
-getKeyBtn.TextScaled = true
-getKeyBtn.BackgroundColor3 = Color3.fromRGB(90,90,90)
-Instance.new("UICorner", getKeyBtn)
-
-getKeyBtn.MouseButton1Click:Connect(function()
-    if setclipboard then setclipboard(GET_KEY_LINK) end
-    pcall(function()
-        game:GetService("GuiService"):OpenBrowserWindow(GET_KEY_LINK)
-    end)
-end)
-
 ---------------- HUD ----------------
-local function SetHubVisible(state)
-    for _, g in ipairs(CoreGui:GetChildren()) do
-        if g:IsA("ScreenGui") and g.Name ~= "VietHub_HUD" then
-            for _, v in ipairs(g:GetDescendants()) do
-                if v:IsA("Frame") or v:IsA("ScrollingFrame") then
-                    v.Visible = state
-                end
-            end
-        end
-    end
-end
-
-local function CreateHUD()
+local function CreateHUD(toggle)
     local hud = Instance.new("ScreenGui", CoreGui)
     hud.Name = "VietHub_HUD"
     local b = Instance.new("TextButton", hud)
     b.Size = UDim2.fromScale(0.1,0.06)
     b.Position = UDim2.fromScale(0.02,0.45)
-    b.Text = "●"
+    b.Text = "V"
     b.TextScaled = true
     b.BackgroundColor3 = Color3.fromRGB(40,40,40)
     b.TextColor3 = Color3.new(1,1,1)
     b.Active, b.Draggable = true, true
     Instance.new("UICorner", b)
 
-    local open = true
     b.MouseButton1Click:Connect(function()
-        open = not open
-        SetHubVisible(open)
+        HUB_VISIBLE = not HUB_VISIBLE
+        toggle(HUB_VISIBLE)
     end)
 end
 
 ---------------- OPEN HUB ----------------
 local function OpenHub()
     gui:Destroy()
-    loadstring(game:HttpGet(
-        "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"
+    local Fluent = loadstring(game:HttpGet(
+        "https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"
     ))()
-    task.wait(0.5)
-    CreateHUD()
+    local Window = Fluent:CreateWindow({
+        Title = HUB_NAME,
+        Size = UDim2.fromOffset(540,380),
+        Theme = "Dark"
+    })
+    CreateHUD(function(state)
+        if state then Window:Show() else Window:Hide() end
+    end)
 end
 
 ---------------- AUTO LOGIN ----------------
 task.spawn(function()
     task.wait(1)
-    if not InitOnlineKeys() then return end
-    local k,e = LoadKey()
-    local ok,exp,t = CheckKey(k)
-    if ok then
-        hsdLabel.Text = "HSD: "..exp
-        typeLabel.Text = "Loại key: "..SwapKeyType(t)
-        remainLabel.Text = "Còn lại: "..GetRemaining(exp)
-        OpenHub()
-    end
-end)
-
----------------- MANUAL LOGIN ----------------
-btn.MouseButton1Click:Connect(function()
-    local ok,exp,t = CheckKey(box.Text)
-    if ok then
-        SaveKey(box.Text,exp)
-        hsdLabel.Text = "HSD: "..exp
-        typeLabel.Text = "Loại key: "..SwapKeyType(t)
-        remainLabel.Text = "Còn lại: "..GetRemaining(exp)
-        OpenHub()
-    else
-        btn.Text = "❌ SAI KEY"
-        task.wait(1)
-        btn.Text = "CONFIRM"
-    end
-end)
+    InitOnlineKeys
