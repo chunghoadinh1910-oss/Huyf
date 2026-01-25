@@ -1,0 +1,219 @@
+--================================================--
+--      VIET HUB | COMMUNITY - FINAL FULL FIX     --
+--================================================--
+
+-- 🔥 FIX LỖI UI TỰ TẮT (BẮT BUỘC)
+pcall(function()
+    if game.CoreGui:FindFirstChild("VietHub_KeyUI") then
+        game.CoreGui.VietHub_KeyUI:Destroy()
+    end
+end)
+
+---------------- CONFIG ----------------
+local HUB_NAME = "mẹ mày béo | Community"
+local CREATOR = "concak1910"
+local CONTACT = "Discord: concak1910"
+
+-- 🔑 RAW LINK key.json (BẠN ĐỔI LINK Ở ĐÂY)
+local KEY_SYNC_LINK = "https://github.com/chunghoadinh1910-oss/Huyf/blob/main/key.json"
+
+local KEY_FILE = "VietHub_Key.json"
+
+-- 🔥 Script tổng hợp (tự thêm / sửa)
+local SCRIPTS = {
+    { Name = "Blox Fruits", Link = "https://raw.githubusercontent.com/..." },
+    { Name = "Arsenal", Link = "https://raw.githubusercontent.com/..." },
+}
+
+--------------- SERVICES ---------------
+local HttpService = game:GetService("HttpService")
+
+--------------- GLOBAL ----------------
+local KEY_TYPE = "FREE"
+local Window
+
+--------------- TIME ------------------
+local function ParseTime(exp)
+    if exp == "9999-99-99" then
+        return math.huge
+    end
+    local y,m,d,h,mi = exp:match("(%d+)%-(%d+)%-(%d+)%s*(%d*):?(%d*)")
+    if not y then return nil end
+    return os.time({
+        year = tonumber(y),
+        month = tonumber(m),
+        day = tonumber(d),
+        hour = tonumber(h) or 0,
+        min = tonumber(mi) or 0
+    })
+end
+
+local function IsExpired(exp)
+    local t = ParseTime(exp)
+    return t and os.time() > t
+end
+
+local function TimeLeft(exp)
+    local t = ParseTime(exp)
+    if not t or t == math.huge then
+        return "Vĩnh viễn"
+    end
+    local diff = t - os.time()
+    if diff <= 0 then
+        return "Hết hạn"
+    end
+    local d = math.floor(diff / 86400)
+    local h = math.floor((diff % 86400) / 3600)
+    return d .. " ngày " .. h .. " giờ"
+end
+
+--------------- KEY ONLINE ------------
+local function LoadOnlineKeys()
+    local ok, res = pcall(function()
+        return game:HttpGet(KEY_SYNC_LINK)
+    end)
+    if not ok then
+        warn("Không load được key online")
+        return nil
+    end
+    return HttpService:JSONDecode(res)
+end
+
+--------------- SAVE / LOAD -----------
+local function SaveKey(key, exp)
+    if writefile then
+        writefile(KEY_FILE, HttpService:JSONEncode({
+            Key = key,
+            Exp = exp,
+            ActivatedAt = os.date("%Y-%m-%d %H:%M:%S")
+        }))
+    end
+end
+
+local function LoadKey()
+    if readfile and isfile and isfile(KEY_FILE) then
+        local d = HttpService:JSONDecode(readfile(KEY_FILE))
+        return d.Key, d.Exp, d.ActivatedAt
+    end
+end
+
+local function ResetKey()
+    if delfile and isfile and isfile(KEY_FILE) then
+        delfile(KEY_FILE)
+    end
+end
+
+--------------- CHECK KEY -------------
+local function CheckKey(input)
+    if not input or input == "" then return false end
+    input = tostring(input):gsub("%s+", "")
+
+    local data = LoadOnlineKeys()
+    if not data then return false end
+
+    if data.VIP and input == data.VIP.Key and not IsExpired(data.VIP.Exp) then
+        KEY_TYPE = "VIP"
+        return true, data.VIP.Exp
+    end
+
+    if data.FREE and input == data.FREE.Key and not IsExpired(data.FREE.Exp) then
+        KEY_TYPE = "FREE"
+        return true, data.FREE.Exp
+    end
+
+    return false
+end
+
+--------------- KEY UI ----------------
+local gui = Instance.new("ScreenGui")
+gui.Name = "VietHub_KeyUI"
+gui.Parent = game.CoreGui
+gui.Enabled = true
+
+local frame = Instance.new("Frame", gui)
+frame.Size = UDim2.fromScale(0.32, 0.34)
+frame.Position = UDim2.fromScale(0.34, 0.33)
+frame.BackgroundColor3 = Color3.fromRGB(30,30,30)
+frame.Active, frame.Draggable = true, true
+Instance.new("UICorner", frame)
+
+local box = Instance.new("TextBox", frame)
+box.Size = UDim2.fromScale(0.8, 0.2)
+box.Position = UDim2.fromScale(0.1, 0.25)
+box.PlaceholderText = "Nhập key..."
+box.BackgroundColor3 = Color3.fromRGB(45,45,45)
+box.TextColor3 = Color3.new(1,1,1)
+Instance.new("UICorner", box)
+
+local btn = Instance.new("TextButton", frame)
+btn.Size = UDim2.fromScale(0.5, 0.18)
+btn.Position = UDim2.fromScale(0.25, 0.55)
+btn.Text = "CONFIRM"
+btn.BackgroundColor3 = Color3.fromRGB(70,70,70)
+btn.TextColor3 = Color3.new(1,1,1)
+Instance.new("UICorner", btn)
+
+--------------- OPEN HUB --------------
+local function OpenHub()
+    local Fluent = loadstring(game:HttpGet(
+        "https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"
+    ))()
+
+    Window = Fluent:CreateWindow({
+        Title = HUB_NAME,
+        Size = UDim2.fromOffset(540,380),
+        Theme = "Dark"
+    })
+
+    local Main = Window:AddTab({ Title = "Scripts" })
+    local Info = Window:AddTab({ Title = "Key Info" })
+    local Func = Window:AddTab({ Title = "Chức năng" })
+    local Cre = Window:AddTab({ Title = "Credit" })
+
+    local _, exp, at = LoadKey()
+    Info:AddParagraph({
+        Title = "🔐 Thông tin key",
+        Content =
+            "Loại key: "..KEY_TYPE..
+            "\nKích hoạt: "..(at or "N/A")..
+            "\nHSD: "..(exp or "N/A")..
+            "\nCòn lại: "..TimeLeft(exp)
+    })
+
+    for _, s in ipairs(SCRIPTS) do
+        Main:AddButton({
+            Title = s.Name,
+            Callback = function()
+                loadstring(game:HttpGet(s.Link, true))()
+            end
+        })
+    end
+
+    Func:AddButton({
+        Title = "🔁 Đổi key",
+        Callback = function()
+            ResetKey()
+            Window:Destroy()
+            gui.Enabled = true
+        end
+    })
+
+    Cre:AddParagraph({
+        Title = HUB_NAME,
+        Content = "By "..CREATOR.."\n"..CONTACT
+    })
+end
+
+--------------- AUTO LOGIN -------------
+task.spawn(function()
+    task.wait(0.5)
+
+    local k, exp = LoadKey()
+    if not k or not exp then return end
+    if IsExpired(exp) then
+        ResetKey()
+        return
+    end
+
+    if CheckKey(k) then
+        gui:Destroy()
