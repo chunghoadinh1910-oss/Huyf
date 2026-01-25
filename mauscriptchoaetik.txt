@@ -21,10 +21,89 @@ end
 local function IsExpired(exp)
     return Today > exp
 end
+-- ===== SAVE / LOAD KEY =====
+local HttpService = game:GetService("HttpService")
+local KeyFile = "TeoHub_Key.json"
+
+local function SaveKey(key, exp)
+	writefile(KeyFile, HttpService:JSONEncode({
+		Key = key,
+		Exp = exp
+	}))
+end
+
+function LoadKey()
+	if isfile(KeyFile) then
+		local data = HttpService:JSONDecode(readfile(KeyFile))
+		return data.Key, data.Exp
+	end
+end
+
+function DeleteKey()
+	if isfile(KeyFile) then
+		delfile(KeyFile)
+	end
+end
+
+-- ===== THEME =====
+local Themes = {
+	Dark = {
+		BG = Color3.fromRGB(25,25,25),
+		Box = Color3.fromRGB(40,40,40),
+		Button = Color3.fromRGB(60,60,60)
+	},
+	Neon = {
+		BG = Color3.fromRGB(15,15,30),
+		Box = Color3.fromRGB(40,20,60),
+		Button = Color3.fromRGB(180,100,255)
+	}
+}
+
+local CurrentTheme = "Dark"
 
 -- GUI
 local gui = Instance.new("ScreenGui", Player.PlayerGui)
 gui.ResetOnSpawn = false
+-- ===== AUTO LOAD KEY ĐÃ LƯU =====
+task.spawn(function()
+    task.wait(0.5)
+
+    local savedKey, savedExp = LoadKey()
+    if not savedKey or not savedExp then return end
+    if IsExpired(savedExp) then
+        DeleteKey()
+        return
+    end
+
+    local valid = false
+
+    -- CHECK COMMON
+    local raw = game:HttpGet(COMMON_KEY_LINK)
+    local ekey, exp = raw:match("(.+)|(.+)")
+    if Decode(ekey) == savedKey and not IsExpired(exp) then
+        valid = true
+    end
+
+    -- CHECK USER
+    local users = game:HttpGet(USER_KEY_LINK)
+    for line in users:gmatch("[^\r\n]+") do
+        local id, rest = line:match("(%d+)%=(.+)")
+        if id == tostring(Player.UserId) then
+            local k, e = rest:match("(.+)|(.+)")
+            if Decode(k) == savedKey and not IsExpired(e) then
+                valid = true
+                break
+            end
+        end
+    end
+
+    if valid then
+        gui:Destroy()
+        loadstring(game:HttpGet(SCRIPT_LINK, true))()
+    else
+        DeleteKey()
+    end
+end)
 
 local frame = Instance.new("Frame", gui)
 frame.Size = UDim2.fromScale(0.32,0.4)
@@ -80,20 +159,21 @@ themeBtn.MouseButton1Click:Connect(function()
     box.BackgroundColor3 = Themes[CurrentTheme].Box
     btn.BackgroundColor3 = Themes[CurrentTheme].Button
 end)
-
--- CHECK KEY
+  -- ================== CHECK KEY (ĐÃ SỬA) ==================
 btn.MouseButton1Click:Connect(function()
     local input = box.Text
     local valid = false
+    local saveExp
 
-    -- COMMON
+    -- COMMON KEY
     local raw = game:HttpGet(COMMON_KEY_LINK)
     local ekey, exp = raw:match("(.+)|(.+)")
     if Decode(ekey) == input and not IsExpired(exp) then
         valid = true
+        saveExp = exp
     end
 
-    -- USER
+    -- USER KEY
     local users = game:HttpGet(USER_KEY_LINK)
     for line in users:gmatch("[^\r\n]+") do
         local id, rest = line:match("(%d+)%=(.+)")
@@ -101,55 +181,23 @@ btn.MouseButton1Click:Connect(function()
             local k, e = rest:match("(.+)|(.+)")
             if Decode(k) == input and not IsExpired(e) then
                 valid = true
+                saveExp = e
                 break
             end
         end
     end
 
     if valid then
+        SaveKey(input, saveExp) -- 👈 DÒNG QUAN TRỌNG NHẤT
         gui:Destroy()
-        loadstring(game:HttpGet(SCRIPT_LINK,true))()
+        loadstring(game:HttpGet(SCRIPT_LINK, true))()
     else
         btn.Text = "❌ INVALID"
         task.wait(1)
         btn.Text = "CONFIRM"
     end
 end)
-
-repeat task.wait() until game:IsLoaded()
-local savedKey, savedExp = LoadKey()
-
-if savedKey and savedExp and not IsExpired(savedExp) then
-    -- kiểm tra lại key với server (github)
-    local valid = false
-
-    -- COMMON KEY
-    local raw = game:HttpGet(COMMON_KEY_LINK)
-    local ekey, exp = raw:match("(.+)|(.+)")
-    if Decode(ekey) == savedKey and not IsExpired(exp) then
-        valid = true
-    end
-
-    -- USER KEY
-    local users = game:HttpGet(USER_KEY_LINK)
-    for line in users:gmatch("[^\r\n]+") do
-        local id, rest = line:match("(%d+)%=(.+)")
-        if id == tostring(game.Players.LocalPlayer.UserId) then
-            local k, e = rest:match("(.+)|(.+)")
-            if Decode(k) == savedKey and not IsExpired(e) then
-                valid = true
-                break
-            end
-        end
-    end
-
-    if valid then
-        loadstring(game:HttpGet(SCRIPT_LINK,true))()
-        return
-    else
-        DeleteKey()
-    end
-end
+-- ================== HẾT CHECK KEY ==================
 
 -- 🟢 Nút mở menu chính
 local ScreenGui = Instance.new("ScreenGui")
