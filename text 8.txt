@@ -1,11 +1,11 @@
 --==================================================
--- VIET HUB | COMMUNITY (FIX FULL - MOBILE SAFE)
+-- VIET HUB | COMMUNITY - FINAL FIX (MOBILE SAFE)
 --==================================================
 
 --==================== CONFIG ====================--
 local HUB_NAME = "Viet Hub | Community"
 
--- LINK KEY JSON (RAW GITHUB)
+-- RAW KEY JSON (GITHUB)
 local KEY_SYNC_LINK = "https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/key.json"
 local GET_KEY_LINK  = "https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/main/getkey"
 
@@ -16,18 +16,33 @@ local Players = game:GetService("Players")
 local HttpService = game:GetService("HttpService")
 local Player = Players.LocalPlayer or Players.PlayerAdded:Wait()
 
---==================== UTILS ====================--
+--==================== TIME FIX (FREE + VIP) ====================--
 local function ParseDate(str)
+    -- FREE / VIP vô hạn hoặc date lỗi
+    if str == "9999-99-99" or str == "9999-12-31" then
+        return os.time({year=2099, month=12, day=31, hour=23, min=59, sec=59})
+    end
+
     local y,m,d = str:match("(%d+)%-(%d+)%-(%d+)")
-    return os.time({year=y, month=m, day=d, hour=23, min=59, sec=59})
+    if not y then
+        return os.time({year=2099, month=12, day=31, hour=23, min=59, sec=59})
+    end
+
+    return os.time({
+        year = tonumber(y),
+        month = tonumber(m),
+        day = tonumber(d),
+        hour = 23,
+        min = 59,
+        sec = 59
+    })
 end
 
 local function TimeLeft(exp)
     local now = os.time()
     local left = exp - now
     if left <= 0 then return "Hết hạn" end
-    local d = math.floor(left / 86400)
-    return d .. " ngày"
+    return math.floor(left / 86400) .. " ngày"
 end
 
 --==================== FILE IO ====================--
@@ -52,20 +67,20 @@ end
 --==================== CHECK KEY ====================--
 local function CheckKey(input)
     local raw = game:HttpGet(KEY_SYNC_LINK)
-    local data = HttpService:JSONDecode(raw)
+    raw = raw:gsub("\239\187\191", "") -- FIX BOM
 
-    local uid = tostring(Player.UserId)
+    local data = HttpService:JSONDecode(raw)
     local now = os.time()
 
     for _, info in pairs(data) do
-        if info.key == input then
-            local exp = ParseDate(info.exp)
-            if now <= exp then
+        if tostring(info.key) == tostring(input) then
+            local expTime = ParseDate(info.exp)
+            if now <= expTime then
                 return true, {
                     key = input,
-                    type = info.type,
+                    type = info.type or "FREE",
                     exp = info.exp,
-                    expTime = exp
+                    expTime = expTime
                 }
             end
         end
@@ -74,7 +89,7 @@ local function CheckKey(input)
     return false
 end
 
---==================== GUI INIT (FIX NIL PARENT) ====================--
+--==================== GUI INIT (NO NIL ERROR) ====================--
 local gui = Instance.new("ScreenGui")
 gui.Name = "VietHub_KeyUI"
 gui.ResetOnSpawn = false
@@ -85,7 +100,7 @@ gui.Enabled = true
 local frame = Instance.new("Frame", gui)
 frame.Size = UDim2.fromScale(0.32,0.34)
 frame.Position = UDim2.fromScale(0.34,0.33)
-frame.BackgroundColor3 = Color3.fromRGB(35,35,35)
+frame.BackgroundColor3 = Color3.fromRGB(30,30,30)
 frame.Active = true
 frame.Draggable = true
 Instance.new("UICorner", frame)
@@ -93,9 +108,9 @@ Instance.new("UICorner", frame)
 local title = Instance.new("TextLabel", frame)
 title.Size = UDim2.fromScale(1,0.18)
 title.Text = HUB_NAME
+title.TextScaled = true
 title.TextColor3 = Color3.new(1,1,1)
 title.BackgroundTransparency = 1
-title.TextScaled = true
 
 local box = Instance.new("TextBox", frame)
 box.Size = UDim2.fromScale(0.8,0.18)
@@ -133,20 +148,18 @@ local function OpenHub(info)
         "https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"
     ))()
 
-    local color = info.type == "VIP" and Color3.fromRGB(255,215,0) or Color3.fromRGB(100,200,255)
-
     local Window = Fluent:CreateWindow({
         Title = HUB_NAME,
-        SubTitle = info.type .. " | Còn: " .. TimeLeft(info.expTime),
+        SubTitle = info.type.." | Còn "..TimeLeft(info.expTime),
         Theme = "Dark"
     })
 
-    local Tab = Window:AddTab({Title="Thông Tin"})
+    local Tab = Window:AddTab({Title="Key Info"})
 
     Tab:AddParagraph({
-        Title = "KEY INFO",
+        Title = "Thông tin key",
         Content =
-            "Loại key: "..info.type..
+            "Loại: "..info.type..
             "\nHSD: "..info.exp..
             "\nCòn lại: "..TimeLeft(info.expTime)
     })
@@ -169,7 +182,7 @@ end
 
 --==================== AUTO LOGIN ====================--
 task.spawn(function()
-    task.wait(0.3)
+    task.wait(0.4)
     local saved = LoadKey()
     if saved and os.time() <= saved.expTime then
         OpenHub(saved)
