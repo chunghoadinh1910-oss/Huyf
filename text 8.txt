@@ -1,32 +1,41 @@
 --================================================--
---        VIET HUB | COMMUNITY  (FINAL A)         --
+--      VIET HUB | COMMUNITY - FINAL MOBILE       --
 --================================================--
+
+---------------- SERVICES ----------------
+local Players = game:GetService("Players")
+local HttpService = game:GetService("HttpService")
+local Player = Players.LocalPlayer
+local PlayerGui = Player:WaitForChild("PlayerGui")
+
+---------------- CLEAN OLD GUI ----------------
+pcall(function()
+    if PlayerGui:FindFirstChild("VietHub_KeyUI") then
+        PlayerGui.VietHub_KeyUI:Destroy()
+    end
+    if PlayerGui:FindFirstChild("VietHub_HUD") then
+        PlayerGui.VietHub_HUD:Destroy()
+    end
+end)
 
 ---------------- CONFIG ----------------
 local HUB_NAME = "Viet Hub | Community"
-local CREATOR = "Viet Hub"
-local CONTACT = "Discord: VietHub"
 
--- RAW LINK key.json
+-- 🔑 RAW GITHUB key.json
 local KEY_SYNC_LINK = "https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/key.json"
+
 local KEY_FILE = "VietHub_Key.json"
 
--- SCRIPT LIST (TÙY BẠN THÊM)
-local SCRIPTS = {
-    { Name = "Blox Fruits", Link = "https://raw.githubusercontent.com/..." },
-    { Name = "Arsenal", Link = "https://raw.githubusercontent.com/..." },
-}
+---------------- GLOBAL ----------------
+local ONLINE_KEYS = nil
+local KEY_CHECKED = false
+local HUB_GUI = nil
 
---------------- SERVICES ---------------
-local HttpService = game:GetService("HttpService")
-
---------------- GLOBAL ----------------
-local KEY_TYPE = "FREE"
-local Window
-
---------------- TIME ------------------
+---------------- TIME ----------------
 local function ParseTime(exp)
-    if exp == "9999-99-99" then return math.huge end
+    if exp == "9999-99-99" then
+        return math.huge
+    end
     local y,m,d,h,mi = exp:match("(%d+)%-(%d+)%-(%d+)%s*(%d*):?(%d*)")
     if not y then return nil end
     return os.time({
@@ -43,32 +52,37 @@ local function IsExpired(exp)
     return t and os.time() > t
 end
 
-local function TimeLeft(exp)
-    local t = ParseTime(exp)
-    if not t or t == math.huge then return "Vĩnh viễn" end
-    local diff = t - os.time()
-    if diff <= 0 then return "Hết hạn" end
-    local d = math.floor(diff / 86400)
-    local h = math.floor((diff % 86400) / 3600)
-    return d.." ngày "..h.." giờ"
+---------------- CLEAN INPUT ----------------
+local function CleanInput(s)
+    s = tostring(s or "")
+    s = s:gsub("%s+", "")
+    s = s:gsub("[\n\r]", "")
+    return s
 end
 
---------------- KEY ONLINE ------------
-local function LoadOnlineKeys()
+---------------- LOAD ONLINE KEY (ONCE) ----------------
+local function InitOnlineKeys()
+    if ONLINE_KEYS then return true end
     local ok, res = pcall(function()
         return game:HttpGet(KEY_SYNC_LINK)
     end)
-    if not ok then return end
-    return HttpService:JSONDecode(res)
+    if not ok or not res then return false end
+
+    local success, data = pcall(function()
+        return HttpService:JSONDecode(res)
+    end)
+    if not success then return false end
+
+    ONLINE_KEYS = data
+    return true
 end
 
---------------- SAVE / LOAD -----------
+---------------- SAVE / LOAD KEY ----------------
 local function SaveKey(key, exp)
     if writefile then
         writefile(KEY_FILE, HttpService:JSONEncode({
             Key = key,
-            Exp = exp,
-            At = os.date("%Y-%m-%d %H:%M:%S")
+            Exp = exp
         }))
     end
 end
@@ -76,135 +90,144 @@ end
 local function LoadKey()
     if readfile and isfile and isfile(KEY_FILE) then
         local d = HttpService:JSONDecode(readfile(KEY_FILE))
-        return d.Key, d.Exp, d.At
+        return d.Key, d.Exp
     end
 end
 
-local function ResetKey()
-    if delfile and isfile and isfile(KEY_FILE) then
-        delfile(KEY_FILE)
-    end
-end
-
---------------- CHECK KEY -------------
+---------------- CHECK KEY ----------------
 local function CheckKey(input)
-    if not input or input == "" then return false end
-    input = tostring(input):gsub("%s+", "")
+    if not ONLINE_KEYS then return false end
+    input = CleanInput(input)
 
-    local data = LoadOnlineKeys()
-    if not data then return false end
-
-    if data.VIP and input == data.VIP.Key and not IsExpired(data.VIP.Exp) then
-        KEY_TYPE = "VIP"
-        return true, data.VIP.Exp
+    if ONLINE_KEYS.VIP
+        and input == CleanInput(ONLINE_KEYS.VIP.Key)
+        and not IsExpired(ONLINE_KEYS.VIP.Exp) then
+        return true, ONLINE_KEYS.VIP.Exp
     end
 
-    if data.FREE and input == data.FREE.Key and not IsExpired(data.FREE.Exp) then
-        KEY_TYPE = "FREE"
-        return true, data.FREE.Exp
+    if ONLINE_KEYS.FREE
+        and input == CleanInput(ONLINE_KEYS.FREE.Key)
+        and not IsExpired(ONLINE_KEYS.FREE.Exp) then
+        return true, ONLINE_KEYS.FREE.Exp
     end
 
     return false
 end
 
---------------- KEY UI ----------------
-local gui = Instance.new("ScreenGui", game.CoreGui)
+---------------- KEY UI ----------------
+local gui = Instance.new("ScreenGui", PlayerGui)
 gui.Name = "VietHub_KeyUI"
+gui.ResetOnSpawn = false
 
 local frame = Instance.new("Frame", gui)
-frame.Size = UDim2.fromScale(0.32,0.34)
-frame.Position = UDim2.fromScale(0.34,0.33)
+frame.Size = UDim2.fromScale(0.8, 0.35)
+frame.Position = UDim2.fromScale(0.1, 0.3)
 frame.BackgroundColor3 = Color3.fromRGB(30,30,30)
-frame.Active, frame.Draggable = true, true
+frame.Active = true
+frame.Draggable = true
 Instance.new("UICorner", frame)
 
 local box = Instance.new("TextBox", frame)
-box.Size = UDim2.fromScale(0.8,0.2)
-box.Position = UDim2.fromScale(0.1,0.25)
+box.Size = UDim2.fromScale(0.85, 0.3)
+box.Position = UDim2.fromScale(0.075, 0.2)
 box.PlaceholderText = "Nhập key..."
-box.BackgroundColor3 = Color3.fromRGB(45,45,45)
 box.TextColor3 = Color3.new(1,1,1)
+box.BackgroundColor3 = Color3.fromRGB(45,45,45)
 Instance.new("UICorner", box)
 
 local btn = Instance.new("TextButton", frame)
-btn.Size = UDim2.fromScale(0.5,0.18)
-btn.Position = UDim2.fromScale(0.25,0.55)
+btn.Size = UDim2.fromScale(0.6, 0.25)
+btn.Position = UDim2.fromScale(0.2, 0.6)
 btn.Text = "CONFIRM"
-btn.BackgroundColor3 = Color3.fromRGB(70,70,70)
 btn.TextColor3 = Color3.new(1,1,1)
+btn.BackgroundColor3 = Color3.fromRGB(70,70,70)
 Instance.new("UICorner", btn)
 
---------------- OPEN HUB --------------
-local function OpenHub()
-    local Fluent = loadstring(game:HttpGet(
-        "https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"
-    ))()
-
-    Window = Fluent:CreateWindow({
-        Title = HUB_NAME,
-        Size = UDim2.fromOffset(540,380),
-        Theme = "Dark"
-    })
-
-    local Main = Window:AddTab({ Title = "Scripts" })
-    local Info = Window:AddTab({ Title = "Key" })
-    local Func = Window:AddTab({ Title = "Chức năng" })
-    local Cre = Window:AddTab({ Title = "Credit" })
-
-    local _, exp, at = LoadKey()
-    Info:AddParagraph({
-        Title = "Thông tin key",
-        Content =
-            "Loại: "..KEY_TYPE..
-            "\nKích hoạt: "..(at or "N/A")..
-            "\nHSD: "..(exp or "N/A")..
-            "\nCòn lại: "..TimeLeft(exp)
-    })
-
-    for _, s in ipairs(SCRIPTS) do
-        Main:AddButton({
-            Title = s.Name,
-            Callback = function()
-                loadstring(game:HttpGet(s.Link, true))()
-            end
-        })
-    end
-
-    Func:AddButton({
-        Title = "🔁 Đổi key",
-        Callback = function()
-            ResetKey()
-            Window:Destroy()
-            gui.Enabled = true
+---------------- HUD LOGIC (FIXED) ----------------
+local function SetHubVisible(state)
+    if not HUB_GUI then return end
+    for _, v in ipairs(HUB_GUI:GetChildren()) do
+        if v:IsA("Frame") or v:IsA("ScrollingFrame") then
+            v.Visible = state
         end
-    })
-
-    Cre:AddParagraph({
-        Title = HUB_NAME,
-        Content = "By "..CREATOR.."\n"..CONTACT
-    })
+    end
 end
 
---------------- AUTO LOGIN ------------
+local function CreateHUD()
+    if not HUB_GUI then return end
+
+    local hud = Instance.new("ScreenGui", PlayerGui)
+    hud.Name = "VietHub_HUD"
+    hud.ResetOnSpawn = false
+
+    local toggle = Instance.new("TextButton", hud)
+    toggle.Size = UDim2.fromScale(0.1, 0.06)
+    toggle.Position = UDim2.fromScale(0.02, 0.45)
+    toggle.Text = "●"
+    toggle.TextScaled = true
+    toggle.BackgroundColor3 = Color3.fromRGB(40,40,40)
+    toggle.TextColor3 = Color3.new(1,1,1)
+    toggle.Active = true
+    toggle.Draggable = true
+    Instance.new("UICorner", toggle)
+
+    local opened = true
+    toggle.MouseButton1Click:Connect(function()
+        opened = not opened
+        SetHubVisible(opened)
+    end)
+end
+
+---------------- OPEN HUB ----------------
+local function OpenHub()
+    gui:Destroy()
+
+    loadstring(game:HttpGet(
+        "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
+        true
+    ))()
+
+    task.wait(0.6)
+    for _, v in ipairs(PlayerGui:GetChildren()) do
+        if v:IsA("ScreenGui")
+            and v.Name ~= "VietHub_KeyUI"
+            and v.Name ~= "VietHub_HUD" then
+            HUB_GUI = v
+            break
+        end
+    end
+
+    CreateHUD()
+end
+
+---------------- AUTO LOGIN ----------------
 task.spawn(function()
-    task.wait(0.5)
+    task.wait(1)
+    if KEY_CHECKED then return end
+    if not InitOnlineKeys() then return end
+
     local k, exp = LoadKey()
-    if k and not IsExpired(exp) and CheckKey(k) then
-        gui:Destroy()
+    if k and exp and not IsExpired(exp) and CheckKey(k) then
+        KEY_CHECKED = true
         OpenHub()
     end
 end)
 
---------------- MANUAL LOGIN ----------
+---------------- MANUAL LOGIN ----------------
 btn.MouseButton1Click:Connect(function()
+    if KEY_CHECKED then return end
+    btn.Active = false
+    btn.Text = "ĐANG KIỂM TRA..."
+
     local ok, exp = CheckKey(box.Text)
     if ok then
+        KEY_CHECKED = true
         SaveKey(box.Text, exp)
-        gui:Destroy()
         OpenHub()
     else
         btn.Text = "❌ SAI KEY"
         task.wait(1)
         btn.Text = "CONFIRM"
+        btn.Active = true
     end
 end)
