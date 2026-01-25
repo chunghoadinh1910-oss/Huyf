@@ -1,1 +1,172 @@
-VIP123|2026-25-01 19:20
+--================================================--
+--      VIET HUB | COMMUNITY - DELTA X MOBILE     --
+--================================================--
+
+---------------- SERVICES ----------------
+local Players = game:GetService("Players")
+local HttpService = game:GetService("HttpService")
+local Player = Players.LocalPlayer
+local PlayerGui = Player:WaitForChild("PlayerGui")
+
+---------------- FIX TRÙNG GUI ----------------
+pcall(function()
+    if PlayerGui:FindFirstChild("VietHub_KeyUI") then
+        PlayerGui.VietHub_KeyUI:Destroy()
+    end
+end)
+
+---------------- CONFIG ----------------
+local HUB_NAME = "Viet Hub | Community"
+
+-- 🔑 RAW GITHUB key.json (BẮT BUỘC raw.githubusercontent.com)
+local KEY_SYNC_LINK = "https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/key.json"
+
+local KEY_FILE = "VietHub_Key.json"
+
+---------------- BIẾN TOÀN CỤC ----------------
+local ONLINE_KEYS = nil
+local KEY_CHECKED = false
+
+---------------- TIME UTILS ----------------
+local function ParseTime(exp)
+    if exp == "9999-99-99" then
+        return math.huge
+    end
+    local y,m,d,h,mi = exp:match("(%d+)%-(%d+)%-(%d+)%s*(%d*):?(%d*)")
+    if not y then return nil end
+    return os.time({
+        year = tonumber(y),
+        month = tonumber(m),
+        day = tonumber(d),
+        hour = tonumber(h) or 0,
+        min = tonumber(mi) or 0
+    })
+end
+
+local function IsExpired(exp)
+    local t = ParseTime(exp)
+    return t and os.time() > t
+end
+
+---------------- CLEAN INPUT (FIX MOBILE) ----------------
+local function CleanInput(input)
+    input = tostring(input or "")
+    input = input:gsub("%s", "")
+    input = input:gsub("\n", "")
+    input = input:gsub("\r", "")
+    return input
+end
+
+---------------- LOAD KEY ONLINE (1 LẦN DUY NHẤT) ----------------
+local function InitOnlineKeys()
+    if ONLINE_KEYS then return true end
+
+    if not KEY_SYNC_LINK
+        or KEY_SYNC_LINK == ""
+        or KEY_SYNC_LINK:find("PUT_RAW") then
+        warn("[KEY] Chưa cấu hình KEY_SYNC_LINK")
+        return false
+    end
+
+    local ok, res = pcall(function()
+        return game:HttpGet(KEY_SYNC_LINK)
+    end)
+    if not ok or not res or res == "" then
+        warn("[KEY] HttpGet thất bại")
+        return false
+    end
+
+    local success, data = pcall(function()
+        return HttpService:JSONDecode(res)
+    end)
+    if not success or type(data) ~= "table" then
+        warn("[KEY] key.json lỗi")
+        return false
+    end
+
+    ONLINE_KEYS = data
+    return true
+end
+
+---------------- SAVE / LOAD LOCAL KEY ----------------
+local function SaveKey(key, exp)
+    if writefile then
+        writefile(KEY_FILE, HttpService:JSONEncode({
+            Key = key,
+            Exp = exp
+        }))
+    end
+end
+
+local function LoadKey()
+    if readfile and isfile and isfile(KEY_FILE) then
+        local d = HttpService:JSONDecode(readfile(KEY_FILE))
+        return d.Key, d.Exp
+    end
+end
+
+local function ResetKey()
+    if delfile and isfile and isfile(KEY_FILE) then
+        delfile(KEY_FILE)
+    end
+end
+
+---------------- CHECK KEY (KHÔNG HTTP) ----------------
+local function CheckKey(input)
+    if not ONLINE_KEYS then return false end
+
+    input = CleanInput(input)
+    if input == "" then return false end
+
+    if ONLINE_KEYS.VIP
+        and input == CleanInput(ONLINE_KEYS.VIP.Key)
+        and not IsExpired(ONLINE_KEYS.VIP.Exp) then
+        return true, ONLINE_KEYS.VIP.Exp
+    end
+
+    if ONLINE_KEYS.FREE
+        and input == CleanInput(ONLINE_KEYS.FREE.Key)
+        and not IsExpired(ONLINE_KEYS.FREE.Exp) then
+        return true, ONLINE_KEYS.FREE.Exp
+    end
+
+    return false
+end
+
+---------------- UI ----------------
+local gui = Instance.new("ScreenGui")
+gui.Name = "VietHub_KeyUI"
+gui.ResetOnSpawn = false
+gui.Parent = PlayerGui
+
+local frame = Instance.new("Frame", gui)
+frame.Size = UDim2.fromScale(0.8, 0.35)
+frame.Position = UDim2.fromScale(0.1, 0.3)
+frame.BackgroundColor3 = Color3.fromRGB(30,30,30)
+frame.Active = true
+frame.Draggable = true
+Instance.new("UICorner", frame)
+
+local box = Instance.new("TextBox", frame)
+box.Size = UDim2.fromScale(0.85, 0.3)
+box.Position = UDim2.fromScale(0.075, 0.2)
+box.PlaceholderText = "Nhập key..."
+box.Text = ""
+box.TextColor3 = Color3.new(1,1,1)
+box.BackgroundColor3 = Color3.fromRGB(45,45,45)
+Instance.new("UICorner", box)
+
+local btn = Instance.new("TextButton", frame)
+btn.Size = UDim2.fromScale(0.6, 0.25)
+btn.Position = UDim2.fromScale(0.2, 0.6)
+btn.Text = "CONFIRM"
+btn.TextColor3 = Color3.new(1,1,1)
+btn.BackgroundColor3 = Color3.fromRGB(70,70,70)
+Instance.new("UICorner", btn)
+
+---------------- OPEN HUB ----------------
+local function OpenHub()
+    gui:Destroy()
+    warn("✅ KEY ĐÚNG – HUB SẴN SÀNG")
+    -- Gắn hub thật tại đây
+end
