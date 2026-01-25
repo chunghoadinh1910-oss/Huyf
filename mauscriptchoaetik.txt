@@ -1,7 +1,155 @@
 -- ✅ MẪU CHUẨN CHO NGƯỜI MỚI | TÉO HUB 🍎
 -- Giữ nguyên giao diện thật, chỉ thêm hướng dẫn 👈 ngay bên cạnh dòng cần sửa
+-- CONFIG
+local SCRIPT_LINK = "https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/mauscriptchoaetik.txt"
+local COMMON_KEY_LINK = "https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/User%20common"
+local USER_KEY_LINK = "https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/User%20key"
+local GET_KEY_LINK = "https://notevn.com/raw/4xmvxv6z"
+
+local Player = game.Players.LocalPlayer
+local Today = os.date("!%Y-%m-%d")
+
+-- ENCODE / DECODE
+local function Decode(str)
+    local t = {}
+    for i = #str, 1, -1 do
+        t[#t+1] = string.char(str:byte(i) - 3)
+    end
+    return table.concat(t)
+end
+
+local function IsExpired(exp)
+    return Today > exp
+end
+
+-- GUI
+local gui = Instance.new("ScreenGui", Player.PlayerGui)
+gui.ResetOnSpawn = false
+
+local frame = Instance.new("Frame", gui)
+frame.Size = UDim2.fromScale(0.32,0.4)
+frame.Position = UDim2.fromScale(0.34,0.3)
+frame.BackgroundColor3 = Themes[CurrentTheme].BG
+frame.Active = true
+frame.Draggable = true
+Instance.new("UICorner", frame)
+
+local box = Instance.new("TextBox", frame)
+box.Size = UDim2.fromScale(0.8,0.15)
+box.Position = UDim2.fromScale(0.1,0.3)
+box.PlaceholderText = "Enter key..."
+box.BackgroundColor3 = Themes[CurrentTheme].Box
+box.TextColor3 = Color3.new(1,1,1)
+Instance.new("UICorner", box)
+
+-- CONFIRM
+local btn = Instance.new("TextButton", frame)
+btn.Size = UDim2.fromScale(0.5,0.15)
+btn.Position = UDim2.fromScale(0.25,0.5)
+btn.Text = "CONFIRM"
+btn.BackgroundColor3 = Themes[CurrentTheme].Button
+btn.TextColor3 = Color3.new(1,1,1)
+Instance.new("UICorner", btn)
+
+-- COPY KEY LINK
+local copy = Instance.new("TextButton", frame)
+copy.Size = UDim2.fromScale(0.35,0.12)
+copy.Position = UDim2.fromScale(0.1,0.7)
+copy.Text = "📋 GET KEY"
+copy.BackgroundColor3 = Color3.fromRGB(120,120,120)
+Instance.new("UICorner", copy)
+
+copy.MouseButton1Click:Connect(function()
+    setclipboard(GET_KEY_LINK)
+    copy.Text = "✅ COPIED"
+    task.wait(1)
+    copy.Text = "📋 GET KEY"
+end)
+
+-- THEME TOGGLE
+local themeBtn = Instance.new("TextButton", frame)
+themeBtn.Size = UDim2.fromScale(0.35,0.12)
+themeBtn.Position = UDim2.fromScale(0.55,0.7)
+themeBtn.Text = "🎨 THEME"
+themeBtn.BackgroundColor3 = Color3.fromRGB(180,100,255)
+Instance.new("UICorner", themeBtn)
+
+themeBtn.MouseButton1Click:Connect(function()
+    CurrentTheme = (CurrentTheme == "Dark" and "Neon" or "Dark")
+    frame.BackgroundColor3 = Themes[CurrentTheme].BG
+    box.BackgroundColor3 = Themes[CurrentTheme].Box
+    btn.BackgroundColor3 = Themes[CurrentTheme].Button
+end)
+
+-- CHECK KEY
+btn.MouseButton1Click:Connect(function()
+    local input = box.Text
+    local valid = false
+
+    -- COMMON
+    local raw = game:HttpGet(COMMON_KEY_LINK)
+    local ekey, exp = raw:match("(.+)|(.+)")
+    if Decode(ekey) == input and not IsExpired(exp) then
+        valid = true
+    end
+
+    -- USER
+    local users = game:HttpGet(USER_KEY_LINK)
+    for line in users:gmatch("[^\r\n]+") do
+        local id, rest = line:match("(%d+)%=(.+)")
+        if id == tostring(Player.UserId) then
+            local k, e = rest:match("(.+)|(.+)")
+            if Decode(k) == input and not IsExpired(e) then
+                valid = true
+                break
+            end
+        end
+    end
+
+    if valid then
+        gui:Destroy()
+        loadstring(game:HttpGet(SCRIPT_LINK,true))()
+    else
+        btn.Text = "❌ INVALID"
+        task.wait(1)
+        btn.Text = "CONFIRM"
+    end
+end)
 
 repeat task.wait() until game:IsLoaded()
+local savedKey, savedExp = LoadKey()
+
+if savedKey and savedExp and not IsExpired(savedExp) then
+    -- kiểm tra lại key với server (github)
+    local valid = false
+
+    -- COMMON KEY
+    local raw = game:HttpGet(COMMON_KEY_LINK)
+    local ekey, exp = raw:match("(.+)|(.+)")
+    if Decode(ekey) == savedKey and not IsExpired(exp) then
+        valid = true
+    end
+
+    -- USER KEY
+    local users = game:HttpGet(USER_KEY_LINK)
+    for line in users:gmatch("[^\r\n]+") do
+        local id, rest = line:match("(%d+)%=(.+)")
+        if id == tostring(game.Players.LocalPlayer.UserId) then
+            local k, e = rest:match("(.+)|(.+)")
+            if Decode(k) == savedKey and not IsExpired(e) then
+                valid = true
+                break
+            end
+        end
+    end
+
+    if valid then
+        loadstring(game:HttpGet(SCRIPT_LINK,true))()
+        return
+    else
+        DeleteKey()
+    end
+end
 
 -- 🟢 Nút mở menu chính
 local ScreenGui = Instance.new("ScreenGui")
