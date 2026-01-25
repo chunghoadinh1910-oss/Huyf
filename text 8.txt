@@ -1,11 +1,11 @@
 --==================================================
---                TESTSCRIPT HUB
+--                TESTSCRIPT HUB (FIX FINAL)
 --==================================================
 
 --==================== CONFIG ====================--
 local HUB_NAME = "Viet Hub | Community"
 
--- RAW LINK BẮT BUỘC (KHÔNG refs/heads)
+-- RAW LINK KEY.JSON (BẮT BUỘC)
 local KEY_SYNC_LINK = "https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/main/key.json"
 local GET_KEY_LINK  = "https://github.com/chunghoadinh1910-oss/Huyf"
 
@@ -16,20 +16,18 @@ local Players = game:GetService("Players")
 local HttpService = game:GetService("HttpService")
 local Player = Players.LocalPlayer
 
---==================== DATE PARSE (FIX 9999) ====================--
+--==================== DATE ====================--
 local function ParseDate(str)
     if str == "9999-99-99" then
-        return os.time({year=2099, month=12, day=31, hour=23, min=59, sec=59})
+        return os.time({year=2099,month=12,day=31,hour=23,min=59,sec=59})
     end
     local y,m,d = str:match("(%d+)%-(%d+)%-(%d+)")
     if not y then return 0 end
     return os.time({
-        year = tonumber(y),
-        month = tonumber(m),
-        day = tonumber(d),
-        hour = 23,
-        min = 59,
-        sec = 59
+        year=tonumber(y),
+        month=tonumber(m),
+        day=tonumber(d),
+        hour=23,min=59,sec=59
     })
 end
 
@@ -59,30 +57,49 @@ local function DeleteKey()
     end
 end
 
---==================== CHECK KEY ====================--
+--==================== CHECK KEY (FIX LỚN NHẤT) ====================--
 local function CheckKey(inputKey)
     local raw = game:HttpGet(KEY_SYNC_LINK)
     raw = raw:gsub("\239\187\191","") -- remove BOM
 
     local data = HttpService:JSONDecode(raw)
 
-    for _,v in ipairs(data) do
-        if v.key == inputKey then
-            if not IsExpired(v.exp) then
-                return true, v
-            else
-                return false, "expired"
+    -- TRƯỜNG HỢP 1: key.json là MẢNG
+    if typeof(data) == "table" and data[1] then
+        for _,v in ipairs(data) do
+            if v.key == inputKey then
+                if not IsExpired(v.exp) then
+                    return true, v
+                else
+                    return false, "expired"
+                end
             end
         end
     end
+
+    -- TRƯỜNG HỢP 2: key.json là OBJECT
+    if typeof(data) == "table" and data[inputKey] then
+        local v = data[inputKey]
+        if not IsExpired(v.exp) then
+            return true, {
+                key = inputKey,
+                type = v.type or "FREE",
+                exp = v.exp
+            }
+        else
+            return false, "expired"
+        end
+    end
+
     return false, "invalid"
 end
 
---==================== UI ====================--
+--==================== UI KEY ====================--
 local gui = Instance.new("ScreenGui")
 gui.Name = "KeyUI"
 gui.ResetOnSpawn = false
 gui.Parent = game.CoreGui
+gui.Enabled = true
 
 local frame = Instance.new("Frame", gui)
 frame.Size = UDim2.fromScale(0.35,0.32)
@@ -124,7 +141,9 @@ getKey.BackgroundColor3 = Color3.fromRGB(100,100,100)
 Instance.new("UICorner", getKey)
 
 getKey.MouseButton1Click:Connect(function()
-    if setclipboard then setclipboard(GET_KEY_LINK) end
+    if setclipboard then
+        setclipboard(GET_KEY_LINK)
+    end
 end)
 
 --==================== OPEN HUB ====================--
@@ -159,13 +178,6 @@ local function OpenHub(info)
             loadstring(game:HttpGet(KEY_SYNC_LINK))()
         end
     })
-
-    Tab:AddButton({
-        Title = "Test Script",
-        Callback = function()
-            print("Script chạy OK")
-        end
-    })
 end
 
 --==================== AUTO LOGIN ====================--
@@ -180,7 +192,6 @@ task.spawn(function()
             return
         end
     end
-    gui.Enabled = true
 end)
 
 --==================== MANUAL LOGIN ====================--
