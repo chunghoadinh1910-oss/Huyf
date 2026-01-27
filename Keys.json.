@@ -1,0 +1,17 @@
+{
+    "ADMIN-GITHUB": {
+        "Type": "Hashira (Admin)",
+        "Year": 2026, "Month": 12, "Day": 31, "Hour": 23, "Min": 59,
+        "R": 255, "G": 0, "B": 0
+    },
+    "VIP-GITHUB": {
+        "Type": "Tsuguko (VIP)",
+        "Year": 2026, "Month": 6, "Day": 15, "Hour": 12, "Min": 0,
+        "R": 255, "G": 215, "B": 0
+    },
+    "FREE-GITHUB": {
+        "Type": "Mizunoto (Thường)",
+        "Year": 2026, "Month": 2, "Day": 1, "Hour": 0, "Min": 0,
+        "R": 255, "G": 255, "B": 255
+    }
+}
