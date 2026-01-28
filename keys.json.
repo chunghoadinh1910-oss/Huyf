@@ -11,7 +11,7 @@
         "hwid": "player-id",
         "role": "player"
     },
-    "ADMIN-VIP": {
+    "PLAYER-VIP": {
         "hwid": "admin-id",
         "role": "admin"
     }
