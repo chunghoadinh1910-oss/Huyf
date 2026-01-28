@@ -1,17 +1,18 @@
 {
-    "ADMIN-GITHUB": {
-        "Type": "Hashira (Admin)",
-        "Year": 9999, "Month": 12, "Day": 31, "Hour": 23, "Min": 59,
-        "R": 255, "G": 0, "B": 0
+    "reset_config": {
+        "hour": 22,
+        "minute": 30
     },
-    "VIP-GITHUB": {
-        "Type": "Tsuguko (VIP)",
-        "Year": 2026, "Month": 6, "Day": 15, "Hour": 12, "Min": 0,
-        "R": 255, "G": 215, "B": 0
+    "ADMIN-VIP": {
+        "hwid": "admin-id",
+        "role": "admin"
     },
-    "FREE-GITHUB": {
-        "Type": "Mizunoto (Thường)",
-        "Year": 2026, "Month": 2, "Day": 1, "Hour": 0, "Min": 0,
-        "R": 255, "G": 255, "B": 255
+    "KEY-PLAYER": {
+        "hwid": "player-id",
+        "role": "player"
+    },
+    "ADMIN-VIP": {
+        "hwid": "admin-id",
+        "role": "admin"
     }
 }
