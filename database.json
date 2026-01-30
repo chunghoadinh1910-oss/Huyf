@@ -1,7 +1,7 @@
 {
     "Config": {
         "LinkGetKey": "https://notevn.com/raw/sqdbunyq",
-        "Notify": "Ch\u00e0o m\u1eebng S\u00e1t Qu\u1ef7 Nh\u00e2n!",
+        "Notify": "Chào mừng Sát Quỷ Nhân!",
         "Version": "1.5"
     },
     "Keys": {
@@ -21,12 +21,6 @@
             "Type": "Admin",
             "Expire": "9999-99-99",
             "Max_HWID": 2,
-            "HWID": []
-        },
-        "TANJIRO_np4meeog": {
-            "Type": "Free",
-            "Expire": "2026-12-31",
-            "Max_HWID": 1,
             "HWID": []
         }
     }
