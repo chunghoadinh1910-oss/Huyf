@@ -1,19 +1,13 @@
-{
-    "Config": {
-        "LinkGetKey": "https://notevn.com/raw/sqdbunyq",
-        "Notify": "Chào mừng Sát Quỷ Nhân!",
-        "Version": "1.5"
-    },
-    "Keys": {
+"Keys": {
         "FREE_KEY_123": {
             "Type": "Free",
             "Expire": "2026-12-31",
             "Max_HWID": 9999,
             "HWID": []
         },
-        "kkandhwooppjsnsnsa": {
+        "⭐✨_VIP_SAYONARA_8888_💎_kkandhwooppjsnsnsa_🔱🌀_TANJIRO_SPECIAL_👑_🎭🎐_✨⭐": {
             "Type": "Vip",
-            "Expire": "2026-12-31",
+            "Expire": "3456-12-31",
             "Max_HWID": 15,
             "HWID": []
         },
@@ -23,5 +17,4 @@
             "Max_HWID": 2,
             "HWID": []
         }
-    }
 }
