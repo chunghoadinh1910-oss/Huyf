@@ -1,26 +1,26 @@
 {
     "Config": {
-        "LinkGetKey": "https://yourlink.com/getkey",
-        "Notify": "mẹ mày béo!",
-        "Version": "1.0"
+        "LinkGetKey": "https://link4m.com/GetTanjiroKey",
+        "Notify": "Ch\u00e0o m\u1eebng S\u00e1t Qu\u1ef7 Nh\u00e2n!",
+        "Version": "1.5"
     },
     "Keys": {
-        "KEY_FREE_DUNG_THU": {
+        "FREE_KEY_123": {
             "Type": "Free",
             "Expire": "2026-12-31",
             "Max_HWID": 1,
             "HWID": []
         },
-        "KEY_VIP_TANJIRO": {
+        "VIP_KEY_TANJIRO": {
             "Type": "Vip",
             "Expire": "2026-12-31",
-            "Max_HWID": 1,
+            "Max_HWID": 2,
             "HWID": []
         },
-        "ADMIN_CHUA_TE_QUY": {
+        "ADMIN_BOSS_666": {
             "Type": "Admin",
             "Expire": "9999-99-99",
-            "Max_HWID": 5,
+            "Max_HWID": 99,
             "HWID": []
         }
     }
