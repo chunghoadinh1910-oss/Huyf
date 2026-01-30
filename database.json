@@ -22,6 +22,12 @@
             "Expire": "9999-99-99",
             "Max_HWID": 2,
             "HWID": []
+        },
+        "TANJIRO_np4meeog": {
+            "Type": "Free",
+            "Expire": "2026-12-31",
+            "Max_HWID": 1,
+            "HWID": []
         }
     }
 }
