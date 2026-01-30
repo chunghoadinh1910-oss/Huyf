@@ -1,0 +1,27 @@
+{
+    "Config": {
+        "LinkGetKey": "https://yourlink.com/getkey",
+        "Notify": "mẹ mày béo!",
+        "Version": "1.0"
+    },
+    "Keys": {
+        "KEY_FREE_DUNG_THU": {
+            "Type": "Free",
+            "Expire": "2026-12-31",
+            "Max_HWID": 1,
+            "HWID": []
+        },
+        "KEY_VIP_TANJIRO": {
+            "Type": "Vip",
+            "Expire": "2026-12-31",
+            "Max_HWID": 1,
+            "HWID": []
+        },
+        "ADMIN_CHUA_TE_QUY": {
+            "Type": "Admin",
+            "Expire": "9999-99-99",
+            "Max_HWID": 5,
+            "HWID": []
+        }
+    }
+}
