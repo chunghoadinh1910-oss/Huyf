@@ -2,16 +2,19 @@ local HttpService = game:GetService("HttpService")
 local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
 
-if CoreGui:FindFirstChild("VuaBuaChu_Final") then CoreGui:FindFirstChild("VuaBuaChu_Final"):Destroy() end
+-- [ TỰ ĐỘNG DỌN DẸP GUI CŨ ] --
+if CoreGui:FindFirstChild("VuaBuaChu_Gop") then CoreGui:FindFirstChild("VuaBuaChu_Gop"):Destroy() end
 
 local ScreenGui = Instance.new("ScreenGui", CoreGui)
-ScreenGui.Name = "VuaBuaChu_Final"
+ScreenGui.Name = "VuaBuaChu_Gop"
 
--- [ GIAO DIỆN ] --
+-- [ GIAO DIỆN ĐĂNG NHẬP ] --
 local LoginFrame = Instance.new("Frame", ScreenGui)
 LoginFrame.Size = UDim2.new(0, 380, 0, 260)
 LoginFrame.Position = UDim2.new(0.5, -190, 0.5, -130)
 LoginFrame.BackgroundColor3 = Color3.fromRGB(10, 0, 20)
+LoginFrame.Active = true
+LoginFrame.Draggable = true
 Instance.new("UIStroke", LoginFrame).Color = Color3.fromRGB(255, 0, 0)
 Instance.new("UICorner", LoginFrame)
 
@@ -21,7 +24,8 @@ KeyBox.Position = UDim2.new(0.05, 0, 0.15, 0)
 KeyBox.PlaceholderText = "DÁN BÙA CHÚ VÀO ĐÂY..."
 KeyBox.Text = ""
 KeyBox.TextWrapped = true
-KeyBox.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+KeyBox.ClearTextOnFocus = false
+KeyBox.BackgroundColor3 = Color3.fromRGB(20, 0, 40)
 KeyBox.TextColor3 = Color3.new(1, 1, 1)
 KeyBox.TextSize = 8
 
@@ -39,59 +43,9 @@ GetKeyBtn.Text = "LẤY BÙA"
 GetKeyBtn.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 GetKeyBtn.TextColor3 = Color3.new(1, 1, 1)
 
--- [ LOGIC GIẢI BÙA ] --
-LoginBtn.MouseButton1Click:Connect(function()
-    local input = KeyBox.Text
-    LoginBtn.Text = "ĐANG GIẢI ẤN..."
-    
-    local success, response = pcall(function()
-        return game:HttpGet("https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/database.json?t=" .. os.time())
-    end)
-
-    if success then
-        local data = HttpService:JSONDecode(response)
-        local foundData = nil
-        
-        -- CƠ CHẾ SO SÁNH THÔNG MINH
-        for keyInDb, value in pairs(data) do
-            -- Nếu key giống hệt HOẶC key trong database nằm trong chuỗi vừa dán
-            if keyInDb == input or string.find(input, "ADMIN_VOID") or string.find(input, "ABYSS_WATCHER") then
-                -- Nếu là key Admin đặc biệt của bạn, cho qua luôn
-                if string.find(keyInDb, "ADMIN") and string.find(input, "ADMIN") then
-                    foundData = value
-                    break
-                end
-            end
-            
-            -- Kiểm tra key thường (Free/Vip)
-            if keyInDb == input then
-                foundData = value
-                break
-            end
-        end
-
-        if foundData then
-            LoginBtn.Text = "THÀNH CÔNG!"
-            wait(0.5)
-            LoginFrame.Visible = false
-            _G.OpenMenu(foundData.Type, foundData.Expiry)
-        else
-            LoginBtn.Text = "SAI BÙA CHÚ!"
-            wait(1.5)
-            LoginBtn.Text = "GIẢI BÙA LẠI"
-        end
-    else
-        LoginBtn.Text = "LỖI KẾT NỐI!"
-    end
-end)
-
-GetKeyBtn.MouseButton1Click:Connect(function()
-    setclipboard("https://discord.gg/vua-bua-chu")
-    print("Link copied!")
-end)
-
--- [ MENU CHỨC NĂNG (GIỮ NGUYÊN TÁC DỤNG) ] --
-_G.OpenMenu = function(kType, expiry)
+-- [ CHỨC NĂNG MENU CHÍNH (AUTO FARM) ] --
+local function OpenMenu(kType, expiry)
+    LoginFrame.Visible = false
     local MainMenu = Instance.new("Frame", ScreenGui)
     MainMenu.Size = UDim2.new(0, 400, 0, 320)
     MainMenu.Position = UDim2.new(0.5, -200, 0.5, -160)
@@ -101,13 +55,11 @@ _G.OpenMenu = function(kType, expiry)
     MainMenu.Active = true
 
     local Title = Instance.new("TextLabel", MainMenu)
-    Title.Text = "🔮 VUA BÙA CHÚ - " .. kType:upper()
+    Title.Text = "VUA BÙA CHÚ - " .. kType:upper()
     Title.Size = UDim2.new(1,0,0,50)
-    Title.TextColor3 = Color3.new(1,0,0)
+    Title.TextColor3 = (kType == "Admin") and Color3.new(1,0,0) or Color3.new(1,1,1)
     Title.BackgroundTransparency = 1
-    Title.TextSize = 20
 
-    -- Nút Auto Farm (Tác dụng ban đầu)
     local FarmBtn = Instance.new("TextButton", MainMenu)
     FarmBtn.Size = UDim2.new(0.9, 0, 0, 45)
     FarmBtn.Position = UDim2.new(0.05, 0, 0.25, 0)
@@ -118,9 +70,7 @@ _G.OpenMenu = function(kType, expiry)
     local isFarming = false
     FarmBtn.MouseButton1Click:Connect(function()
         isFarming = not isFarming
-        FarmBtn.Text = isFarming and "ĐANG FARM (ON)" or "BẬT AUTO FARM ITEMS"
-        FarmBtn.BackgroundColor3 = isFarming and Color3.new(0, 0.5, 0) or Color3.fromRGB(30,30,30)
-        
+        FarmBtn.Text = isFarming and "ĐANG FARM..." or "BẬT AUTO FARM ITEMS"
         while isFarming do
             pcall(function()
                 for _, v in pairs(game.Workspace:GetDescendants()) do
@@ -133,17 +83,37 @@ _G.OpenMenu = function(kType, expiry)
             wait(0.1)
         end
     end)
-    
-    -- Hiển thị hạn dùng
+
     local TimeL = Instance.new("TextLabel", MainMenu)
     TimeL.Size = UDim2.new(1,0,0,30)
     TimeL.Position = UDim2.new(0,0,1,-30)
     TimeL.TextColor3 = Color3.new(1,1,1)
-    TimeL.BackgroundTransparency = 1
-    spawn(function()
-        while wait(1) do
-            if expiry > 2000000000 then TimeL.Text = "HẠN: VĨNH HẰNG"
-            else TimeL.Text = "HẠN CÒN: " .. math.floor((expiry - os.time())/3600) .. " GIỜ" end
-        end
-    end)
+    TimeL.Text = (expiry > 2000000000) and "⏳ HẠN: VĨNH HẰNG" or "⏳ HẠN: " .. math.floor((expiry-os.time())/3600) .. " GIỜ"
 end
+
+-- [ XỬ LÝ ĐĂNG NHẬP ] --
+LoginBtn.MouseButton1Click:Connect(function()
+    local input = KeyBox.Text
+    local success, response = pcall(function() 
+        return game:HttpGet("https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/database.json?t="..os.time()) 
+    end)
+    
+    if success then
+        local data = HttpService:JSONDecode(response)
+        for dbKey, val in pairs(data) do
+            -- So khớp thông minh: Tìm kiếm chuỗi gốc ADMIN_VOID hoặc khớp hoàn toàn
+            if dbKey == input or (string.find(input, "ADMIN_VOID") and string.find(dbKey, "ADMIN")) then
+                OpenMenu(val.Type, val.Expiry)
+                return
+            end
+        end
+        LoginBtn.Text = "SAI BÙA CHÚ!"
+        wait(1)
+        LoginBtn.Text = "GIẢI BÙA"
+    end
+end)
+
+GetKeyBtn.MouseButton1Click:Connect(function()
+    setclipboard("https://discord.gg/vua-bua-chu")
+    game:GetService("StarterGui"):SetCore("SendNotification", {Title="Hệ Thống", Text="Đã copy link lấy key!"})
+end)
