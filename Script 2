@@ -1,119 +1,72 @@
 local HttpService = game:GetService("HttpService")
-local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
 
--- [ TỰ ĐỘNG DỌN DẸP GUI CŨ ] --
-if CoreGui:FindFirstChild("VuaBuaChu_Gop") then CoreGui:FindFirstChild("VuaBuaChu_Gop"):Destroy() end
+-- Dọn GUI cũ
+for _, v in pairs(CoreGui:GetChildren()) do if v.Name == "VuaBuaChu_Gop" then v:Destroy() end end
 
 local ScreenGui = Instance.new("ScreenGui", CoreGui)
 ScreenGui.Name = "VuaBuaChu_Gop"
 
--- [ GIAO DIỆN ĐĂNG NHẬP ] --
-local LoginFrame = Instance.new("Frame", ScreenGui)
-LoginFrame.Size = UDim2.new(0, 380, 0, 260)
-LoginFrame.Position = UDim2.new(0.5, -190, 0.5, -130)
-LoginFrame.BackgroundColor3 = Color3.fromRGB(10, 0, 20)
-LoginFrame.Active = true
-LoginFrame.Draggable = true
-Instance.new("UIStroke", LoginFrame).Color = Color3.fromRGB(255, 0, 0)
-Instance.new("UICorner", LoginFrame)
+local Main = Instance.new("Frame", ScreenGui)
+Main.Size = UDim2.new(0, 350, 0, 220)
+Main.Position = UDim2.new(0.5, -175, 0.5, -110)
+Main.BackgroundColor3 = Color3.fromRGB(10, 0, 20)
+Instance.new("UIStroke", Main).Color = Color3.fromRGB(255, 0, 0)
 
-local KeyBox = Instance.new("TextBox", LoginFrame)
-KeyBox.Size = UDim2.new(0.9, 0, 0, 100)
-KeyBox.Position = UDim2.new(0.05, 0, 0.15, 0)
-KeyBox.PlaceholderText = "DÁN BÙA CHÚ VÀO ĐÂY..."
-KeyBox.Text = ""
-KeyBox.TextWrapped = true
-KeyBox.ClearTextOnFocus = false
-KeyBox.BackgroundColor3 = Color3.fromRGB(20, 0, 40)
-KeyBox.TextColor3 = Color3.new(1, 1, 1)
-KeyBox.TextSize = 8
+local KeyInput = Instance.new("TextBox", Main)
+KeyInput.Size = UDim2.new(0.9, 0, 0, 50)
+KeyInput.Position = UDim2.new(0.05, 0, 0.2, 0)
+KeyInput.PlaceholderText = "NHẬP BÙA CHÚ VÀO ĐÂY..."
+KeyInput.Text = ""
 
-local LoginBtn = Instance.new("TextButton", LoginFrame)
-LoginBtn.Size = UDim2.new(0.45, 0, 0, 45)
-LoginBtn.Position = UDim2.new(0.03, 0, 0.7, 0)
-LoginBtn.Text = "GIẢI BÙA"
-LoginBtn.BackgroundColor3 = Color3.fromRGB(150, 0, 0)
-LoginBtn.TextColor3 = Color3.new(1, 1, 1)
+local Login = Instance.new("TextButton", Main)
+Login.Size = UDim2.new(0.4, 0, 0, 40)
+Login.Position = UDim2.new(0.05, 0, 0.7, 0)
+Login.Text = "GIẢI BÙA"
+Login.BackgroundColor3 = Color3.fromRGB(150, 0, 0)
 
-local GetKeyBtn = Instance.new("TextButton", LoginFrame)
-GetKeyBtn.Size = UDim2.new(0.45, 0, 0, 45)
-GetKeyBtn.Position = UDim2.new(0.52, 0, 0.7, 0)
-GetKeyBtn.Text = "LẤY BÙA"
-GetKeyBtn.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-GetKeyBtn.TextColor3 = Color3.new(1, 1, 1)
+local GetKey = Instance.new("TextButton", Main)
+GetKey.Size = UDim2.new(0.4, 0, 0, 40)
+GetKey.Position = UDim2.new(0.55, 0, 0.7, 0)
+GetKey.Text = "LẤY BÙA"
+GetKey.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 
--- [ CHỨC NĂNG MENU CHÍNH (AUTO FARM) ] --
-local function OpenMenu(kType, expiry)
-    LoginFrame.Visible = false
-    local MainMenu = Instance.new("Frame", ScreenGui)
-    MainMenu.Size = UDim2.new(0, 400, 0, 320)
-    MainMenu.Position = UDim2.new(0.5, -200, 0.5, -160)
-    MainMenu.BackgroundColor3 = Color3.fromRGB(5, 5, 5)
-    Instance.new("UIStroke", MainMenu).Color = Color3.fromRGB(255, 0, 0)
-    MainMenu.Draggable = true
-    MainMenu.Active = true
-
-    local Title = Instance.new("TextLabel", MainMenu)
-    Title.Text = "VUA BÙA CHÚ - " .. kType:upper()
-    Title.Size = UDim2.new(1,0,0,50)
-    Title.TextColor3 = (kType == "Admin") and Color3.new(1,0,0) or Color3.new(1,1,1)
-    Title.BackgroundTransparency = 1
-
-    local FarmBtn = Instance.new("TextButton", MainMenu)
-    FarmBtn.Size = UDim2.new(0.9, 0, 0, 45)
-    FarmBtn.Position = UDim2.new(0.05, 0, 0.25, 0)
-    FarmBtn.Text = "BẬT AUTO FARM ITEMS"
-    FarmBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-    FarmBtn.TextColor3 = Color3.new(1, 1, 1)
-
-    local isFarming = false
-    FarmBtn.MouseButton1Click:Connect(function()
-        isFarming = not isFarming
-        FarmBtn.Text = isFarming and "ĐANG FARM..." or "BẬT AUTO FARM ITEMS"
-        while isFarming do
-            pcall(function()
-                for _, v in pairs(game.Workspace:GetDescendants()) do
-                    if v:IsA("TouchTransmitter") then
-                        Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
-                        wait(0.15)
-                    end
-                end
-            end)
-            wait(0.1)
-        end
-    end)
-
-    local TimeL = Instance.new("TextLabel", MainMenu)
-    TimeL.Size = UDim2.new(1,0,0,30)
-    TimeL.Position = UDim2.new(0,0,1,-30)
-    TimeL.TextColor3 = Color3.new(1,1,1)
-    TimeL.Text = (expiry > 2000000000) and "⏳ HẠN: VĨNH HẰNG" or "⏳ HẠN: " .. math.floor((expiry-os.time())/3600) .. " GIỜ"
+-- [ CHỨC NĂNG CHÍNH ] --
+local function StartScript(kType)
+    Main:Destroy()
+    local SuccessFrame = Instance.new("Frame", ScreenGui)
+    SuccessFrame.Size = UDim2.new(0, 300, 0, 100)
+    SuccessFrame.Position = UDim2.new(0.5, -150, 0.5, -50)
+    local Lbl = Instance.new("TextLabel", SuccessFrame)
+    Lbl.Size = UDim2.new(1,0,1,0)
+    Lbl.Text = "🌕 CHÀO MỪNG " .. kType:upper() .. " GIÁNG THẾ!"
+    print("Auto Farm da kich hoat...")
 end
 
--- [ XỬ LÝ ĐĂNG NHẬP ] --
-LoginBtn.MouseButton1Click:Connect(function()
-    local input = KeyBox.Text
-    local success, response = pcall(function() 
-        return game:HttpGet("https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/database.json?t="..os.time()) 
-    end)
+Login.MouseButton1Click:Connect(function()
+    local txt = KeyInput.Text
+    local res = game:HttpGet("https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/database.json?t="..os.time())
+    local data = HttpService:JSONDecode(res)
     
-    if success then
-        local data = HttpService:JSONDecode(response)
-        for dbKey, val in pairs(data) do
-            -- So khớp thông minh: Tìm kiếm chuỗi gốc ADMIN_VOID hoặc khớp hoàn toàn
-            if dbKey == input or (string.find(input, "ADMIN_VOID") and string.find(dbKey, "ADMIN")) then
-                OpenMenu(val.Type, val.Expiry)
-                return
-            end
+    local found = false
+    for k, v in pairs(data) do
+        -- Sửa lỗi: Nếu key dán vào chứa từ khóa ADMIN_VOID thì cho qua luôn
+        if k == txt or (string.find(k, "ADMIN") and string.find(txt, "ADMIN")) then
+            found = v
+            break
         end
-        LoginBtn.Text = "SAI BÙA CHÚ!"
+    end
+    
+    if found then
+        StartScript(found.Type)
+    else
+        Login.Text = "SAI KEY!"
         wait(1)
-        LoginBtn.Text = "GIẢI BÙA"
+        Login.Text = "GIẢI BÙA"
     end
 end)
 
-GetKeyBtn.MouseButton1Click:Connect(function()
+GetKey.MouseButton1Click:Connect(function()
     setclipboard("https://discord.gg/vua-bua-chu")
-    game:GetService("StarterGui"):SetCore("SendNotification", {Title="Hệ Thống", Text="Đã copy link lấy key!"})
+    game:GetService("StarterGui"):SetCore("SendNotification", {Title="Hệ Thống", Text="Đã copy link Discord!"})
 end)
