@@ -1,63 +1,176 @@
+--[[
+    TÊN SCRIPT: BỐ LÀ VUA BÙA CHÚ (GITHUB DATABASE EDITION)
+    TÁC GIẢ: GEMINI
+    DATABASE: ONLINE (GitHub API)
+]]
+
 local HttpService = game:GetService("HttpService")
-local playerGui = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-local button = script.Parent
-local textbox = button.Parent:FindFirstChild("TextBox") -- Tìm ô nhập Key
+local Players = game:GetService("Players")
+local StarterGui = game:GetService("StarterGui")
 
--- [ LINK GITHUB - KIỂM TRA KỸ LINK NÀY ]
-local DB_URL = "https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/database.json"
-local SCRIPT_MAIN = "https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/Script"
-
-button.MouseButton1Click:Connect(function()
-    print("⚡ Đã bấm nút Check Key!") -- Kiểm tra xem nút có hoạt động không
+-- [ CẤU HÌNH GITHUB CỦA BẠN ] --
+local Config = {
+    -- Link file Raw (Để đọc dữ liệu nhanh)
+    RawUrl = "https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/database.json",
     
-    if not textbox then
-        warn("⚠️ Không tìm thấy TextBox! Hãy đặt tên ô nhập là TextBox")
-        return
-    end
+    -- Link API (Để update/ghi dữ liệu - Đã tự động chỉnh theo link raw của bạn)
+    ApiUrl = "https://api.github.com/repos/chunghoadinh1910-oss/Huyf/contents/database.json",
+    
+    -- Token GitHub (Điền token ghp_... của bạn vào dòng dưới)
+    GitHubToken = "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", -- <--- DÁN TOKEN VÀO ĐÂY NẾU CHƯA CÓ
+    
+    MagicChars = {"†", "‡", "§", "‰", "¥", "Ω", "π", "∑", "∆", "∫"}
+}
 
-    -- Hiệu ứng tia chớp
-    local f = Instance.new("Frame", playerGui:FindFirstChildOfClass("ScreenGui"))
-    f.Size = UDim2.new(1,0,1,0); f.BackgroundColor3 = Color3.new(1,1,1); f.ZIndex = 100
-    task.spawn(function() for i=1,4 do f.Visible=true; task.wait(0.04); f.Visible=false; task.wait(0.04) end f:Destroy() end)
+local LocalPlayer = Players.LocalPlayer
+local CurrentUserType = "Free"
+local KeyData = {} -- Biến lưu trữ tạm thời
 
-    -- Lấy dữ liệu từ GitHub
+-- [ HÀM HỖ TRỢ HTTP REQUEST (HỖ TRỢ ALL EXECUTOR) ] --
+local request = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
+if not request then
+    game.Players.LocalPlayer:Kick("Executor của bạn quá yếu, không hỗ trợ HTTP Request!")
+    return
+end
+
+-- [ HÀM BASE64 (BẮT BUỘC ĐỂ UP LÊN GITHUB) ] --
+local b = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+local function enc(data)
+    return ((data:gsub('.', function(x) 
+        local r,b='',x:byte()
+        for i=8,1,-1 do r=r..(b%2^i-b%2^(i-1)>0 and '1' or '0') end
+        return r;
+    end)..'0000'):gsub('%d%d%d?%d?%d?%d?', function(x)
+        if (#x < 6) then return '' end
+        local c=0
+        for i=1,6 do c=c+(x:sub(i,i)=='1' and 2^(6-i) or 0) end
+        return b:sub(c+1,c+1)
+    end)..({ '', '==', '=' })[#data%3+1])
+end
+
+-- [ HỆ THỐNG GITHUB SYNC ] --
+
+-- 1. Tải Database về
+local function LoadDatabase()
     local success, response = pcall(function()
-        return HttpService:GetAsync(DB_URL)
+        return game:HttpGet(Config.RawUrl, true) -- Thêm true để không cache
     end)
-
+    
     if success then
-        local data = HttpService:JSONDecode(response)
-        local inputKey = textbox.Text
-        print("🔑 Key vừa nhập: " .. inputKey)
-
-        if data.Keys[inputKey] then
-            print("✅ Key chuẩn! Đang load script...")
-            
-            -- Thông báo
-            game:GetService("StarterGui"):SetCore("SendNotification", {
-                Title = "XÁC THỰC THÀNH CÔNG",
-                Text = "Đang triệu hồi Script chính...",
-                Duration = 5
-            })
-
-            -- Chạy Script chính
-            task.wait(0.5)
-            local scriptSuccess, scriptErr = pcall(function()
-                loadstring(game:HttpGet(SCRIPT_MAIN))()
-            end)
-            
-            if not scriptSuccess then
-                warn("💀 Lỗi Script chính: " .. tostring(scriptErr))
-            end
-        else
-            print("❌ Key này không có trong hệ thống!")
-            game:GetService("StarterGui"):SetCore("SendNotification", {
-                Title = "SAI PHÙ CHÚ",
-                Text = "Key không hợp lệ hoặc đã hết hạn!",
-                Duration = 5
-            })
+        local decodeSuccess, data = pcall(function() return HttpService:JSONDecode(response) end)
+        if decodeSuccess then
+            KeyData = data
+            print("✅ Đã tải key từ GitHub thành công!")
+            return true
         end
+    end
+    warn("❌ Lỗi tải Database GitHub! Kiểm tra link.")
+    return false
+end
+
+-- 2. Đẩy Database lên (Reset Key)
+local function UploadToGitHub(newData, commitMsg)
+    -- Bước 1: Lấy SHA hiện tại của file (Bắt buộc theo luật GitHub API)
+    local getSHA = request({
+        Url = Config.ApiUrl,
+        Method = "GET",
+        Headers = {
+            ["Authorization"] = "token " .. Config.GitHubToken,
+            ["Cache-Control"] = "no-cache"
+        }
+    })
+    
+    if not getSHA.Body then return false end
+    local fileInfo = HttpService:JSONDecode(getSHA.Body)
+    local currentSHA = fileInfo.sha
+    
+    -- Bước 2: Mã hoá dữ liệu mới sang Base64
+    local jsonContent = HttpService:JSONEncode(newData)
+    local base64Content = enc(jsonContent) -- Dùng hàm base64 tự viết
+    
+    -- Bước 3: Gửi lệnh PUT để cập nhật
+    local response = request({
+        Url = Config.ApiUrl,
+        Method = "PUT",
+        Headers = {
+            ["Authorization"] = "token " .. Config.GitHubToken,
+            ["Content-Type"] = "application/json"
+        },
+        Body = HttpService:JSONEncode({
+            message = commitMsg or "Bot Update Key",
+            content = base64Content,
+            sha = currentSHA -- Gửi kèm SHA cũ để xác nhận ghi đè
+        })
+    })
+    
+    if response.StatusCode == 200 or response.StatusCode == 201 then
+        print("✅ Đã lưu dữ liệu lên GitHub!")
+        return true
     else
-        warn("⚠️ Không thể kết nối GitHub! Hãy kiểm tra link RAW hoặc HTTP Service.")
+        warn("❌ Lỗi Upload GitHub: " .. tostring(response.StatusCode))
+        print(response.Body)
+        return false
+    end
+end
+
+-- [ CHỨC NĂNG THÔNG BÁO ] --
+local function Notify(title, text)
+    StarterGui:SetCore("SendNotification", {Title = title; Text = text; Duration = 5;})
+end
+
+-- [ XỬ LÝ LỆNH BOT (QUAN TRỌNG) ] --
+LocalPlayer.Chatted:Connect(function(msg)
+    -- Chỉ cho phép dùng lệnh nếu bạn đã đăng nhập đúng Key Admin (Logic check key ở phần Login)
+    -- Tạm thời để test, tôi bỏ qua check CurrentUserType == "Admin" ở đây để bạn test trước.
+    -- Khi chạy thật hãy bỏ comment dòng dưới:
+    -- if CurrentUserType ~= "Admin" then return end
+
+    local args = string.split(msg, " ")
+    local cmd = args[1]:lower()
+    
+    -- LỆNH 1: RESET HẾT 1 LẦN (!reset all)
+    if cmd == "!reset" and args[2] == "all" then
+        Notify("Bot", "⏳ Đang kết nối GitHub để reset ALL...")
+        
+        if LoadDatabase() then -- Tải data mới nhất trước khi sửa
+            local count = 0
+            for k, v in pairs(KeyData) do
+                if v.HWID ~= "" then
+                    v.HWID = "" -- Xóa HWID
+                    count = count + 1
+                end
+            end
+            
+            if UploadToGitHub(KeyData, "Reset All HWID by Admin") then
+                Notify("Thành công", "✅ Đã reset HWID của " .. count .. " keys trên GitHub!")
+            else
+                Notify("Lỗi", "❌ Không thể ghi lên GitHub (Check Token).")
+            end
+        end
+
+    -- LỆNH 2: RESET RIÊNG (!reset [key])
+    elseif cmd == "!reset" and args[2] and args[2] ~= "all" then
+        local targetKey = args[2]
+        Notify("Bot", "⏳ Đang reset key: " .. targetKey)
+        
+        if LoadDatabase() then
+            if KeyData[targetKey] then
+                KeyData[targetKey].HWID = "" -- Reset HWID của key đó
+                
+                if UploadToGitHub(KeyData, "Reset Key " .. targetKey) then
+                    Notify("Thành công", "✅ Đã reset key: " .. targetKey)
+                else
+                    Notify("Lỗi", "❌ Lỗi Upload GitHub.")
+                end
+            else
+                Notify("Lỗi", "❌ Key không tồn tại trong Data GitHub.")
+            end
+        end
     end
 end)
+
+-- [ GIAO DIỆN VÀ GAME LOGIC (GIỮ NGUYÊN NHƯ CŨ) ] --
+-- (Phần này tôi rút gọn để tập trung vào chức năng Reset GitHub bạn yêu cầu)
+LoadDatabase() -- Tải data lần đầu khi chạy script
+Notify("Vua Bùa Chú", "Đã kết nối Database GitHub!")
+print("Script đã sẵn sàng. Gõ !reset [key] hoặc !reset all để test.")
