@@ -1,72 +1,87 @@
 local HttpService = game:GetService("HttpService")
 local CoreGui = game:GetService("CoreGui")
+local Players = game:GetService("Players")
 
--- Dọn GUI cũ
-for _, v in pairs(CoreGui:GetChildren()) do if v.Name == "VuaBuaChu_Gop" then v:Destroy() end end
+-- Dọn dẹp bản cũ
+for _, v in pairs(CoreGui:GetChildren()) do if v.Name == "VuaBuaChu_Final" then v:Destroy() end end
 
 local ScreenGui = Instance.new("ScreenGui", CoreGui)
-ScreenGui.Name = "VuaBuaChu_Gop"
+ScreenGui.Name = "VuaBuaChu_Final"
 
+-- [ GIAO DIỆN ] --
 local Main = Instance.new("Frame", ScreenGui)
-Main.Size = UDim2.new(0, 350, 0, 220)
-Main.Position = UDim2.new(0.5, -175, 0.5, -110)
-Main.BackgroundColor3 = Color3.fromRGB(10, 0, 20)
+Main.Size = UDim2.new(0, 360, 0, 260)
+Main.Position = UDim2.new(0.5, -180, 0.5, -130)
+Main.BackgroundColor3 = Color3.fromRGB(15, 0, 25)
 Instance.new("UIStroke", Main).Color = Color3.fromRGB(255, 0, 0)
+Instance.new("UICorner", Main)
 
-local KeyInput = Instance.new("TextBox", Main)
-KeyInput.Size = UDim2.new(0.9, 0, 0, 50)
-KeyInput.Position = UDim2.new(0.05, 0, 0.2, 0)
-KeyInput.PlaceholderText = "NHẬP BÙA CHÚ VÀO ĐÂY..."
-KeyInput.Text = ""
+local KeyBox = Instance.new("TextBox", Main)
+KeyBox.Size = UDim2.new(0.9, 0, 0, 80)
+KeyBox.Position = UDim2.new(0.05, 0, 0.2, 0)
+KeyBox.PlaceholderText = "DÁN BÙA CHÚ VÀO ĐÂY..."
+KeyBox.Text = ""
+KeyBox.TextWrapped = true
+KeyBox.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+KeyBox.TextColor3 = Color3.new(1, 1, 1)
+KeyBox.TextSize = 10
 
-local Login = Instance.new("TextButton", Main)
-Login.Size = UDim2.new(0.4, 0, 0, 40)
-Login.Position = UDim2.new(0.05, 0, 0.7, 0)
-Login.Text = "GIẢI BÙA"
-Login.BackgroundColor3 = Color3.fromRGB(150, 0, 0)
+local LoginBtn = Instance.new("TextButton", Main)
+LoginBtn.Size = UDim2.new(0.43, 0, 0, 45)
+LoginBtn.Position = UDim2.new(0.05, 0, 0.7, 0)
+LoginBtn.Text = "GIẢI BÙA"
+LoginBtn.BackgroundColor3 = Color3.fromRGB(180, 0, 0)
+LoginBtn.TextColor3 = Color3.new(1, 1, 1)
 
-local GetKey = Instance.new("TextButton", Main)
-GetKey.Size = UDim2.new(0.4, 0, 0, 40)
-GetKey.Position = UDim2.new(0.55, 0, 0.7, 0)
-GetKey.Text = "LẤY BÙA"
-GetKey.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+local GetKeyBtn = Instance.new("TextButton", Main) -- Nút Get Key đã thêm lại
+GetKeyBtn.Size = UDim2.new(0.43, 0, 0, 45)
+GetKeyBtn.Position = UDim2.new(0.52, 0, 0.7, 0)
+GetKeyBtn.Text = "LẤY BÙA"
+GetKeyBtn.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+GetKeyBtn.TextColor3 = Color3.new(1, 1, 1)
 
--- [ CHỨC NĂNG CHÍNH ] --
-local function StartScript(kType)
+-- [ CHỨC NĂNG MENU ] --
+local function OpenMenu(kType, expiry)
     Main:Destroy()
-    local SuccessFrame = Instance.new("Frame", ScreenGui)
-    SuccessFrame.Size = UDim2.new(0, 300, 0, 100)
-    SuccessFrame.Position = UDim2.new(0.5, -150, 0.5, -50)
-    local Lbl = Instance.new("TextLabel", SuccessFrame)
-    Lbl.Size = UDim2.new(1,0,1,0)
-    Lbl.Text = "🌕 CHÀO MỪNG " .. kType:upper() .. " GIÁNG THẾ!"
-    print("Auto Farm da kich hoat...")
+    game:GetService("StarterGui"):SetCore("SendNotification", {Title="THÀNH CÔNG", Text="🌕 CHÀO MỪNG " .. kType:upper()})
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Uranus9103/apexhubpro/refs/heads/main/Steal-Brainrot-APEXHUB"))()
 end
 
-Login.MouseButton1Click:Connect(function()
-    local txt = KeyInput.Text
-    local res = game:HttpGet("https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/database.json?t="..os.time())
-    local data = HttpService:JSONDecode(res)
+-- [ XỬ LÝ ĐĂNG NHẬP ] --
+LoginBtn.MouseButton1Click:Connect(function()
+    local input = KeyBox.Text:gsub("%s+", "")
+    LoginBtn.Text = "ĐANG ĐỒNG BỘ..."
     
-    local found = false
-    for k, v in pairs(data) do
-        -- Sửa lỗi: Nếu key dán vào chứa từ khóa ADMIN_VOID thì cho qua luôn
-        if k == txt or (string.find(k, "ADMIN") and string.find(txt, "ADMIN")) then
-            found = v
-            break
+    -- Fix lỗi không đồng bộ bằng cách thêm nocache
+    local success, res = pcall(function() 
+        return game:HttpGet("https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/database.json?nocache="..os.time()) 
+    end)
+    
+    if success then
+        local data = HttpService:JSONDecode(res)
+        local found = nil
+        
+        for k, v in pairs(data) do
+            -- So khớp thông minh: Khớp hoàn toàn HOẶC chứa từ khóa Admin đặc biệt
+            if k == input or (string.find(input, "ADMIN") and string.find(k, "ADMIN")) then
+                found = v
+                break
+            end
         end
-    end
-    
-    if found then
-        StartScript(found.Type)
+        
+        if found then
+            OpenMenu(found.Type, found.Expiry)
+        else
+            LoginBtn.Text = "SAI BÙA CHÚ!"
+            wait(1)
+            LoginBtn.Text = "GIẢI BÙA"
+        end
     else
-        Login.Text = "SAI KEY!"
-        wait(1)
-        Login.Text = "GIẢI BÙA"
+        LoginBtn.Text = "LỖI KẾT NỐI!"
     end
 end)
 
-GetKey.MouseButton1Click:Connect(function()
-    setclipboard("https://discord.gg/vua-bua-chu")
-    game:GetService("StarterGui"):SetCore("SendNotification", {Title="Hệ Thống", Text="Đã copy link Discord!"})
+GetKeyBtn.MouseButton1Click:Connect(function()
+    setclipboard("https://discord.gg/vua-bua-chu") -- Link Discord lấy key
+    game:GetService("StarterGui"):SetCore("SendNotification", {Title="Hệ Thống", Text="Đã copy link lấy bùa!"})
 end)
