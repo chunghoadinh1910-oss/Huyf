@@ -1,1 +1,42 @@
-{}
+{
+    "MARU-E508D225": {
+        "Rank": "ADMIN",
+        "HSD": "9999",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-E3DB8315": {
+        "Rank": "ADMIN",
+        "HSD": "9999",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-9A9DAB36": {
+        "Rank": "ADMIN",
+        "HSD": "9999",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-1A581D29": {
+        "Rank": "ADMIN",
+        "HSD": "9999",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-CEF9241B": {
+        "Rank": "ADMIN",
+        "HSD": "9999",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    }
+}
