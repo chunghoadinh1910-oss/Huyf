@@ -1,1 +1,4002 @@
-{}
+{
+    "MARU-PYVGB-ZMD3QH-UBZ-GYZCY-PO9EU": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-5QIRH-6BXF98-RZT-Y343S-5E26Q": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-77IIE-TRDQJ2-5F4-YZP6R-07AX7": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-PNDCX-ULSWOB-9L6-5WT8E-H5C8K": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-N7KEW-HD2NXB-MZ5-YIRO6-4TQSQ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-2O5IE-ULUFHK-TMD-OWLRP-2ERHA": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-F9SDU-8JSRXN-MA5-LUXAH-TZDYN": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-WDM6Y-5Q2NKQ-SR3-Q0HIC-JNNRN": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-971XX-HOTOIL-7XB-GGH8S-GZLAF": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-76W3W-RTQ5O6-FJ9-LC3JO-PIX2M": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-VZC6S-8F333P-3WD-L1A6K-UY2UL": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-BZULG-W1HHMM-CA0-YJN9V-R83P4": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-31OXK-4S81JV-E4O-QDYVZ-Y6SHV": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-195Y2-BH59P3-ZEG-9W32M-S4R8X": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-MLWU4-XA6C3B-048-HB4ZR-N20A7": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-A2AP1-DE4KV0-4QP-PP0RT-IB8EU": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-B2YQR-YT12XQ-ZN4-BP3CN-Y2BA0": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-DPZV9-H4MAJL-3Y4-AYXWL-G7VO0": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-73L6G-Y2FNEN-0F0-7OB8W-15BMY": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-TZ8Q6-509Q28-34C-6D6R5-17LST": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-LMAIG-5IDWF7-I2H-VBS30-PCKNZ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-BPP1E-UFTI9X-7RO-IUWDG-A5VV7": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-1OYHT-TJRWKZ-OX1-K3951-LE4SG": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-2080J-H5M6WW-I5A-SP5PP-98VJZ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-9K3QF-NQ8E8X-I2B-OQLU3-A6TDF": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-0C6VL-GEJVE7-SG2-P574Y-NZ6LT": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-WGQ0V-JB09WK-S8A-BUXZS-DQ1EG": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-LB8AQ-T00PDT-ROV-X8WAJ-IED6W": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-VXOU0-Q6451W-C6X-JKA34-F1OMF": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-EW9I6-O1JJ3G-P2W-P0JOF-NS1GX": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-B2TEG-VCLX7G-XTA-VTF4O-S0RMT": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-24967-GXYGHU-TDS-GMKUL-ILRAR": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-QKFRH-LZ5LDQ-8HN-KVX9K-YTTII": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-ZJSEG-SAYNNA-US1-IJE3I-JV2TY": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-P0IQ1-68EX6W-K53-O3A93-DLY3L": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-ZO9L6-QN3KYZ-GCO-JTE8R-9KCD3": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-VD00O-OIH4P5-BZS-FR7ID-VYWO0": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-UAGZT-0BT48P-LLH-RZHWR-BSOGK": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-A8ML4-1JV0DB-PGZ-TJURL-X24YQ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-RBONF-SLM4VR-YAE-3V9HU-E79MI": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-GYTKU-UF4F0C-PMJ-YKI9H-AY3AC": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-72UH1-8PHQ16-NHW-FHDNP-I30SH": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-K96NF-95Y27B-1QO-1GXTP-MQYJQ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-IH76R-UQ8DLM-FEM-L2TBJ-E2WPY": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-PW5KF-R3Y9R0-PYX-4GX59-OCVYX": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-VT4WK-XWQ305-123-37D1Y-QS7TG": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-96U7X-I34S20-M73-R4VEQ-B05P4": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-JH0OD-4MZSBX-1ZZ-PLLPN-NZIMS": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-7AM44-SQYV9I-5WC-SGFSG-OI2U5": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-0HFLM-G9U4QN-9VG-903IV-GJBUL": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-KFKXK-4IVNZ2-1E7-0KXHF-1SLX8": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-VO534-I7OMOQ-GIU-S0M0X-R0WQ6": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-TCRKT-2N0B5J-VXD-ODEYQ-0UHOY": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-TCK6K-QLRSIT-ENJ-R2BWW-35L8T": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-RHV56-I2QC1G-Y5X-T74V2-G8D73": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-RHWEQ-IR643C-GWP-W24ZP-EPZP2": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-47B5B-CV1OMB-DRU-IDF9C-JQ163": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-33W25-W6LUX0-RV6-WKRS9-5SYQT": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-1BM7A-XHYAMA-IUU-4XVGJ-AZZFW": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-PBTVX-VUGB28-W9F-58FDP-YN3OP": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-XPPVQ-BKI18G-4NE-SRB61-NXNS3": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-DJ6SH-2RHJFY-V8O-GM9HV-UKB05": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-X881I-EAKJGK-ZE2-6YP74-5H1UA": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-MRI4F-36OC3N-1PK-SQM3S-0XOC0": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-RI2HU-7LE7WH-03U-C8J1I-SQED7": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-QFY5K-AFCMVY-A6W-9TT63-O8RA3": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-2P9CH-0UFEDN-BNO-ZRG0I-WS495": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-PH81N-7C66R3-0BN-VQJXQ-YFVUN": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-TAHOU-S4J08X-FT6-A740P-YA9M6": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-FRYSN-IIU3U9-G6N-YRUFF-NFIP0": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-TOD4L-KYXF1U-XRX-2K8XR-N9W1W": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-CIKGT-74M3CS-I08-Z36QN-6ON7O": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-LMAJ6-REGUP4-L3P-H2NK7-U15XU": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-E4ZCC-3GXKUX-I9O-7FNLZ-6TGRV": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-12FA4-5HBT4V-01X-6FAC9-XUNCD": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-5U38X-C08728-921-PAM1F-UA5ZS": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-7IFLT-IPQNMT-S3B-PUZT4-QFEBY": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-PLHX4-68F8LN-SBI-RGYBS-9106D": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-4LFE5-OAI6QU-L6E-7DOZD-UIV7H": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-BI5MM-TVWURN-9ZV-VWC1D-8PY7Z": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-R75PX-148E0L-PY2-GFXNW-O0JV9": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-4D1FI-RO6PG1-UH0-XHU3P-PAX4G": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-5Z1WL-G1A6HV-9DZ-AWVDE-K158H": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-UZ3A4-85CV7K-FRK-1P7U8-99024": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-ZHI5B-3R9SMV-OJZ-74CRR-RR8VQ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-M9RIB-91AQG1-EZN-N6HWB-LDHYC": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-H6927-CI3YE0-IFN-GAJIK-WCJFY": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-XLJE4-SF7PT3-TUR-VFX40-5O6M3": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-FZ39J-4IUO4D-EPO-GCD22-A0S60": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-MD0A3-RMJW9Y-IKJ-HIENG-GLTVY": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-Y3HH2-DBFR3Z-T5B-0XHBF-ZVATX": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-V8M1L-WZK7D9-N17-ZKTKO-6MY7J": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-5RB9V-UEFTBO-F22-JH4Q5-CCHYD": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-EXFV3-N2EQ5T-N16-D1LLF-TW3XE": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-Y28BG-FI4ORK-YNN-IGA06-25BPX": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-WRNAO-8WKWJ9-30T-ZEGKU-QRLDN": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-AINN9-IIJFNV-9PX-STBSF-3SBZ1": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-EK52M-TAXS63-Q8T-VNJ6W-MU7LV": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-L8U6Y-R01E5H-5CF-UV338-LRXIB": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-XDMA9-4W10X1-85H-RXB1G-VJJ82": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-CHESO-U7RBQ0-N39-Q8DWN-VOPR6": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-RUHT1-HDJ5I9-R7D-3RAPR-HGWZC": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-YP500-I9TMMA-OXY-3OEP6-AA0UU": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-7Z1RF-H77YXW-KIU-MHML4-V2VHU": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-7PUNH-T0FVH1-MMN-6X4GP-950J9": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-9UWF4-GDS9IP-9VS-NNBK9-DZKG9": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-Q2OU1-01DM6K-GVB-HR81H-FTO4B": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-XL8M2-WE6D4J-KZ0-F47NO-F28LH": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-ZUHYB-7W4QZD-HNH-5TI6L-R05J7": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-GWZZN-BPHJJ2-CHQ-U1G3D-UFQ0M": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-A5Z7V-RBWTF4-8PI-2Y8RQ-H0REY": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-MKQ60-FQJ2EK-0XZ-H1MGJ-BB8ZK": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-K5ELI-TX52B3-RFP-7LDIK-5H3JD": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-GJ4QR-YRXFQT-T7F-VHUHX-BC94P": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-434QJ-D7M52M-298-LANKP-Y4L6F": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-X8XG2-OCFEUC-GT3-0TA24-8OKF5": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-KQ4TR-DKRMPH-QAP-EG6PF-BED6Y": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-6C7P1-MAXIII-0BC-25GMW-SIQUX": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-K0T1B-2UJ5B9-2Z9-3PPBB-1JDQO": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-PF2EO-FENS5P-9CM-VZS3T-VBVL2": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-AYEP5-LJ1B72-3LV-C9YMD-WRXR3": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-IXJFD-3O97BT-UUS-8R0FH-ZGVO8": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-6IQSI-MAK3EZ-1JH-ORLQZ-IPAH0": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-T9Y0S-XBYD9P-JYW-R8O2G-M5DS7": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-O6D9L-93IKPJ-Y5X-QOV33-9GZZA": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-KSB3J-7W0872-N6S-HET9A-DWWFV": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-1AD8U-FTHO4R-DHV-VB67Q-3912V": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-H499A-T4BKEP-RKB-CFG0K-MR41H": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-50UGF-S9KRED-PUK-449HL-PBN57": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-VMDPM-657543-VAH-47KRG-ZRW03": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-7VG58-95170B-3TH-84T3O-HPGBS": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-7ZLY0-1IM0F4-DKW-L4AOG-43YWY": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-HPND3-LQEZMG-1VY-VQVK8-V7MOU": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-TYD2L-QRY9S9-98P-SMO55-SYB44": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-ERAOM-E8GRJU-HTW-BJ32Y-5T8G0": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-AB3G3-447YS3-3O4-2QEZX-ECFKO": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-CZ5S6-WTVHEU-6G6-PDPPR-3ESJ1": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-LXEKF-5E5AEJ-HDD-YXH7H-G6GQ0": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-DZDWI-Y3TQZA-RQ2-WVUKA-F4QM7": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-0CIKC-SUXXBN-9R7-N602V-XYUUK": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-V1X84-2E5MGK-XR6-I9WUQ-4X2FJ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-8UJFB-UN6ECW-PXS-O8TUE-URMEH": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-L7BXC-GPTFBY-THB-IL0QE-OFD2D": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-Y879D-SH1J1T-C17-RSLY4-FA876": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-5M40O-RX9634-PWH-7ANO4-KO06V": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-9MSCD-6MI1LN-L5X-4DWL2-TZHEZ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-CLO6N-7NWTPG-Q2R-KQJC8-ZCDC6": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-I1DGK-1YZKTJ-O03-05W88-2VOPU": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-TGYA8-ZALGOO-2QA-IHEVH-YFDFV": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-HSYVU-01U758-IIO-3TLSR-GKKKT": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-6MDDT-GEKWE8-O44-ONAXA-E6ODI": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-CVGYN-ALB06W-4TS-R68TO-XAX6T": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-O6SX5-U8397L-EAW-0D0NY-W5YKK": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-AD7CO-YWHYK9-VYK-F4PWY-4OMWD": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-5O05S-P1JQCY-HQR-ZQ70I-YCW2P": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-1QXXY-DOQTHX-DTD-8M5UN-WLQEW": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-WQYTI-CSBSZW-N0Y-61WPW-MYPTD": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-3BGZ3-12BQ8L-BKW-CHM27-TT6IV": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-NIX13-IELYXT-FIH-HNCAB-ZC665": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-23PC5-LLQ8RY-VQX-O3UJ7-W4124": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-CF4JD-3OB7WS-VL8-UUI71-7ODBP": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-6JK5Z-S59JEK-GR9-YW2Z0-O42MP": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-G7GG2-U4XHT2-1L2-W5RLY-WQXM5": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-2OKXU-2MSWJE-8SA-1NKA6-NYQ7X": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-LC1B3-5T3T3B-BW6-U7LXZ-6OPEL": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-CJFSP-H1USZ6-FJ1-UX8GW-CP30Q": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-JCCTW-V466V2-ONQ-795YO-D9B72": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-IN0US-AS5M9L-43O-0VXH0-YX1F9": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-8VQ3V-62ZC5T-VG9-FQGR7-5FPI5": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-TE689-1BA75X-B3Z-U8ETU-98HDJ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-KUJTT-W6UDSO-FHZ-O73RY-AN9PF": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-7J9UV-G17RZN-NAK-U1CN4-MJ8N2": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-WBLME-ZNLIMP-MKY-WRWTZ-AR1K7": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-G9A0D-CE6CQF-9UQ-BE6TW-YZF5U": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-6X06B-12ATXB-AV4-DJ4FA-I7CQL": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-98K3F-MB0GFO-XFG-BE35U-03EIJ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-30D8N-ADMG9E-2F2-2MTTJ-FC6SV": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-RSL30-YCRFT8-OX7-6K7UE-J3EJQ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-S23CR-A3XMZ9-4G0-ASH74-8YMN2": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-YJA8H-NQU0WT-6RU-ICZ9G-DAKOI": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-86370-V9NJ02-W9A-SK5VP-JO2NM": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-DNENF-TCMHBS-6EE-AWAH1-BY46P": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-QCE1P-6MN4IN-HX0-1AW08-RGY9I": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-VTFSU-3IQZ71-MSR-SJ20T-PJO7Q": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-NGK7Y-U26MLV-7GS-ZXBOE-F6DJ6": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-DWEG7-UKJLMG-24S-74YFT-ICF1V": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-1KAMK-SPC42H-XOW-BTBBY-MNYZ5": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-Q8001-PH6FMY-TET-VSGZ0-NK3JT": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-U4U2T-CUU4V7-GU3-44YN8-704MN": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-IA760-UWFR8V-JCS-KKXLW-Q5KR5": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-V4BAA-NY94KG-WTU-GD6B1-53KQ7": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-3Q4FX-SHFVPR-QJR-LSSWA-LNFWA": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-D5FR5-5093KT-HU9-XALV0-QLKWD": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-6NEAG-2WX64M-J8Z-8TVQJ-37OCT": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-RFK20-4B01XE-UE1-HTL29-0FBTT": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-KMYBE-GM0APS-MBQ-XJOXW-DU8NR": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-JT17D-RU037H-QBW-LV4AY-XZIWZ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-X0K5T-VWGKSL-8QG-FI37D-DOAFK": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-7SD07-N5HA1Z-KKM-JW2NU-2UPMT": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-MDTZ3-IL9W7E-GE5-GEAHZ-1AVQU": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-MKXCF-8V1RQR-M6D-BO91O-ZOJLU": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-TOV5B-1YQ2J0-T4B-GBKTL-Z1RBK": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-G8LSU-GN08AY-XJO-614ER-2OU6L": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-AIVZR-DRAZ3Y-132-Q3Z5U-2V2GC": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-DRLUB-KK8JBS-YQS-FRY1W-81ZL0": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-QKNCD-4A3F9R-0KM-95JK8-ZA7VC": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-ATEX8-5F3FRP-M5X-2OCN9-SPUFA": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-YI32Q-HFTRG1-SRR-ENJPO-NUNCH": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-YQHO4-BOQDXD-27D-97OBR-WPDHR": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-QVSRR-IWHZW6-GIZ-8UXH4-O6IJ5": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-6IQUR-BDE6AO-C7U-FJPYA-HM0ZY": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-KB7W9-8VPW9Z-5O8-Y5BY2-1O73T": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-KK3R6-8962OY-HN4-R2HQX-SCTVM": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-9SKJ8-US8OAH-8GY-1861F-5LPKD": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-C27MZ-LAHBHR-7VM-WVNJ8-25AYP": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-BT1GB-31F2MM-RWG-C91FA-BTRMS": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-KRK4R-I1B8N0-77P-1MADY-8NVDE": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-0EA0C-IQ2I5K-L80-3KS6J-NN3BB": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-TFEVW-U58VKN-ESZ-0G97H-3IAT7": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-TBC34-XMVQCT-39G-V21UO-G2R61": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-LN2A0-M97A4A-E07-DDX70-MLYR8": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-Y4IV7-QV5787-ZS5-5MAC9-SHGAQ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-I70ZW-7VT22Q-28R-KMSQ5-P67E7": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-K4FRJ-8F01C8-14W-IQ0WD-6KFXW": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-C7VCU-YX8MPR-MUX-B6DLU-S4R4W": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-QX7O7-91B96B-CZT-UECDO-S949Y": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-WO0PU-RWJ8QY-J4W-4ZXHU-WLWWP": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-DO2IK-RH1W6R-MYH-62EJY-VAK5R": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-E5Y10-5INGDN-WFW-TCH8X-BG76H": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-UKK1U-D3N5HZ-5ME-X8RCA-7E5X8": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-1X72G-15ZOHU-FGF-M5PR3-E6ZG1": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-HARNI-XI3JAU-GJV-O81HT-81UYY": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-GA55P-FPFLA6-KHY-R2AHX-TVA10": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-3E72J-22AUXJ-2UG-2TLXH-UUUED": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-YAIOG-RTIHQN-QX6-4POWM-NTDY9": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-B44UQ-NBSTGW-K5K-PV44S-U7ZIA": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-OSKYI-C8RY1Z-RXV-WB708-PGWPA": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-582PZ-QKMPGT-X2I-NXQRV-D7HM5": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-WPB8X-L1FV4M-NEG-V5WK3-UMHHF": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-F9Z0A-PE5435-1J4-NEOAS-Z478E": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-R5AZJ-EZDSHJ-SN2-X6TYH-QJXB9": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-J85TX-GKYZZB-M50-GA0GP-21IZ3": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-NLPTR-3OOU41-PUN-F58AD-P4EOV": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-IACDL-6038K9-OCF-SH7M4-811ZN": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-BKN75-9U5SQY-G7Z-16869-PDJC8": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-ZUYSI-11OY5W-BR5-CZ4XY-10Q4N": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-KRJF2-80NKW0-YGA-GO1PJ-MWOXX": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-INR2W-1HLKK2-VVG-M3VXK-TW5RW": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-PZ1QD-FXK5J0-9D8-7MBNL-2SDCY": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-TEI8N-CXC6GZ-DXP-E5QMW-T799C": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-J85KU-VC737P-ZLW-1Z9XR-ANJV9": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-WRFF9-5AEU92-R3Y-ZW9KH-Q8NGL": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-N378N-U3M7QI-ZCE-ZC6UE-IS17Y": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-8L9OH-OZ2Y62-A59-KJY50-N0IMA": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-X341Z-E7BZ2N-DG0-XAEJY-MYT4G": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-0HBY9-KZINHI-XZN-L4DPB-NV0EE": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-Z6YX0-NCFHFZ-WFR-R0OLS-OQ6PP": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-N17Z4-75EF5Z-L6E-HOSMG-9DLLQ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-801VP-UFD9M8-PP0-UZJSB-WUBDY": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-E96EY-C8MRU4-0TH-3VKE0-U32QX": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-705X6-7DIHN8-4O9-HXVO6-70NRR": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-ANC0M-YWVQD2-YZB-C20U9-2DA81": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-43X0H-6TDKO8-B5M-JZO63-L2GHY": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-E07C3-E8DX9W-ANA-O6EQI-HGUZT": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-RVMWY-E1Y1B3-C23-XFA70-X3FMA": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-PFJO3-4UB6FC-ZBI-PM466-HBFQ9": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-U1SU0-Z09DO8-F7I-BOYDV-S2MLZ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-P2PIB-31MG04-YGF-B1ZBD-5XH6D": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-PJR7Z-F3JJZS-OTE-LEPFO-A5HMI": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-UHHQT-33H3XM-VGT-MZBZL-U035G": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-2Q33C-38M3HY-MX7-THSQE-JPIPQ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-3JBPT-UQRQFI-GZ1-MJH18-NETDU": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-X23YW-XI9D56-KRN-QGSZD-MGK13": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-A9541-PJINWJ-JCT-9QULW-F9XAV": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-XONBK-5WIQD6-4IO-G1SZF-89G9X": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-22B3Z-U1KAGX-K35-507WJ-BGUPA": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-RMJ2D-2J0G1S-JEB-44ICK-I5VO6": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-YIG69-TLV11L-QT2-9L653-Y9338": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-J45LX-87OEWR-FH9-RYEOK-B6C0D": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-OVANW-9Z23W7-KZ7-JKL2D-U1GJD": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-9F3BI-EM71LR-1C7-CU6QL-C95V5": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-W7EUP-QXNESP-WM3-7RPO5-WFIT3": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-ZNPGC-ZFOQIH-PWW-JLJ74-ZNQVX": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-BUAON-2CZDJ7-JKN-GU6JK-F4IRO": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-4C3ZV-HW12G4-5S1-DUDMZ-7SG0T": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-9NHC1-OQTEQE-TWX-X5GIT-7OGFW": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-KVP2K-5CDBF8-QW3-9C68Q-OJHK7": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-7RYE9-LCQX0K-G1S-NK319-5S4Q3": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-1ILGA-1ZEDUK-BX7-8LSP2-62GT6": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-ZBC5J-K18IJZ-POZ-0LIMW-S9VZK": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-DME57-CHWVGF-0IY-EY0VT-U8T9I": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-YIUHL-HK13SA-NYT-HBB11-SLX8U": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-11I41-5R1RVB-554-EWAX1-45GX6": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-K83OK-7ZRMJR-DA3-SX1YT-3CASQ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-6BZ8M-11CQR7-0GG-Z6G24-C9U4H": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-TWOCI-ZEL2KU-IW4-5KFLK-5VOKP": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-1Y0ZI-3PRI0V-O81-FDEQA-H9V5T": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-2BQ4B-ZQG7X0-R5S-N1RYA-78X1R": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-TOWK0-AI1ERE-LWU-3WHFE-TXUNB": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-41TGF-Q1JFA2-2TJ-I00BB-YRQ35": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-H9LTU-8AZ7H4-L8F-4YNF3-SMP9N": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-WUAVQ-EK2AY7-0OY-JFOZ1-0JZP2": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-IJN5X-O0PDAQ-8LF-WDE6I-3ZR7Z": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-USHN1-OU49WG-51C-KTKFT-1HZ9C": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-V35O1-EHSGGN-VUX-REMIY-R6TB1": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-KDV8H-H6HUJZ-XQ9-LJFA9-8KEYI": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-59HOL-413XZF-UJY-L8XXV-6TCJD": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-PVSWE-6Z3PAK-RVG-NESP7-2QR70": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-SCOKS-UNP8GB-3G2-KAQWP-MZLE6": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-2KKLH-XV0LLW-EVR-H8Y42-YK9O9": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-D7WYX-VQ18NC-YFF-M66A2-DYIHA": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-OVYDK-IRM66W-BS5-5KEZC-Y6PLW": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-C6MHP-N2CKJU-XHC-JB0FO-I6D4P": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-T9AUE-GD22AJ-802-J9ARY-BD0UW": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-NAMS9-BKZWTT-WEX-ZTBMY-SR66R": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-1MYYS-28D4K0-OWG-XTK1D-4NJK0": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-LEVE3-6423IB-6UY-MJPCP-3S4DB": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-4GDAI-3WD5MG-AN2-QKBC3-WJOGQ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-I34AL-NACQ87-XOS-OS1LR-8NVW1": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-SCIVS-S41CAZ-WQD-1RN9S-UKWES": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-YVL0R-TLR5X5-8WQ-R4FP4-MVUDH": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-KEIWV-FA1OBI-GO5-6OE77-5Q0DM": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-NP8UG-1MICTY-TXU-R3EV4-GSDFM": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-S73CV-0O6NWU-9IS-WIHJF-ANFPK": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-IJ533-AQCFJ2-JAH-JCJ4D-8C93S": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-PV38O-D0JOEU-JGZ-3HLTF-7N0PW": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-D123H-1XHZQ6-N1H-7H4TP-LWYQH": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-VYZ2B-HTW320-JE2-JYQIF-7FXWI": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-WO1IQ-EONUII-95N-TG3JF-5NOHC": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-RANAB-CHA7EY-32U-PZFWP-UC2CR": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-X5HRR-ED3S40-64J-PTIHQ-1RXOP": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-WQCBG-TIM3CF-1XT-3N5YJ-E92LC": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-OATDW-XIRIWZ-ZT8-PDAMS-QLNDS": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-0H69J-HCI5EN-BNB-EBBZL-VYCRN": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-DZE7R-U6OR5H-8U7-Q9JUA-W7FJ8": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-FJ6M9-R3QFI8-ZHE-4IC48-JS7IG": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-882BH-YR73OG-KOK-MNK3X-T2CPU": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-CZ9ZV-XXUIW6-BJ0-KS401-8BOSR": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-SBS3B-W9W2XD-8VW-CO98S-N26AI": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-9C5NB-8NV7OG-JZJ-0BKYC-FFXBR": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-SOIYU-F48W8D-ZZW-KGARU-EGVHK": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-HE4LV-DXHZ5G-F8J-UUJGN-5KPL3": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-BXN11-LCIZJD-39Z-65V1E-46SFS": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-065WA-L4G684-8PD-KPQOE-7YOHF": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-U7653-MKUPKC-071-2NCIP-OY0M8": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-PC575-GC3VNB-AKF-5S9AB-1FNI0": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-4HCBZ-Z1CTK3-W61-CW3FK-3ZTW9": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-ILR36-YSBAMX-R9X-GDRGU-OGUPR": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-WPPJS-WIVZCW-RUF-C7SDT-SUDOX": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-9Z3NP-V1ZKCF-S71-KVPH1-NUU24": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-BY3HA-9VI0JZ-3FF-PQ1Z0-5AKGI": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-SJL1S-17TTJP-URV-XEN4I-U9V7X": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-TJRA4-FWZK8B-UYV-7L28B-6IDU2": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-CF79S-CPP69V-C6H-4YCVH-56SU5": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-OPWYK-RMW9B1-1KA-NIW4I-XU7JD": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-M5HUW-P7Y40E-ORQ-LA9KD-VKKON": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-S9VWW-E7OZBV-89R-APRGV-EWM6M": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-K86FB-SKY1JI-KYC-EYM55-9WERA": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-O1Z07-P2ZOID-WGN-46ROQ-77OXN": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-ZL9FU-G2I7JJ-ZGT-U8DL6-KO59S": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-UPF78-FIJHOW-CY0-FX7UF-45GVH": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-97RN3-U09ZY5-LKH-8KYXV-97PGP": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-ERZHW-O3RLIP-R92-X0D4V-3VC4R": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-UQLL5-7DTXBC-RL7-2FR45-X511D": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-YSC0A-JD5KSO-G4C-76D24-LA1NV": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-2R7AK-1PJRWT-XTY-SBLHH-LU5W4": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-6P422-E9MSK1-67T-MIUF7-KIM46": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-11NGO-O2QMGU-GF0-YUTXA-523VP": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-RUQQ7-3OH8V7-NER-D3BOC-F485R": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-KMRNV-7QYAQT-2GE-41GYP-O113C": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-JGCOK-JZNNVC-99E-81BJ4-4WZMP": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-5PSRC-M1HITJ-QAK-12HC7-KLGHB": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-JRX6O-83D7XT-LXY-C7MJL-17RKX": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-OU08B-OZY0KM-YXC-6631W-UOCX1": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-CLSXW-3GBEPA-3QO-7EPJN-RQBR8": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-5MXF3-C96CAK-CGM-YXIVA-Q2SBX": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-6SK73-Z4BTGX-LFP-4TVK6-PRHU7": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-7LDI9-JKL6X9-93Y-JWDFE-8J06N": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-WTUVB-IKFJ6Z-JH2-YCU2B-3MOGF": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-LQ3FW-PCQTLG-PJV-49IPX-5FE29": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-RGEYJ-A73GOX-PUK-WA0L4-W2U12": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-74HTK-8ASTK0-NUB-B6NO0-PWUIF": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-YN9NV-YNANJ0-KB1-915V5-BD6LX": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-UJLRW-2I4V2O-WX1-4B0AP-Q169R": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-FIY8I-WK143D-31E-X0CRT-HJ7FZ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-0OU6P-NSG9T4-L4M-O7C31-DDV0S": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-LQ2D2-HY5SKJ-MSJ-4Z41N-XPE7H": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-RHWXX-CD6DGO-NKW-GBFXC-IQ3IC": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-3BATZ-IZ41EO-8UE-GWQU4-510GW": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-YQKJM-SQ0GR3-8G7-786F2-4B04Z": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-WZQYM-B0CVI6-C97-NZKZL-3QPHN": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-0CDFD-VQAFP9-ETD-2VUOS-OKPV4": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-LKOK3-KK3BAB-LSM-HWQXI-047WG": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-502DB-5YPPRD-27W-4LUFE-YBVIR": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-ANTC0-623VXO-VZV-EW6QE-DW8D6": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-A23GL-GONFPS-G07-DMII0-EM8HT": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-ZCSHG-3DOWDJ-OUB-JA9Y5-LYW5B": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-WSYKB-905RO5-1Q6-JU9YB-MAFB1": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-OAZPL-2WSFJF-XQT-SOLUT-M0HGQ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-QGSZU-G4J5SD-Y7W-4T9OY-LFO8O": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-Q9T0P-LO9UF1-QYR-F8Q9H-YME0P": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-2PNO2-AAI4AP-G08-OBAWU-E5P0T": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-O3MZA-LVSP84-ZXJ-G0BLH-PU8RI": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-EQ3JW-3Z0ZCZ-LTI-7M4AJ-5PUOD": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-QKHJK-8NCIVA-6PA-5UR0Y-YSFY4": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-S4C8A-YP0AIR-6MS-60NL7-R18VF": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-MGG49-9JSX0D-9DM-FZ1O8-8TCFU": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-Y9L7R-QBNR8E-XPN-CHNKQ-LZXPS": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-QF1JZ-WC7LIO-DHY-BW638-5HZCP": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-9BEM1-GPNPVH-FMQ-I9DGK-HBJL8": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-84JT7-0RA010-RMZ-A0F6J-UP11K": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-BQVTB-29SOXS-H3S-9VF4Y-O8YCI": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-ATZHU-3LY3X4-DBG-0DPFR-19CZ7": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-6NIKN-LHDRW4-2YG-SXRFF-6IQDH": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-7FA8O-MI95I9-TCG-QG8OM-FGQTU": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-EL9UR-PXRIZN-X2C-Z8SLM-BDCBG": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-RUBZV-1ZLPHC-3YV-PQ5JE-MTLSO": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-BSWPK-BLOYHV-PBQ-EIN2X-3XJTE": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-42AXO-DMZJ3K-ZJU-18JOY-RKVD2": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-BFMPY-FA38QQ-FDM-W2YWZ-VC3VN": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-B28VN-FM60F7-CFE-93HKQ-15904": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-H16Z6-0QQB5L-OGS-L1D1R-XRQ5C": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-X3AWL-9K0BCZ-FD2-JXXML-5RFLA": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-DDWGY-J4ATYR-ORC-CDEWO-8ZIO7": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-SYFH9-A7GF2R-IUT-9IYAT-Z1N73": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-3UKZO-N02W8S-78Y-RVC9B-1IDKE": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-9F112-NKDOF2-MGW-D0NA5-QW6HG": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-0S928-RHKVW0-821-VJWCE-1793C": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-T4OK1-MYQBAN-UJR-AQO9F-HAK57": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-9V384-3YZU33-9Q4-11VYK-IEOBI": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-F5489-87L0JC-WBL-1LS0L-V0C7H": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-E3IMR-93CIIR-H9Q-456JO-PAI3G": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-CKI3G-GGO36D-J6U-UB6I2-ZYI0V": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-TQ9YI-PLBGOP-G4R-TLDNG-RL7NI": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-U3WSE-QB2MIO-P2T-P1LVT-I89KZ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-P88IH-FYNM4D-XBR-61P71-HESEQ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-68912-283EPQ-ID2-2Y42E-RU9TC": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-2EDVN-CQ0DV8-K7L-UTQH1-JUC79": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-QUF2G-ZH0Z5W-F4S-1UA84-STYPE": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-LAZX9-SZ94DZ-E6X-DPEF3-PTD9M": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-4XVUX-V8GROI-HYR-B5HM2-OLGMR": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-2D4F2-9LRNVP-BYI-FHDO5-BXAAV": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-K77AP-7AQN8T-YNP-CLGR8-7D680": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-80MOC-RY3I7Z-YAI-2BTCM-8M3KN": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-1OK0W-EMER8K-T4W-DR56S-1V61S": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-YL26R-G5EKYJ-L52-NVE46-9VECM": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-MEBTC-GRBWZ8-X9H-FH9X1-1TF7I": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-HGBMQ-JE03RC-DJJ-DA82W-UI6QJ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-9JTSS-QNZRN5-6JG-1D75H-AS5NS": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-9R29N-HZRCRF-55D-L0N4A-JW48C": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-K7UDI-I681OH-L8L-3WK0B-NNYAJ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-5BF50-KE269W-DI1-RJNDT-EVOHK": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-U8Q3C-7JJR50-D6C-U89IZ-S4FXU": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-NPKED-WTHA2M-7AE-G83V6-CWZ8W": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-V40YA-NA4VV8-H73-SFDXE-I7UX9": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-435YZ-A5B5HO-XZ5-TWZZ4-NY5G9": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-SBP0J-B5U5AD-PI3-XKH1I-J7WMU": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-27AUU-W2XTT1-OU1-R628V-RLWNI": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-87Z5O-MQF2L9-2HZ-9EA6P-1QSAS": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-9238O-MRSOFM-XH0-KM382-EQ3JQ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-Y37J0-J2ZXLI-DWB-FS7Y1-N2PAW": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-HDUZH-2OZ8CA-Z2E-YTWYV-FQPHC": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-VGOBI-WHBLFW-J11-TOTZG-IKDUS": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-DLYK1-LCIVAI-Z0V-TOVQZ-79DDS": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-AYGUN-A2RG42-5TV-8YNCK-568KU": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-BVWGG-08HS10-9PE-NE6S7-FQW6O": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-YPJA5-E8ADKD-MVG-7P6RS-N5NZB": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-K8OLJ-QG1QMU-33A-0TRF2-3OK8C": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-GQP51-84VQS7-I8C-LA6EO-5F7GM": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-67177-EHIZ7Y-5TJ-JY60U-0QTB6": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-W6B2D-Y5YLQ2-6M3-9LMIA-BVSPR": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-BXC42-689BH0-E8C-E8DGZ-4MGJV": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-KJSGU-JH4N62-PBX-TK81M-2KYZ5": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-MT1RX-8AXSS4-SJQ-5R3HQ-118CU": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-TBHGQ-D40QBX-96C-YYQDU-WAACY": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-MHKFU-GPGH4V-1HI-TJH7U-WHY58": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-5Q9Q6-RCLVIY-8VP-TTX2Q-F6Q8Z": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-ZBXF3-GZK3SM-BX0-2LCNZ-S4LBZ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-I51IZ-CIFP55-630-FCHFF-HSBLQ": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-IOJ7X-DIT7OL-YXY-ZVWLM-DNYKA": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-2JC9K-IYOFK4-AYU-B52BF-RODEU": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-45EL4-EB4VX7-826-O19N8-UPKBW": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-WT703-XFEXTW-MN5-EPQ48-27DPG": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-U5XYY-ENXTYX-VMG-IME8M-IR0FS": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-DKZ2E-AVAAKQ-SSV-SSKYJ-DUULE": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-QWMBT-4C9YWA-94L-L72TY-6HKF0": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-G0BTC-KU0FJY-NM0-UKW6M-KY973": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-5XSW7-987WVR-XXR-ZOCHN-3KGIR": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-AOBLY-WH1246-WHF-91YRL-APA7F": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-YJSK7-QE8L5W-5YA-U8Z4F-6K0Y0": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-5RB4M-PDTXDN-01C-XSVWP-QVSL6": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-VB08A-VEKR2H-4WH-D1NZR-N0D7H": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-X6WJI-BVOO2Q-Z8Y-CBJHD-N33ZD": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-0NQQI-MZAUDO-FZ0-7UW9J-XASBA": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-LI6AK-2V7VBV-WZO-VXPL3-U3U0J": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-IQON9-D03JKM-1OV-B84O2-1D185": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-FDPI7-ODCBFF-OA9-KC1FW-SZ149": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-NE3UA-0DYLVO-8RE-DWHC6-CC507": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-5YQ3Z-QOQVN1-FZB-KKNX6-6FAPP": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-GF513-Y67YRK-SPD-DLSSI-PSH34": {
+        "Rank": "PREMIUM",
+        "HSD": "900",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    }
+}
