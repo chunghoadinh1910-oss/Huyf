@@ -1,14 +1,9 @@
 {
-    "PREMIUM-abc123xyz": {
-        "Rank": "VIP",
-        "Expiry": 1715832000,
-        "HWID": "NONE",
-        "UsedBy": "ID_NGUOI_DUNG_DISCORD"
-    },
-    "KING-SuperSecureKey789": {
+    "MARU-ADMIN-A3F10F6C": {
         "Rank": "ADMIN",
         "Expiry": "Permanent",
-        "HWID": "5A4B3C2D1E",
-        "UsedBy": "ID_ADMIN_DISCORD"
+        "HWID": [],
+        "DeviceLimit": 1,
+        "UsedBy": null
     }
 }
