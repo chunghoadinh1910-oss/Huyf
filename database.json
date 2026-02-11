@@ -1,70 +1,14 @@
 {
-    "MARU-ADMIN-FCFD4B77": {
-        "Rank": "ADMIN",
-        "Expiry": "Permanent",
+    "MARU-PREMIUM-AD281203": {
+        "Rank": "PREMIUM",
+        "Expiry": 1773412876,
         "HWID": [],
         "DeviceLimit": 1,
         "UsedBy": null
     },
-    "MARU-ADMIN-E5378B85": {
-        "Rank": "ADMIN",
-        "Expiry": "Permanent",
-        "HWID": [],
-        "DeviceLimit": 1,
-        "UsedBy": null
-    },
-    "MARU-ADMIN-5A086271": {
-        "Rank": "ADMIN",
-        "Expiry": "Permanent",
-        "HWID": [],
-        "DeviceLimit": 1,
-        "UsedBy": null
-    },
-    "MARU-ADMIN-A527F79A": {
-        "Rank": "ADMIN",
-        "Expiry": "Permanent",
-        "HWID": [],
-        "DeviceLimit": 1,
-        "UsedBy": null
-    },
-    "MARU-ADMIN-9E8CF26C": {
-        "Rank": "ADMIN",
-        "Expiry": "Permanent",
-        "HWID": [],
-        "DeviceLimit": 1,
-        "UsedBy": null
-    },
-    "MARU-ADMIN-6DD407B3": {
-        "Rank": "ADMIN",
-        "Expiry": "Permanent",
-        "HWID": [],
-        "DeviceLimit": 1,
-        "UsedBy": null
-    },
-    "MARU-ADMIN-9871611D": {
-        "Rank": "ADMIN",
-        "Expiry": "Permanent",
-        "HWID": [],
-        "DeviceLimit": 1,
-        "UsedBy": null
-    },
-    "MARU-ADMIN-728D5EF2": {
-        "Rank": "ADMIN",
-        "Expiry": "Permanent",
-        "HWID": [],
-        "DeviceLimit": 1,
-        "UsedBy": null
-    },
-    "MARU-ADMIN-A7E17ABA": {
-        "Rank": "ADMIN",
-        "Expiry": "Permanent",
-        "HWID": [],
-        "DeviceLimit": 1,
-        "UsedBy": null
-    },
-    "MARU-ADMIN-4A70547D": {
-        "Rank": "ADMIN",
-        "Expiry": "Permanent",
+    "MARU-PREMIUM-39DC949D": {
+        "Rank": "PREMIUM",
+        "Expiry": 1773412876,
         "HWID": [],
         "DeviceLimit": 1,
         "UsedBy": null
