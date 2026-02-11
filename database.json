@@ -8078,5 +8078,85 @@
         "UsedBy": null,
         "Devices": [],
         "Status": "ACTIVE"
+    },
+    "MARU-9AFD7106": {
+        "Rank": "FREE",
+        "HSD": "5",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-1B2B5C39": {
+        "Rank": "FREE",
+        "HSD": "5",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-69D9FD5A": {
+        "Rank": "FREE",
+        "HSD": "5",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-F4391F32": {
+        "Rank": "FREE",
+        "HSD": "5",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-16E4A5F0": {
+        "Rank": "FREE",
+        "HSD": "5",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-1FC683B2": {
+        "Rank": "FREE",
+        "HSD": "5",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-4AB54AB6": {
+        "Rank": "FREE",
+        "HSD": "5",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-06848B0B": {
+        "Rank": "FREE",
+        "HSD": "5",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-3278B117": {
+        "Rank": "FREE",
+        "HSD": "5",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-538704F5": {
+        "Rank": "FREE",
+        "HSD": "5",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
     }
 }
