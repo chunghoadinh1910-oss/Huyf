@@ -1,7 +1,7 @@
 -- ========================================================
 -- PHẦN 1: ĐOẠN LUA CHECK KEY (Cái tôi vừa đưa)
 -- ========================================================
-local LINK_REPLIT = "https://ten-du-an.user.repl.co" -- Link của ông
+local LINK_REPLIT = "https://1fe3b823-81e5-497f-a748-fa3132dbc137-00-253iz8tfydh8l.pike.replit.dev/" -- Link của ông
 local KEY = "NHẬP_KEY_VÀO_ĐÂY"
 local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 
