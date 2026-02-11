@@ -1,11 +1,4 @@
 {
-    "MARU-ADMIN-AD281203": {
-        "Rank": "ADMIN",
-        "Expiry": 1773412876,
-        "HWID": [],
-        "DeviceLimit": 1,
-        "UsedBy": "1393340756831506503"
-    },
     "MARU-PREMIUM-39DC949D": {
         "Rank": "PREMIUM",
         "Expiry": 1773412876,
@@ -7712,47 +7705,5 @@
         "HWID": [],
         "DeviceLimit": 1,
         "UsedBy": null
-    },
-    "MARU-0BAB7F60": {
-        "Rank": "ADMIN",
-        "UsedBy": null,
-        "Devices": [],
-        "Status": "ACTIVE"
-    },
-    "MARU-D34AF445": {
-        "Rank": "ADMIN",
-        "UsedBy": null,
-        "Devices": [],
-        "Status": "ACTIVE"
-    },
-    "MARU-3C7DADBF": {
-        "Rank": "ADMIN",
-        "UsedBy": null,
-        "Devices": [],
-        "Status": "ACTIVE"
-    },
-    "MARU-10048DFE": {
-        "Rank": "ADMIN",
-        "UsedBy": null,
-        "Devices": [],
-        "Status": "ACTIVE"
-    },
-    "MARU-157FDBC2": {
-        "Rank": "ADMIN",
-        "UsedBy": null,
-        "Devices": [],
-        "Status": "ACTIVE"
-    },
-    "MARU-7E895683": {
-        "Rank": "ADMIN",
-        "UsedBy": null,
-        "Devices": [],
-        "Status": "ACTIVE"
-    },
-    "MARU-8C335F5F": {
-        "Rank": "ADMIN",
-        "UsedBy": null,
-        "Devices": [],
-        "Status": "ACTIVE"
     }
 }
