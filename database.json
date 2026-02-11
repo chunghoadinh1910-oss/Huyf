@@ -1,1 +1,42 @@
-{}
+{
+    "MARU-V7T2B-7WRLD3-LVO-LVOWI-O8JKG": {
+        "Rank": "ADMIN",
+        "HSD": "9999",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-SYXQS-PQGHMJ-JAY-7R0EK-WKV3C": {
+        "Rank": "ADMIN",
+        "HSD": "9999",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-AKS9Q-T3GG4U-BT6-G19FS-0N5VQ": {
+        "Rank": "ADMIN",
+        "HSD": "9999",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-7PAA5-WVGKBP-KOL-XG9YV-E190R": {
+        "Rank": "ADMIN",
+        "HSD": "9999",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    },
+    "MARU-WDLSB-453F69-EQN-Y7OTW-LXFN6": {
+        "Rank": "ADMIN",
+        "HSD": "9999",
+        "MaxDevices": 1,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
+    }
+}
