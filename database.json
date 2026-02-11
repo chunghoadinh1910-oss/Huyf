@@ -7712,5 +7712,11 @@
         "HWID": [],
         "DeviceLimit": 1,
         "UsedBy": null
+    },
+    "MARU-0BAB7F60": {
+        "Rank": "ADMIN",
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
     }
 }
