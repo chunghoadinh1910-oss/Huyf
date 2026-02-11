@@ -12,5 +12,40 @@
         "HWID": [],
         "DeviceLimit": 1,
         "UsedBy": "1393340756831506503"
+    },
+    "MARU-F637E-DF4DCC-18D-B7055-ECBFCD": {
+        "Rank": "ADMIN",
+        "Expiry": "Permanent",
+        "HWID": [],
+        "DeviceLimit": 1,
+        "UsedBy": null
+    },
+    "MARU-51E14-EED479-AB3-0BE1C-EC6492": {
+        "Rank": "ADMIN",
+        "Expiry": "Permanent",
+        "HWID": [],
+        "DeviceLimit": 1,
+        "UsedBy": null
+    },
+    "MARU-C1726-B26406-0B2-D968D-F2A607": {
+        "Rank": "ADMIN",
+        "Expiry": "Permanent",
+        "HWID": [],
+        "DeviceLimit": 1,
+        "UsedBy": null
+    },
+    "MARU-AB757-3202D0-B4C-4F9CE-CDC40A": {
+        "Rank": "ADMIN",
+        "Expiry": "Permanent",
+        "HWID": [],
+        "DeviceLimit": 1,
+        "UsedBy": null
+    },
+    "MARU-EC232-32406D-F80-B821F-0565BE": {
+        "Rank": "ADMIN",
+        "Expiry": "Permanent",
+        "HWID": [],
+        "DeviceLimit": 1,
+        "UsedBy": null
     }
 }
