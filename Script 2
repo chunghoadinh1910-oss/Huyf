@@ -1,9 +1,43 @@
-local HttpService = game:GetService("HttpService")
+-- ========================================================
+-- PHẦN 1: ĐOẠN LUA CHECK KEY (Cái tôi vừa đưa)
+-- ========================================================
+local LINK_REPLIT = "https://ten-du-an.user.repl.co" -- Link của ông
+local KEY = "NHẬP_KEY_VÀO_ĐÂY"
+local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
+
+local function checkKey()
+    local url = LINK_REPLIT .. "/check?key=" .. KEY .. "&hwid=" .. HWID
+    local success, result = pcall(function() return game:HttpGet(url) end)
+
+    if success then
+        if result == "SUCCESS" then
+            print("✅ Xác thực thành công!")
+            
+            -- ========================================================
+            -- PHẦN 2: DÁN TOÀN BỘ SCRIPT CHÍNH CỦA ÔNG VÀO ĐÂY
+            -- ========================================================
+            print("Đang chạy Script chính...")
+            
+            -- Ví dụ script của ông:
+            -- loadstring(game:HttpGet("link-script-cua-ong"))() 
+            -- Hoặc toàn bộ code Lua của ông dán hết vào khúc này
+            
+        elseif result == "BANNED_FOR_SHARING" then
+            game.Players.LocalPlayer:Kick("❌ BAN: Chia sẻ key quá 3 máy!")
+        else
+            game.Players.LocalPlayer:Kick("❌ Key không hợp lệ!")
+        end
+    else
+        warn("⚠️ Lỗi kết nối Server Bot!")
+    end
+end
+
+checkKey() -- Bấm chuông gọi bảo vệ kiểm tralocal HttpService = game:GetService("HttpService")
 local LP = game.Players.LocalPlayer
 local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 
 -- --- CẤU HÌNH ---
-local DATABASE_URL = "LINK_RAW_GITHUB_CUA_BAN"
+local DATABASE_URL = "https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/main/database.json"
 local WEBHOOK_URL = "LINK_WEBHOOK_BAO_DO"
 
 -- Hàm gửi thông báo lỗi về Discord (Webhook Đỏ)
