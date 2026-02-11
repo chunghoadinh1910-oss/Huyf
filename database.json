@@ -1,10 +1,10 @@
 {
-    "MARU-PREMIUM-AD281203": {
-        "Rank": "PREMIUM",
+    "MARU-ADMIN-AD281203": {
+        "Rank": "ADMIN",
         "Expiry": 1773412876,
         "HWID": [],
         "DeviceLimit": 1,
-        "UsedBy": null
+        "UsedBy": 1471035355787558985
     },
     "MARU-PREMIUM-39DC949D": {
         "Rank": "PREMIUM",
