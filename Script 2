@@ -1,87 +1,128 @@
 local HttpService = game:GetService("HttpService")
-local CoreGui = game:GetService("CoreGui")
-local Players = game:GetService("Players")
+local LP = game.Players.LocalPlayer
+local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 
--- Dọn dẹp bản cũ
-for _, v in pairs(CoreGui:GetChildren()) do if v.Name == "VuaBuaChu_Final" then v:Destroy() end end
+-- --- CẤU HÌNH ---
+local DATABASE_URL = "LINK_RAW_GITHUB_CUA_BAN"
+local WEBHOOK_URL = "LINK_WEBHOOK_BAO_DO"
 
-local ScreenGui = Instance.new("ScreenGui", CoreGui)
-ScreenGui.Name = "VuaBuaChu_Final"
-
--- [ GIAO DIỆN ] --
-local Main = Instance.new("Frame", ScreenGui)
-Main.Size = UDim2.new(0, 360, 0, 260)
-Main.Position = UDim2.new(0.5, -180, 0.5, -130)
-Main.BackgroundColor3 = Color3.fromRGB(15, 0, 25)
-Instance.new("UIStroke", Main).Color = Color3.fromRGB(255, 0, 0)
-Instance.new("UICorner", Main)
-
-local KeyBox = Instance.new("TextBox", Main)
-KeyBox.Size = UDim2.new(0.9, 0, 0, 80)
-KeyBox.Position = UDim2.new(0.05, 0, 0.2, 0)
-KeyBox.PlaceholderText = "DÁN BÙA CHÚ VÀO ĐÂY..."
-KeyBox.Text = ""
-KeyBox.TextWrapped = true
-KeyBox.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-KeyBox.TextColor3 = Color3.new(1, 1, 1)
-KeyBox.TextSize = 10
-
-local LoginBtn = Instance.new("TextButton", Main)
-LoginBtn.Size = UDim2.new(0.43, 0, 0, 45)
-LoginBtn.Position = UDim2.new(0.05, 0, 0.7, 0)
-LoginBtn.Text = "GIẢI BÙA"
-LoginBtn.BackgroundColor3 = Color3.fromRGB(180, 0, 0)
-LoginBtn.TextColor3 = Color3.new(1, 1, 1)
-
-local GetKeyBtn = Instance.new("TextButton", Main) -- Nút Get Key đã thêm lại
-GetKeyBtn.Size = UDim2.new(0.43, 0, 0, 45)
-GetKeyBtn.Position = UDim2.new(0.52, 0, 0.7, 0)
-GetKeyBtn.Text = "LẤY BÙA"
-GetKeyBtn.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-GetKeyBtn.TextColor3 = Color3.new(1, 1, 1)
-
--- [ CHỨC NĂNG MENU ] --
-local function OpenMenu(kType, expiry)
-    Main:Destroy()
-    game:GetService("StarterGui"):SetCore("SendNotification", {Title="THÀNH CÔNG", Text="🌕 CHÀO MỪNG " .. kType:upper()})
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Uranus9103/apexhubpro/refs/heads/main/Steal-Brainrot-APEXHUB"))()
+-- Hàm gửi thông báo lỗi về Discord (Webhook Đỏ)
+local function SendAlert(key, reason)
+    setclipboard(HWID) -- Tự động copy HWID máy mới cho khách
+    
+    local data = {
+        ["embeds"] = {{
+            ["title"] = "🚨 CẢNH BÁO BẢO MẬT HWID",
+            ["color"] = 16711680, -- Màu đỏ rực
+            ["description"] = "Phát hiện đăng nhập bất thường!",
+            ["fields"] = {
+                {["name"] = "Tên người chơi", ["value"] = LP.Name .. " (" .. LP.DisplayName .. ")", ["inline"] = true},
+                {["name"] = "Mã Key", ["value"] = "||" .. key .. "||", ["inline"] = true},
+                {["name"] = "Lý do", ["value"] = "```" .. reason .. "```"},
+                {["name"] = "HWID của thiết bị này", ["value"] = "```" .. HWID .. "```"}
+            },
+            ["footer"] = {["text"] = "Maru Hub Security System"},
+            ["timestamp"] = os.date("!%Y-%m-%dT%H:%M:%SZ")
+        }}
+    }
+    
+    local headers = {["Content-Type"] = "application/json"}
+    local request = (syn and syn.request) or (http and http.request) or http_request or request
+    
+    if request then
+        request({Url = WEBHOOK_URL, Method = "POST", Headers = headers, Body = HttpService:JSONEncode(data)})
+    end
 end
 
--- [ XỬ LÝ ĐĂNG NHẬP ] --
-LoginBtn.MouseButton1Click:Connect(function()
-    local input = KeyBox.Text:gsub("%s+", "")
-    LoginBtn.Text = "ĐANG ĐỒNG BỘ..."
-    
-    -- Fix lỗi không đồng bộ bằng cách thêm nocache
-    local success, res = pcall(function() 
-        return game:HttpGet("https://raw.githubusercontent.com/chunghoadinh1910-oss/Huyf/refs/heads/main/database.json?nocache="..os.time()) 
-    end)
-    
-    if success then
-        local data = HttpService:JSONDecode(res)
-        local found = nil
-        
-        for k, v in pairs(data) do
-            -- So khớp thông minh: Khớp hoàn toàn HOẶC chứa từ khóa Admin đặc biệt
-            if k == input or (string.find(input, "ADMIN") and string.find(k, "ADMIN")) then
-                found = v
-                break
-            end
-        end
-        
-        if found then
-            OpenMenu(found.Type, found.Expiry)
-        else
-            LoginBtn.Text = "SAI BÙA CHÚ!"
-            wait(1)
-            LoginBtn.Text = "GIẢI BÙA"
-        end
-    else
-        LoginBtn.Text = "LỖI KẾT NỐI!"
-    end
-end)
+-- --- GIAO DIỆN RAYFIELD ---
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Window = Rayfield:CreateWindow({
+    Name = "Maru Hub Premium",
+    LoadingTitle = "Đang kiểm tra dữ liệu...",
+    LoadingSubtitle = "by Maru Team",
+    ConfigurationSaving = {Enabled = true, FileName = "MaruConfig"}
+})
 
-GetKeyBtn.MouseButton1Click:Connect(function()
-    setclipboard("https://discord.gg/vua-bua-chu") -- Link Discord lấy key
-    game:GetService("StarterGui"):SetCore("SendNotification", {Title="Hệ Thống", Text="Đã copy link lấy bùa!"})
-end)
+local AuthTab = Window:CreateTab("Xác thực hệ thống")
+
+AuthTab:CreateInput({
+    Name = "Nhập mã Key của bạn",
+    PlaceholderText = "Mã Key (FREE/VIP/KING)",
+    RemoveTextAfterFocusLost = false,
+    Callback = function(Text)
+        _G.Key = Text
+    end,
+})
+
+AuthTab:CreateButton({
+    Name = "Đăng Nhập",
+    Callback = function()
+        -- Kiểm tra dữ liệu từ GitHub
+        local success, result = pcall(function()
+            return game:HttpGet(DATABASE_URL)
+        end)
+
+        if not success then
+            Rayfield:Notify({Title = "LỖI KẾT NỐI", Content = "Không thể đọc dữ liệu từ GitHub!"})
+            return
+        end
+
+        local db = HttpService:JSONDecode(result)
+        local keyData = db[_G.Key]
+
+        if keyData then
+            local hwidList = keyData.HWID or {}
+            local deviceLimit = keyData.DeviceLimit or 1
+            local isRegistered = false
+
+            -- Kiểm tra xem máy hiện tại có trong danh sách HWID đã lưu không
+            for _, savedID in pairs(hwidList) do
+                if savedID == HWID then
+                    isRegistered = true
+                    break
+                end
+            end
+
+            if isRegistered then
+                -- THÀNH CÔNG: Máy đã đăng ký hợp lệ
+                writefile("Maru_SavedKey.txt", _G.Key) -- Tự động lưu key cho lần sau
+                
+                -- THÔNG BÁO CHÀO MỪNG NHƯ YÊU CẦU
+                Rayfield:Notify({
+                    Title = "ĐĂNG NHẬP THÀNH CÔNG",
+                    Content = "Cảm ơn " .. LP.DisplayName .. " đã sử dụng key " .. _G.Key,
+                    Duration = 5
+                })
+                
+                -- [ CHỖ NÀY DÙNG ĐỂ CHẠY SCRIPT CHÍNH CỦA BẠN ]
+                print("Quyền hạn: " .. keyData.Rank)
+                
+            elseif #hwidList < deviceLimit then
+                -- TRƯỜNG HỢP: Còn slot máy nhưng máy này chưa được thêm vào DB
+                SendAlert(_G.Key, "Máy mới yêu cầu thêm vào Slot thiết bị (" .. #hwidList .. "/" .. deviceLimit .. ")")
+                
+                Rayfield:Notify({
+                    Title = "THIẾT BỊ MỚI",
+                    Content = "Đã tự copy HWID. Hãy gửi cho Admin để thêm vào Slot " .. (#hwidList + 1)
+                })
+            else
+                -- TRƯỜNG HỢP: Hết giới hạn máy (Device Limit)
+                SendAlert(_G.Key, "Đã đạt giới hạn thiết bị tối đa (" .. deviceLimit .. ")")
+                
+                Rayfield:Notify({
+                    Title = "LỖI THIẾT BỊ",
+                    Content = "Key này đã dùng hết số lượng máy cho phép! Liên hệ Admin để reset."
+                })
+            end
+        else
+            Rayfield:Notify({Title = "SAI KEY", Content = "Mã Key không tồn tại hoặc đã hết hạn!"})
+        end
+    end,
+})
+
+-- TỰ ĐỘNG LẤY KEY ĐÃ LƯU
+if isfile("Maru_SavedKey.txt") then
+    local saved = readfile("Maru_SavedKey.txt")
+    _G.Key = saved
+    Rayfield:Notify({Title = "AUTO FILL", Content = "Đã tự động điền Key đã lưu."})
+end
