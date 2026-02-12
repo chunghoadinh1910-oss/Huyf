@@ -8158,5 +8158,13 @@
         "UsedBy": null,
         "Devices": [],
         "Status": "ACTIVE"
+    },
+    "MARU-PUUPT-9AYW8K-8DF-E0B48-V8DU6": {
+        "Rank": "PREMIUM",
+        "HSD": "V\u0129nh Vi\u1ec5n",
+        "MaxDevices": 3,
+        "UsedBy": null,
+        "Devices": [],
+        "Status": "ACTIVE"
     }
 }
