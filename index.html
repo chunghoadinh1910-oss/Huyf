@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XÁC NHẬN NHẬN 5,000đ</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f0f0f; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .card { background: #1a1a1a; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); text-align: center; border: 1px solid #333; }
+        h1 { color: #00ff88; margin-bottom: 10px; }
+        p { color: #aaa; margin-bottom: 25px; }
+        #confirmBtn { background: linear-gradient(45deg, #00ff88, #00bd65); color: #000; border: none; padding: 15px 40px; font-size: 18px; font-weight: bold; border-radius: 8px; cursor: pointer; transition: 0.3s; width: 100%; }
+        #confirmBtn:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(0,255,136,0.4); }
+        #confirmBtn:disabled { background: #444; color: #888; cursor: not-allowed; }
+        #status { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>🎁 BƯỚC CUỐI CÙNG</h1>
+    <p>Nhấn nút bên dưới để xác nhận cộng tiền vào Discord</p>
+    <button id="confirmBtn">XÁC NHẬN NHẬN 5K</button>
+    <div id="status"></div>
+</div>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const uid = urlParams.get('uid');
+    
+    // THAY LINK NÀY BẰNG LINK BOT CỦA ÔNG (Link Render hoặc Replit)
+    const BOT_URL = "https://bot-cua-ong.onrender.com"; 
+
+    document.getElementById('confirmBtn').onclick = async function() {
+        if (!uid) {
+            alert("Lỗi: Không tìm thấy ID người dùng! Hãy quay lại Discord.");
+            return;
+        }
+
+        const statusDiv = document.getElementById('status');
+        this.disabled = true;
+        this.innerText = "ĐANG XỬ LÝ...";
+
+        try {
+            // Gọi lệnh tới Bot
+            const response = await fetch(`${BOT_URL}/confirm_money?uid=${uid}`);
+            const result = await response.text();
+
+            if (response.ok) {
+                statusDiv.style.color = "#00ff88";
+                statusDiv.innerHTML = "✅ THÀNH CÔNG! Đã cộng 5,000đ.<br>Bạn có thể đóng trang này.";
+                this.innerText = "HOÀN TẤT";
+            } else {
+                statusDiv.style.color = "#ff4444";
+                statusDiv.innerHTML = "❌ LỖI: " + result;
+                this.disabled = false;
+                this.innerText = "THỬ LẠI";
+            }
+        } catch (error) {
+            statusDiv.style.color = "#ff4444";
+            statusDiv.innerText = "❌ Lỗi kết nối tới Bot. Hãy kiểm tra Bot có đang chạy không?";
+            this.disabled = false;
+            this.innerText = "THỬ LẠI";
+        }
+    };
+</script>
+</body>
+  </html>
