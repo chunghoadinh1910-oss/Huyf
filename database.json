@@ -8198,5 +8198,21 @@
             "status": "PENDING"
         }
     ],
-    "cay_thue": []
+    "cay_thue": [],
+    "loans": [
+        {
+            "id": 0,
+            "uid": 1393340756831506503,
+            "amt": "500",
+            "type": "hcoin",
+            "deadline": 0,
+            "status": "PENDING",
+            "due": 640000
+        }
+    ],
+    "interest_rates": {
+        "HDPE": 0.2,
+        "NASA": 0.5,
+        "STOCK": 0.1
+    }
 }
