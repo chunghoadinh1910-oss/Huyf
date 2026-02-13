@@ -8185,5 +8185,18 @@
         "prize": 10000
     },
     "codes": {},
-    "bypass_keys": {}
+    "bypass_keys": {},
+    "topup_logs": [
+        {
+            "id": 0,
+            "uid": 1393340756831506503,
+            "type": "VIETTEL",
+            "amt": "haha",
+            "seri": "akaj",
+            "pin": "akia",
+            "target": "hcoin",
+            "status": "PENDING"
+        }
+    ],
+    "cay_thue": []
 }
