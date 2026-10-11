@@ -1,0 +1,99 @@
+name: Build Kernel for SM-N976N
+
+on:
+  workflow_dispatch:
+    inputs:
+      defconfig:
+        description: 'Defconfig to use'
+        required: true
+        default: 'd2xks_defconfig'
+      ksu_variant:
+        description: 'KernelSU variant (none / next)'
+        required: true
+        default: 'next'
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout kernel source
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Set up build environment
+        run: |
+          sudo apt update
+          sudo apt install -y bc bison flex libssl-dev libelf-dev \
+            python3 python3-pip zip unzip build-essential git curl
+
+      - name: Download and set up Clang toolchain
+        run: |
+          mkdir -p $HOME/toolchains
+          cd $HOME/toolchains
+          # Tải AOSP Clang r563880c (phù hợp với kernel 4.14 Exynos 9825)
+          wget -q https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/master/clang-r563880c.tar.gz
+          mkdir -p clang-r563880c
+          tar -xzf clang-r563880c.tar.gz -C clang-r563880c
+          echo "$HOME/toolchains/clang-r563880c/bin" >> $GITHUB_PATH
+
+      - name: Verify KernelSU-Next is embedded
+        run: |
+          if [ -d "KernelSU" ]; then
+            echo "✅ KernelSU-Next directory found"
+            cat KernelSU/kernel/Makefile 2>/dev/null | head -5 || true
+          else
+            echo "❌ KernelSU-Next NOT found! Please run the add_ksu workflow first."
+            exit 1
+          fi
+
+      - name: Configure kernel
+        run: |
+          export ARCH=arm64
+          export SUBARCH=arm64
+          export CROSS_COMPILE=aarch64-linux-gnu-
+          export CC=clang
+          export CLANG_TRIPLE=aarch64-linux-gnu-
+          make O=out ARCH=arm64 ${{ github.event.inputs.defconfig }}
+
+      - name: Build kernel
+        run: |
+          export ARCH=arm64
+          export SUBARCH=arm64
+          export CROSS_COMPILE=aarch64-linux-gnu-
+          export CC=clang
+          export CLANG_TRIPLE=aarch64-linux-gnu-
+          make -j$(nproc --all) O=out ARCH=arm64 \
+            CC=clang \
+            CLANG_TRIPLE=aarch64-linux-gnu- \
+            CROSS_COMPILE=aarch64-linux-gnu- \
+            2>&1 | tee build.log
+
+      - name: Check build result
+        run: |
+          if [ -f "out/arch/arm64/boot/Image" ]; then
+            echo "✅ Kernel Image built successfully!"
+            ls -lh out/arch/arm64/boot/
+          else
+            echo "❌ Build failed! Last 100 lines of log:"
+            tail -100 build.log
+            exit 1
+          fi
+
+      - name: Package boot.img
+        run: |
+          mkdir -p artifact
+          cp out/arch/arm64/boot/Image artifact/boot.img
+          # Nếu có dt.img và dtbo.img thì copy luôn
+          [ -f "out/arch/arm64/boot/dt.img" ] && cp out/arch/arm64/boot/dt.img artifact/ || true
+          [ -f "out/arch/arm64/boot/dtbo.img" ] && cp out/arch/arm64/boot/dtbo.img artifact/ || true
+          ls -lh artifact/
+
+      - name: Upload kernel artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: boot-image
+          path: artifact/
+          retention-days: 7
