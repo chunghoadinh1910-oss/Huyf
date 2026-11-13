@@ -15,6 +15,7 @@ using namespace zygisk;
 
 static std::unordered_set<std::string> g_targets;
 static bool g_should_hide = false;
+static JNIEnv* g_env = nullptr;
 
 static void load_conf() {
     FILE* f = fopen(CONF_PATH, "r");
@@ -75,26 +76,45 @@ int hooked___system_property_get(const char* name, char* value) {
 class HiderModule : public ModuleBase {
 public:
     void onLoad(Api *api, JNIEnv *env) override {
+        g_env = env;
         load_conf();
+        LOGD("Loaded conf, targets: %zu", g_targets.size());
     }
+
     void preAppSpecialize(AppSpecializeArgs *args) override {
-        if (!args || !args->nice_name) return;
-        std::string pkg(args->nice_name);
-        if (g_targets.count(pkg) > 0) {
-            g_should_hide = true;
-        } else {
-            g_should_hide = false;
+        if (!args || !args->nice_name || !g_env) return;
+        const char* pkg = g_env->GetStringUTFChars(args->nice_name, nullptr);
+        if (pkg) {
+            if (g_targets.count(pkg) > 0) {
+                g_should_hide = true;
+                LOGD("Hiding root for: %s", pkg);
+            } else {
+                g_should_hide = false;
+            }
+            g_env->ReleaseStringUTFChars(args->nice_name, pkg);
         }
     }
+
     void postAppSpecialize(const AppSpecializeArgs *) override {
         if (!g_should_hide) return;
-        auto api = getApi();
+        
+        Api* api = getApi(); // Hàm này có sẵn trong class ModuleBase
         if (api) {
-            api->pltHookRegister("libc.so", "access", (void*)hooked_access, (void**)&orig_access);
-            api->pltHookRegister("libc.so", "stat", (void*)hooked_stat, (void**)&orig_stat);
-            api->pltHookRegister("libc.so", "lstat", (void*)hooked_lstat, (void**)&orig_lstat);
-            api->pltHookRegister("libc.so", "__system_property_get", (void*)hooked___system_property_get, (void**)&orig___system_property_get);
-            api->pltHookCommit();
+            // Lấy dev_t và ino_t của libc.so
+            struct stat st;
+            if (stat("/apex/com.android.runtime/lib64/bionic/libc.so", &st) == 0 || 
+                stat("/system/lib64/libc.so", &st) == 0) {
+                
+                api->pltHookRegister(st.st_dev, st.st_ino, "access", (void*)hooked_access, (void**)&orig_access);
+                api->pltHookRegister(st.st_dev, st.st_ino, "stat", (void*)hooked_stat, (void**)&orig_stat);
+                api->pltHookRegister(st.st_dev, st.st_ino, "lstat", (void*)hooked_lstat, (void**)&orig_lstat);
+                api->pltHookRegister(st.st_dev, st.st_ino, "__system_property_get", (void*)hooked___system_property_get, (void**)&orig___system_property_get);
+                
+                api->pltHookCommit();
+                LOGD("PLT hooks installed for libc.so");
+            } else {
+                LOGD("Failed to locate libc.so for PLT hooking");
+            }
         }
     }
 };
