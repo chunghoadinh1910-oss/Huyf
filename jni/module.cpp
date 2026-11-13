@@ -15,7 +15,7 @@ using namespace zygisk;
 
 static std::unordered_set<std::string> g_targets;
 static bool g_should_hide = false;
-static JNIEnv* g_env = nullptr;
+static Api* g_api = nullptr;
 
 static void load_conf() {
     FILE* f = fopen(CONF_PATH, "r");
@@ -31,6 +31,20 @@ static void load_conf() {
         if (n > 0) g_targets.insert(std::string(line));
     }
     fclose(f);
+}
+
+// Đọc thẳng package từ cmdline, đéo cần JNIEnv
+static std::string get_current_pkg() {
+    int fd = open("/proc/self/cmdline", O_RDONLY);
+    if (fd < 0) return "";
+    char buf[256];
+    ssize_t r = read(fd, buf, sizeof(buf) - 1);
+    close(fd);
+    if (r <= 0) return "";
+    buf[r] = '\0';
+    char* colon = strchr(buf, ':');
+    if (colon) *colon = '\0';
+    return std::string(buf);
 }
 
 static bool is_root_path(const char* path) {
@@ -76,46 +90,39 @@ int hooked___system_property_get(const char* name, char* value) {
 class HiderModule : public ModuleBase {
 public:
     void onLoad(Api *api, JNIEnv *env) override {
-        g_env = env;
+        g_api = api;
         load_conf();
-        LOGD("Loaded conf, targets: %zu", g_targets.size());
     }
 
     void preAppSpecialize(AppSpecializeArgs *args) override {
-        if (!args || !args->nice_name || !g_env) return;
-        const char* pkg = g_env->GetStringUTFChars(args->nice_name, nullptr);
-        if (pkg) {
-            if (g_targets.count(pkg) > 0) {
-                g_should_hide = true;
-                LOGD("Hiding root for: %s", pkg);
-            } else {
-                g_should_hide = false;
-            }
-            g_env->ReleaseStringUTFChars(args->nice_name, pkg);
+        std::string pkg = get_current_pkg();
+        if (!pkg.empty() && g_targets.count(pkg) > 0) {
+            g_should_hide = true;
+        } else {
+            g_should_hide = false;
         }
     }
 
-    void postAppSpecialize(const AppSpecializeArgs *) override {
-        if (!g_should_hide) return;
+    void postAppSpecialize(const AppSpecializeArgs *args) override {
+        if (!g_should_hide || !g_api) return;
         
-        Api* api = getApi(); // Hàm này có sẵn trong class ModuleBase
-        if (api) {
-            // Lấy dev_t và ino_t của libc.so
-            struct stat st;
-            if (stat("/apex/com.android.runtime/lib64/bionic/libc.so", &st) == 0 || 
-                stat("/system/lib64/libc.so", &st) == 0) {
-                
-                api->pltHookRegister(st.st_dev, st.st_ino, "access", (void*)hooked_access, (void**)&orig_access);
-                api->pltHookRegister(st.st_dev, st.st_ino, "stat", (void*)hooked_stat, (void**)&orig_stat);
-                api->pltHookRegister(st.st_dev, st.st_ino, "lstat", (void*)hooked_lstat, (void**)&orig_lstat);
-                api->pltHookRegister(st.st_dev, st.st_ino, "__system_property_get", (void*)hooked___system_property_get, (void**)&orig___system_property_get);
-                
-                api->pltHookCommit();
-                LOGD("PLT hooks installed for libc.so");
-            } else {
-                LOGD("Failed to locate libc.so for PLT hooking");
-            }
+        struct stat sb;
+        // Xác định đường dẫn libc theo kiến trúc 64-bit hay 32-bit
+        const char* libc_path = (sizeof(void*) == 8) ? "/system/lib64/libc.so" : "/system/lib/libc.so";
+        
+        if (stat(libc_path, &sb) != 0) {
+            LOGD("Failed to stat %s", libc_path);
+            return;
         }
+        
+        // Zygisk yêu cầu truyền dev_t và ino_t của thư viện chứa hàm
+        g_api->pltHookRegister(sb.st_dev, sb.st_ino, "access", (void*)hooked_access, (void**)&orig_access);
+        g_api->pltHookRegister(sb.st_dev, sb.st_ino, "stat", (void*)hooked_stat, (void**)&orig_stat);
+        g_api->pltHookRegister(sb.st_dev, sb.st_ino, "lstat", (void*)hooked_lstat, (void**)&orig_lstat);
+        g_api->pltHookRegister(sb.st_dev, sb.st_ino, "__system_property_get", (void*)hooked___system_property_get, (void**)&orig___system_property_get);
+        
+        g_api->pltHookCommit();
+        LOGD("Hooks installed via PLT");
     }
 };
 
